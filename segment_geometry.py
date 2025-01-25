@@ -8,7 +8,7 @@ Work on segments from geojson file to extract the contour of rooms.
 """
 
 import json
-import shapely
+import shapely  # buit with shapely 2.0.6
 import numpy as np
 import matplotlib.pyplot as plt
 import geopandas as gpd
@@ -27,18 +27,33 @@ from parse_geojson import load_geojson
 ####################################################################################################
 CLOSENESS_TOLERANCE = 1e-2  # 1 cm
 
+####################################################################################################
+# Classes
+####################################################################################################
+# Note: Since version 1.8, Shapely classes are build in C and do not allow easy inheritance.
 
-class Pt(shapely.geometry.Point):
+
+# ---------------------------------------------------------------------------------------------------
+# Pt
+# ---------------------------------------------------------------------------------------------------
+class Pt:
     """The point class"""
 
-    # Needed to subclass shapely.geometry.Point
-    __slots__ = shapely.geometry.Point.__slots__
+    def __init__(self, x: float, y: float):
+        self.x = x
+        self.y = y
 
-    # Needed to subclass shapely.geometry.Point
-    def __new__(cls, *args, **kwargs) -> "Pt":
-        p = super().__new__(cls, *args, **kwargs)
-        p.__class__ = cls
-        return p
+    def __repr__(self):
+        return f"Pt({self.x}, {self.y})"
+
+    def __iter__(self):
+        # Allow to unpack the point for creation in lines
+        yield self.x
+        yield self.y
+
+    @property
+    def to_shapely(self):
+        return shapely.geometry.Point([self.x, self.y])
 
     def is_approx_eq(self, other, tol=CLOSENESS_TOLERANCE) -> bool:
         """Check if two points are close enough.
@@ -56,13 +71,22 @@ class Pt(shapely.geometry.Point):
             return False
         return self.distance(other) <= tol
 
+    def distance(self, other):
+        return self.to_shapely.distance(other.to_shapely)
 
+
+# ---------------------------------------------------------------------------------------------------
+# Segment: a 2 points line
+# ---------------------------------------------------------------------------------------------------
 class Segment:
     """The segment class, correspond to the Line of Shäfer et al. 2011"""
 
     def __init__(self, start: Pt, end: Pt):
         self.start = start
         self.end = end
+        self.line = shapely.geometry.LineString(
+            [start.to_shapely, end.to_shapely]
+        )
 
     def __str__(self):
         return f"Segment({self.start}, {self.end})"
@@ -119,6 +143,7 @@ class Segment:
     def is_line_adjacent(self, other, tol=CLOSENESS_TOLERANCE) -> bool:
         """Check if the line is adjacent to the segment. Meaning
         that only one end of the other line is adjacent to the segment."""
+        # TODO: check if include in the other
         if not isinstance(other, Segment):
             return False
         return (
@@ -190,6 +215,9 @@ class Segment:
             return None
 
 
+# ---------------------------------------------------------------------------------------------------
+# Line: a multipoint line
+# ---------------------------------------------------------------------------------------------------
 class Line:
     """A multipoints line class"""
 
