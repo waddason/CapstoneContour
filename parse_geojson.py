@@ -3,9 +3,24 @@ Parse the geojson files to extract the segments
 """
 
 import json
+import logging
+import shapely
+from shapely.geometry import (
+    shape,
+    GeometryCollection,
+    Point,
+    LineString,
+    Polygon,
+    MultiLineString,
+)
+import matplotlib.pyplot as plt
+import geopandas as gpd
 
 from pathlib import Path
-from dataclasses import dataclass
+# from dataclasses import dataclass
+
+OUTPUT_GEOJSON_INDENT = None
+MAX_BAT_SIZE_IN_M = 1_000  # Buildings are never bigger than 1km
 
 ####################################################################################################
 # Classes
@@ -18,61 +33,7 @@ from dataclasses import dataclass
 ####################################################################################################
 
 
-class Point:
-    """The point class"""
-
-    closeness_threshold: float = 1e-6
-
-    def __init__(self, x: float, y: float):
-        self.x = x
-        self.y = y
-
-    def __str__(self):
-        return self.__repr__()
-
-    def __repr__(self):
-        return f"({self.x:.2f}, {self.y:.2f})"
-
-    def __hash__(self):
-        return hash((self.x, self.y))
-
-    def __eq__(self, other):
-        return (
-            abs(self.x - other.x) < self.closeness_threshold
-            and abs(self.y - other.y) < self.closeness_threshold
-        )
-
-    def __ne__(self, other):
-        return not self.__eq__(other)
-
-    def __lt__(self, other):
-        return self.x < other.x or (self.x == other.x and self.y < other.y)
-
-    def __le__(self, other):
-        return self.x < other.x or (self.x == other.x and self.y <= other.y)
-
-    def __gt__(self, other):
-        return self.x > other.x or (self.x == other.x and self.y > other.y)
-
-    def __ge__(self, other):
-        return self.x > other.x or (self.x == other.x and self.y >= other.y)
-
-    def __add__(self, other):
-        return Point(self.x + other.x, self.y + other.y)
-
-    def __sub__(self, other):
-        return Point(self.x - other.x, self.y - other.y)
-
-    def __mul__(self, c: float):
-        return Point(self.x * c, self.y * c)
-
-    def __truediv__(self, c: float):
-        return Point(self.x / c, self.y / c)
-
-    def __neg__(self):
-        return Point(-self.x, -self.y)
-
-
+# Unused for now
 class Segment:
     """The segment class"""
 
@@ -104,114 +65,202 @@ class Line:
 ####################################################################################################
 # Geojson parser
 ####################################################################################################
-def read_box_from_file(filepath: Path) -> tuple[float, float, float, float]:
-    """Read the min and max coordinates from the geojson file.
-    Returns:
-    --------
-    tuple[float, float, float, float]: (min_x, min_y, max_x, max_y)
-    """
+def _offset_reduce(geom, shift_x, shift_y, factor):
+    """Translate and scale the geometry as numpy array.
+    To be use with shapely.transform as lambda function."""
+    geom[:, 0] = (geom[:, 0] - shift_x) * factor
+    geom[:, 1] = (geom[:, 1] - shift_y) * factor
+    return geom
+
+
+def _load_GeometryCollection_from_geojson(filepath: Path) -> GeometryCollection:
+    """Read a geojson file and return the geometry collection."""
     with open(filepath) as f:
-        data = json.load(f)
-    min_x = min_y = float("inf")
-    max_x = max_y = float("-inf")
-    for feature in data["features"]:
-        multi_line = feature["geometry"]["coordinates"]
-        for line in multi_line:
-            for x, y in line:
-                min_x = min(min_x, x)
-                min_y = min(min_y, y)
-                max_x = max(max_x, x)
-                max_y = max(max_y, y)
-    print(f"{filepath}: {min_x:.3f}, {min_y:.3f}, {max_x:.3f}, {max_y:.3f}")
-    return min_x, min_y, max_x, max_y
+        features = json.load(f)["features"]
+    return GeometryCollection(
+        [shape(feature["geometry"]) for feature in features]
+    )
 
 
-def compute_factor_correction(filepath: Path) -> tuple[float, float]:
-    """Compute the factor correction for the coordinates.
-    Returns:
-    --------
-    x_shiff: the shift to center x coordiantes
-    y_shift: the shift to center y coordiantes
-    scale: the factor correction to work in meters
+def _offset_reduce_GeometryCollection(
+    geom_col: GeometryCollection,
+) -> tuple[GeometryCollection, list[float, float, float]]:
+    """Return the geometry collection
+    that is translated to the origin and scaled to meters,
+    along with parameters needed for the inverse transform.
     """
-    min_x, min_y, max_x, max_y = read_box_from_file(filepath)
+    # Compute the factor correction
+    min_x, min_y, max_x, max_y = geom_col.bounds
 
-    factor = 1.0
-    MAX_BAT_SIZE_IN_M = 1_000  # Buildings are never bigger than 1km
     # Modify the factor to work in meters
     if max_x - min_x > MAX_BAT_SIZE_IN_M or max_y - min_y > MAX_BAT_SIZE_IN_M:
-        factor = 1 / 1_000  # Transform back to meters
+        factor = 1 / 1_000
+    else:
+        factor = 1
 
-    # Translate the coordinates
-    x_shift = min_x
-    y_shift = min_y
-
-    return x_shift, y_shift, factor
+    return shapely.transform(
+        geom_col, lambda x: _offset_reduce(x, min_x, min_y, factor)
+    ), [min_x, min_y, factor]
 
 
-def parse_segments_geojson(filepath: Path) -> list[Segment]:
-    """Parse the geojson file to extract the segments.
-    Returns:
-    --------
-    list[Segment]: the list of segments
-    """
-    # First read to check the factor correction
-    x_shift, y_shift, factor = compute_factor_correction(filepath)
-    shift_point = Point(x_shift, y_shift)
+def inverse_transform(geom_col, min_x, min_y, factor) -> GeometryCollection:
+    """Inverse the transformation"""
+    assert factor != 0, "Factor cannot be zero."
+    return shapely.transform(
+        geom_col, lambda x: _offset_reduce(x, -min_x, -min_y, 1 / factor)
+    )
 
-    # Second read to actually extract the segments
-    with open(filepath) as f:
-        data = json.load(f)
 
+def load_geojson(
+    filepath: Path,
+) -> tuple[GeometryCollection, list[float, float, float]]:
+    """Load the geojson file and return the geometry collection
+    scaled to meters and translated to the origin.
+    ==> Wrapper to use to load base output data."""
+    geom_col = _load_GeometryCollection_from_geojson(filepath)
+    return _offset_reduce_GeometryCollection(geom_col)
+
+
+def load_GeometryCollection_from_geojson(filepath: Path) -> GeometryCollection:
+    """Load the geojson file and return the geometry collection."""
+    return _load_GeometryCollection_from_geojson(filepath)
+
+
+def clean_geojson_to_segments_and_save(filepath: Path, output_filepath: Path):
+    """Load the geojson file, offset the map and reduce to meters, then
+    extract the segments and save the segments in a new geojson file."""
+    print(f"Cleaning {filepath} to {output_filepath}")
+    geom_col, transform_parameters = load_geojson(filepath)
+    segments_list = extract_segments(geom_col)
+
+    save_as_geojson(
+        GeometryCollection(segments_list), output_filepath, transform_parameters
+    )
+
+
+####################################################################################################
+# Geometry to segments
+####################################################################################################
+# TODO: Try to vectorize the operations
+# TODO: Create a graph from the points
+
+
+def _extract_segments_from_LineString(ls: LineString) -> list[Segment]:
+    """Extract the segments from a LineString."""
     segments = []
-    for feature in data["features"]:
-        multi_line = feature["geometry"]["coordinates"]
-        for line in multi_line:
-            # Center the coordinates
-            line_center = [
-                (Point(float(x), float(y)) - shift_point) * factor
-                for x, y in line
-            ]
-
-            # Create the segments
-            for start, end in zip(line_center[:-1], line_center[1:]):
-                seg_candidate = Segment(start, end)
-                # Avoid duplicates
-                if seg_candidate not in segments:
-                    segments.append(Segment(start, end))
-
-    print(f"{filepath}: {len(segments)} segments")
+    # print(f"Extracting segments from {ls}")
+    for start, end in zip(ls.coords[:-1], ls.coords[1:]):
+        segments.append(LineString([start, end]))
     return segments
 
 
-# def parse_segments_geojson_no_center(filepath: Path) -> list[Segment]:
-#     """Parse the geojson file to extract the segments.
-#     Returns:
-#     --------
-#     list[Segment]: the list of segments
-#     """
-#     # Second read to actually extract the segments
-#     with open(filepath) as f:
-#         data = json.load(f)
-
-#     segments = []
-#     for feature in data["features"]:
-#         multi_line = feature["geometry"]["coordinates"]
-#         for line in multi_line:
-#             # Create the segments
-#             for start, end in zip(line[:-1], line[1:]):
-#                 seg_candidate = Segment(Point(*start), Point(*end))
-#                 # Avoid duplicates
-#                 if seg_candidate not in segments:
-#                     segments.append(seg_candidate)
-#         break
-#     print(f"{filepath}: {len(segments)} segments")
-#     return segments
+def _extract_segments_from_MultiLineString(
+    mls: MultiLineString,
+) -> list[Segment]:
+    """Extract the segments from a MultiLineString."""
+    # print(f"Extracting segments from {mls}")
+    segments = []
+    # Each geometry contains a list of list of Points
+    for line_string in mls.geoms:
+        segments.extend(
+            _extract_segments_from_LineString(LineString(line_string))
+        )
+    return segments
 
 
-# [ ] TODO: check factor for Output9 -> but may be not the same scale
-# [ ] TODO: use shapely points to use geometrical operations
-# [ ] TODO: preserve the inverse transform.
+def _extract_segments_from_Polygon(poly: Polygon) -> list[Segment]:
+    """Extract the segments from a Polygon."""
+    # print(f"Extracting segments from {poly}")
+    segments = []
+    linear_ring = poly.exterior
+    segments.extend(_extract_segments_from_LineString(linear_ring))
+    for interior in poly.interiors:
+        segments.extend(_extract_segments_from_LineString(interior))
+    return segments
 
-# [ ] TODO: create the geojoon from the polygons
-# [ ] TODO: create the polygons from the geojson
+
+def extract_segments(geom_col: GeometryCollection) -> list[Segment]:
+    """Extract the segments from the geometry collection."""
+    # print(f"Extracting segments from {geom_col}")
+    segments = []
+    # Extract the segments from the geometry collection
+    for geom in geom_col.geoms:
+        if isinstance(geom, MultiLineString):
+            segments.extend(_extract_segments_from_MultiLineString(geom))
+        elif isinstance(geom, Polygon):
+            segments.extend(_extract_segments_from_Polygon(geom))
+        elif isinstance(geom, LineString):
+            segments.extend(_extract_segments_from_LineString(geom))
+        else:
+            raise ValueError(f"Geometry type {type(geom)} not supported.")
+
+    # Remove duplicates
+    print(f"\t{len(segments)} segments extracted")
+    segments = list(set(segments))
+    print(f"\t{len(segments)} unique segments")
+
+    return segments
+
+
+####################################################################################################
+# Output
+####################################################################################################
+def save_as_geojson(
+    geom_col: GeometryCollection,
+    filepath: Path,
+    transform_parameters: tuple[float, float, float] = None,
+):
+    """Save the geometry collection as a geojson file.
+    Parameters:
+    -----------
+    geom_col: GeometryCollection
+        The geometry collection to save.
+    transform_parameters: tuple[float, float, float] (min_x, min_y, factor)
+        The parameters used by _offset_reduce_GeometryCollection to transform
+        the geometry for future inverse transform.
+    filepath: Path
+        The path to save the geojson file."""
+    # Include the GeometryCollection in a FeatureCollection to mimic the output
+    # from AutoCAD
+    header = '{"type":"FeatureCollection",'
+    # Add the transform parameters if any
+    if transform_parameters:
+        header += f'"transform_parameters":{transform_parameters},'
+    header += '"features": ['
+    footer = "]}"
+    with open(filepath, "w") as f:
+        geojson_data = shapely.to_geojson(geom_col, OUTPUT_GEOJSON_INDENT)
+        f.write(header)
+        f.write(geojson_data)
+        f.write(footer)
+
+
+def plot_GeometryCollection(geom_col: GeometryCollection, figsize=(30, 30)):
+    """Plot the geometry collection."""
+    gs = gpd.GeoSeries(geom_col)
+    fig, ax = plt.subplots(figsize=figsize)
+    gs.plot(ax=ax)
+    plt.show()
+
+
+####################################################################################################
+# Main
+####################################################################################################
+if __name__ == "__main__":
+    """Clean the geojson file to extract the segments."""
+    data_dir = Path("data", "geojson")
+    output_dir = Path("data", "clean")
+    for filepath in data_dir.iterdir():
+        out_file = output_dir / f"{filepath.stem}_clean.geojson"
+        clean_geojson_to_segments_and_save(filepath, out_file)
+
+
+"""
+TODO LIST
+- [ ]  check factor for Output9 -> but may be not the same scale
+- [X]  use shapely points to use geometrical operations
+- [X]  preserve the inverse transform.
+- [ ]  try to vectorize the operations
+- [ ]  create the geojson from the polygons
+- [A] create the polygons from the geojson
+"""
