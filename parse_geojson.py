@@ -1,14 +1,17 @@
 """
 Parse the geojson files to extract the segments
+
+@Version: 0.1
+@Project: Capstone Vinci Contour Detection
+@Date: 2025-01-25
+@Author: Tristan Waddington (GitHub:waddason)
 """
 
 import json
-import logging
 import shapely
 from shapely.geometry import (
     shape,
     GeometryCollection,
-    Point,
     LineString,
     Polygon,
     MultiLineString,
@@ -17,49 +20,9 @@ import matplotlib.pyplot as plt
 import geopandas as gpd
 
 from pathlib import Path
-# from dataclasses import dataclass
 
 OUTPUT_GEOJSON_INDENT = None
 MAX_BAT_SIZE_IN_M = 1_000  # Buildings are never bigger than 1km
-
-####################################################################################################
-# Classes
-# Implement the ideas from  M. Schäfer, C. Knapp, and S. Chakraborty, “Automatic
-# generation of topological indoor maps for real-time map-
-# based localization and tracking,” in Proceedings of Indoor
-# Positioning and Indoor Navigation (IPIN), 2011 International
-# Conference, pp. 1–8, IEEE, Guimaraes, Portugal, September 2011.
-#
-####################################################################################################
-
-
-# Unused for now
-class Segment:
-    """The segment class"""
-
-    def __init__(self, start: Point, end: Point):
-        self.start = start
-        self.end = end
-
-    def __str__(self):
-        return f"Segment({self.start}, {self.end})"
-
-    def __repr__(self):
-        return f"Segment({self.start}, {self.end})"
-
-    def plotable(self):
-        """Matplotlib plotable format"""
-        return [self.start.x, self.end.x], [self.start.y, self.end.y]
-
-
-class Line:
-    """A multipoints line class"""
-
-    def __init__(self, points: list[list[float]]):
-        self.points = points
-
-    def from_list(self, points: list[list[float]]):
-        self.points = points
 
 
 ####################################################################################################
@@ -145,7 +108,7 @@ def clean_geojson_to_segments_and_save(filepath: Path, output_filepath: Path):
 # TODO: Create a graph from the points
 
 
-def _extract_segments_from_LineString(ls: LineString) -> list[Segment]:
+def _extract_segments_from_LineString(ls: LineString) -> list[LineString]:
     """Extract the segments from a LineString."""
     segments = []
     # print(f"Extracting segments from {ls}")
@@ -156,7 +119,7 @@ def _extract_segments_from_LineString(ls: LineString) -> list[Segment]:
 
 def _extract_segments_from_MultiLineString(
     mls: MultiLineString,
-) -> list[Segment]:
+) -> list[LineString]:
     """Extract the segments from a MultiLineString."""
     # print(f"Extracting segments from {mls}")
     segments = []
@@ -168,7 +131,7 @@ def _extract_segments_from_MultiLineString(
     return segments
 
 
-def _extract_segments_from_Polygon(poly: Polygon) -> list[Segment]:
+def _extract_segments_from_Polygon(poly: Polygon) -> list[LineString]:
     """Extract the segments from a Polygon."""
     # print(f"Extracting segments from {poly}")
     segments = []
@@ -179,7 +142,7 @@ def _extract_segments_from_Polygon(poly: Polygon) -> list[Segment]:
     return segments
 
 
-def extract_segments(geom_col: GeometryCollection) -> list[Segment]:
+def extract_segments(geom_col: GeometryCollection) -> list[LineString]:
     """Extract the segments from the geometry collection."""
     # print(f"Extracting segments from {geom_col}")
     segments = []
