@@ -1,11 +1,8 @@
 # CapstoneContour
 
-**Git usage**: 🚧 Work on your onw branch ! 🚧
+**Git usage**: 🚧 Work on your onw branch ! 🚧 Push to main when done. ✅
 ```shell
 git checkout -b maBranche
-git add .
-git commit -m "I'm done"
-git push
 ```
 </div>
 
@@ -24,7 +21,8 @@ git push
     - [ ] quid des poteaux, vides sanitaires, exclusions ?
 3. **Export GeoJson**
     - [X] inverse transform
-    - [ ] bonus: label de la pièce
+    - [ ] Estimation des coordonnées depuis une image
+    - [ ] bonus: label de la pièce avec ML
 
 
 ## Bilan des actions 📆
@@ -36,9 +34,23 @@ git push
   - rencontre avec l'équipe de Diane sur le site de LEONARD
   - prise en main des formats de fichiers geojson et des librairies
   - Création de la **feuille de route**:
-    
 
 - **Jeudi 30 janvier** : 🦺
-  - Travail sur les segments
-  - Implémentation du code du papier [Automatic Generation of Topological Indoor Maps for Real-Time Map-Based Localization and Tracking, by Martin Schäfer, Christian Knapp and Samarjit Chakraborty, 2011]
+  - @Tristan Travail sur les segments : Implémentation du code du papier [Automatic Generation of Topological Indoor Maps for Real-Time Map-Based Localization and Tracking, by Martin Schäfer, Christian Knapp and Samarjit Chakraborty, 2011]
+  - @Abdoul usupervised clustering-> besoin de compter le nombre de pièces
+  - @Tristan Transformer le Json en graph
+  - @Fabien procédure pour détecter les portes/fermer les couloirs de liaison
 
+- **Jeudi 6 février** : conférence IA 🤖
+
+- **Jeudi 13 février** : 👨‍💻
+    - visio avec Diane: TBC
+ 
+- **Jeudi 20 février** : 👨‍💻
+      - Mid term discussion avec Charles-Albert Lehalle, professeur référent
+
+[...]
+- **mi mars** : 📑
+   -  Rapport 5 pages
+-  **fin mars** : 🎤
+    - Soutnance à l'école Polytechnique + zoom pour mentors
