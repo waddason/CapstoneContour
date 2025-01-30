@@ -12,7 +12,7 @@ git checkout -b maBranche
     - [X] centrer / réduire
     - [X] normaliser le type de dessin
     - [ ] nettoyer les traits
-        - [ ] portes
+        - [ ] Identifier / fermer les portes
         - [ ] murs communs
         - [ ] création de classe spécificque
 2. **Prédire le contour**
@@ -47,10 +47,12 @@ git checkout -b maBranche
     - visio avec Diane: TBC
  
 - **Jeudi 20 février** : 👨‍💻
-      - Mid term discussion avec Charles-Albert Lehalle, professeur référent
+    - semaine précédente: envoyer le 'mid-term document', cf mail Anna Korba du 26 janvier     
+    - 16h30: Mid term discussion avec Charles-Albert Lehalle, professeur référent sur Zoom
+  
 
 [...]
 - **mi mars** : 📑
-   -  Rapport 5 pages
+   -  Rapport 5 pages + annexes
 -  **fin mars** : 🎤
     - Soutnance à l'école Polytechnique + zoom pour mentors
