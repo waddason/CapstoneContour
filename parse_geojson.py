@@ -101,6 +101,24 @@ def clean_geojson_to_segments_and_save(filepath: Path, output_filepath: Path):
     )
 
 
+def load_segments(filepath: Path) -> tuple[GeometryCollection, tuple[float,]]:
+    """Load the clean segments, offset and reduce to meters.
+    This file contains only one feature: a Geometry collection
+    Also returns the transformation parameters."""
+    with open(filepath) as f:
+        json_dic = json.load(f)
+        transform_parameters = json_dic["transform_parameters"]
+    return (
+        GeometryCollection(
+            [
+                shape(feature)
+                for feature in json_dic["features"][0]["geometries"]
+            ]
+        ),
+        transform_parameters,
+    )
+
+
 ####################################################################################################
 # Geometry to segments
 ####################################################################################################
@@ -198,11 +216,13 @@ def save_as_geojson(
         f.write(footer)
 
 
-def plot_GeometryCollection(geom_col: GeometryCollection, figsize=(30, 30)):
+def plot_GeometryCollection(
+    geom_col: GeometryCollection, figsize=(30, 30), **kwargs
+):
     """Plot the geometry collection."""
     gs = gpd.GeoSeries(geom_col)
     fig, ax = plt.subplots(figsize=figsize)
-    gs.plot(ax=ax)
+    gs.plot(ax=ax, **kwargs)
     plt.show()
 
 
