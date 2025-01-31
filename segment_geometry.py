@@ -31,6 +31,7 @@ CLOSENESS_TOLERANCE = 1e-2  # 1 cm
 # Classes
 ####################################################################################################
 # Note: Since version 1.8, Shapely classes are build in C and do not allow easy inheritance.
+# Solution: use the .to_shaely property to get the Shapely object
 
 
 # ---------------------------------------------------------------------------------------------------
@@ -251,3 +252,67 @@ def load_reduce_geomoriginal_file(filepath: Path):
 
 def print_test():
     print("Test 2")
+
+
+###################################################################################################
+# Room detection algorithm from Schäffer et al.
+####################################################################################################
+def room_detection(segments):
+    """Implement the Extracting Room algorim of the paper."""
+
+    visited = set()
+    polygons_candidates = []
+    for segment in segments:
+        if segment not in visited:
+            
+    # Stage a ------------------------------
+    # Find successors of L_i
+
+    # Stage b -------------------------------
+    # Construct the poly-line of L_i and succesors L_j
+
+    # Stage c ------------------------------
+    # Grow each poly-line
+
+    # Stage d ------------------------------
+    # Transform the closed poly-lines into polygon
+
+
+def find_successors(
+    segment: Segment, segments: list[Segment], tol: float = CLOSENESS_TOLERANCE
+):
+    """Find successors of a given segment.
+    ie adjacent to its end point."""
+    successors = []
+    end_point = segment.end
+    for seg in segments:
+        if seg.is_point_adjacent(end_point, tol):
+            successors.append(seg)
+    return successors
+
+
+# def construct_polyline(segment, segments, visited, tol=CLOSENESS_TOLERANCE):
+#     """Construct the poly-line of a segment and its successors."""
+#     polyline = [segment]
+#     visited.add(segment)
+#     successors = find_successors(segment, segments, tol)
+#     for succ in successors:
+#         if succ not in visited:
+#             polyline.extend(construct_polyline(succ, segments, visited, tol))
+#     return polyline
+
+
+def grow_polyline(polyline, tol=CLOSENESS_TOLERANCE):
+    """Grow each poly-line."""
+    # This is a placeholder for the actual growing logic
+    # You can implement specific rules for growing the poly-line
+    return polyline
+
+
+def transform_to_polygon(polyline):
+    """Transform the closed poly-lines into polygons."""
+    coords = []
+    for segment in polyline:
+        coords.append((segment.start.x, segment.start.y))
+    coords.append((polyline[-1].end.x, polyline[-1].end.y))  # Close the polygon
+    # return Polygon(coords)
