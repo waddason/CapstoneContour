@@ -17,7 +17,7 @@ git checkout -b maBranche
         - [ ] création de classe spécificque
 2. **Prédire le contour**
     - [ ] clustering unsupervised
-    - [ ] colorier l'image, (mais retransformer en json)
+    - [X] colorier l'image, (mais retransformer en json)
     - [ ] quid des poteaux, vides sanitaires, exclusions ?
 3. **Export GeoJson**
     - [X] inverse transform
@@ -44,15 +44,20 @@ git checkout -b maBranche
 - **Jeudi 6 février** : conférence IA 🤖
 
 - **Jeudi 13 février** : 👨‍💻
-    - visio avec Diane: TBC
+    - visio avec Diane: annulée
+    - @Abdoul fermer les portes 🚪
+    - @Fabien conserver les coordonnées après traitement d'image 🗺️
+    - @Maha approfondir le clustering ፨
+    - @Tristan transformer le Json en graph ⿻
+    - @Tristan envoyer le 'mid-term document', cf mail Anna Korba du 26 janvier   
  
-- **Jeudi 20 février** : 👨‍💻
-    - semaine précédente: envoyer le 'mid-term document', cf mail Anna Korba du 26 janvier     
+- **Jeudi 20 février** : 👨‍💻  
     - 16h30: Mid term discussion avec Charles-Albert Lehalle, professeur référent sur Zoom
   
-
-[...]
-- **mi mars** : 📑
+- **Jeudi 27 février**:
+- **Jeudi 6 mars**:
+- **Jeudi 13 mars**
+- **Jeudi 20 mars** 📑
    -  Rapport 5 pages + annexes
 -  **fin mars** : 🎤
     - Soutnance à l'école Polytechnique + zoom pour mentors
