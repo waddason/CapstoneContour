@@ -76,6 +76,38 @@ class Pt:
         return self.to_shapely.distance(other.to_shapely)
 
 
+class Pt_int:
+    """The point class with int coords."""
+
+    def __init__(self, x: int, y: int):
+        self.x = x
+        self.y = y
+        self.link_to = set()
+
+    def __repr__(self):
+        return f"Pt({self.x:d}, {self.y:d}) -> {len(self.link_to)}"
+
+    def __iter__(self):
+        # Allow to unpack the point for creation in lines
+        yield self.x
+        yield self.y
+
+    @property
+    def to_shapely(self):
+        return shapely.geometry.Point([self.x, self.y])
+
+    def __eq__(self, other):
+        """Override the equivalent methode to merge points"""
+        if not isinstance(other, Pt_int):
+            return False
+        else:
+            return self.x == other.x and self.y == other.y
+
+    def __hash__(self):
+        """Override to merge points"""
+        return hash((self.x, self.y))
+
+
 # ---------------------------------------------------------------------------------------------------
 # Segment: a 2 points line
 # ---------------------------------------------------------------------------------------------------
@@ -235,6 +267,7 @@ class Line:
 ####################################################################################################
 def filter_segments(geom_col):
     """Filter the geometry collection to keep only the segments."""
+    # TODO: does not work
     segments = []
     for geom in geom_col:
         if isinstance(geom, shapely.geometry.LineString):
@@ -264,7 +297,7 @@ def room_detection(segments):
     polygons_candidates = []
     for segment in segments:
         if segment not in visited:
-            
+            pass
     # Stage a ------------------------------
     # Find successors of L_i
 
@@ -276,6 +309,7 @@ def room_detection(segments):
 
     # Stage d ------------------------------
     # Transform the closed poly-lines into polygon
+    return
 
 
 def find_successors(
@@ -316,3 +350,118 @@ def transform_to_polygon(polyline):
         coords.append((segment.start.x, segment.start.y))
     coords.append((polyline[-1].end.x, polyline[-1].end.y))  # Close the polygon
     # return Polygon(coords)
+
+
+##################################################################################################
+# Graph structure from geojson
+####################################################################################################
+class PlanGraph:
+    """The graph structure of the plan, base on point relations.
+    Point are merged base on the unit of their corrdinates -> cm"""
+
+    def __init__(self):
+        self.points: dict[tuple[int, int], Pt_int] = {}
+        self.polygons: set[tuple[tuple[int, int]]] = set()
+        # TODO: order the starting point of polygons vertices
+
+    def add_point(self, x: int, y: int):
+        """Add a new point if needed"""
+        x, y = int(x), int(y)  # Ensure x and y are basic int
+        if (x, y) not in self.points:
+            self.points[(x, y)] = Pt_int(x, y)
+
+    def add_link(
+        self, x1: int, y1: int, x2: int, y2: int, directed: bool = False
+    ):
+        """Create the connection between too points.
+        Default on both directions."""
+        # Check existence
+        x1, y1 = int(x1), int(y1)  # Ensure x and y are basic int
+        x2, y2 = int(x2), int(y2)  # Ensure x and y are basic int
+        self.add_point(x1, y1)
+        self.add_point(x2, y2)
+
+        self.points[(x1, y1)].link_to.add((x2, y2))
+        if not directed:
+            self.points[(x2, y2)].link_to.add((x1, y1))
+
+    def add_line(self, line: shapely.geometry.LineString):
+        """Add the points of the line to the internal dic"""
+
+        # transform coords into int
+        int_coords = shapely.get_coordinates(line).astype(int)
+        # add points to graph
+        for x, y in zip(int_coords[:, 0], int_coords[:, 1]):
+            self.add_point(x, y)
+
+        # create links between couples of points
+        for x1, y1, x2, y2 in zip(
+            int_coords[:, 0],
+            int_coords[:, 1],
+            int_coords[1:, 0],
+            int_coords[1:, 1],
+        ):
+            self.add_link(x1, y1, x2, y2)
+
+    def add_closed_line(self, line: shapely.geometry.linestring):
+        """
+        Add the relations between the points and save the polygon.
+        In pratice, may be the sublcass shapely.geometry.linearring
+        """
+        self.add_line(line)
+        if not line.is_ring:
+            # Need to link last and first points
+            x1, y1 = line.coords[0]
+            x2, y2 = line.coords[-1]
+            self.add_link(x1, y1, x2, x2)
+
+    def save_polygon(self, line_ring: shapely.geometry.LinearRing):
+        """Save the coordinates of the known polygons."""
+        # transform coords into int
+        int_coords = shapely.get_coordinates(line_ring).astype(int)
+        points_tuple = tuple(
+            map(lambda coord: tuple(map(int, coord)), int_coords)
+        )
+        self.polygons.add(points_tuple)
+
+    def add_geom_collection(
+        self, geom_col: shapely.geometry.GeometryCollection
+    ):
+        """Main function to absorb whatever geometry"""
+        for geom in geom_col.geoms:
+            if isinstance(geom, shapely.geometry.LineString):
+                self.add_line(geom)
+            elif isinstance(geom, shapely.geometry.MultiLineString):
+                for line in geom.geoms:
+                    self.add_line(line)
+            elif isinstance(geom, shapely.geometry.Polygon):
+                self.add_closed_line(geom.exterior)
+                self.save_polygon(geom.exterior)
+                for interior in geom.interiors:
+                    self.add_closed_line(interior)
+
+            elif isinstance(geom, shapely.geometry.MultiPolygon):
+                print(f"Warning, instance {type(geom)} not supported.")
+            elif isinstance(geom, shapely.geometry.GeometryCollection):
+                print(f"Warning, instance {type(geom)} not supported.")
+            else:
+                print(f"Warning, instance {type(geom)} not supported.")
+
+
+def construct_graph(filepath: Path):
+    """Construct a graph of points from the raw geojson file."""
+
+    geom_col, transform_param = load_geojson(filepath)
+
+    # Iterate trough the points and keep the relations
+    # - equal to
+    # - linked to
+
+    pg = PlanGraph()
+    # transform into interger coordinates
+    gc_cm = shapely.affinity.scale(
+        geom_col, xfact=100, yfact=100, origin=shapely.Point(0, 0)
+    )
+    pg.add_geom_collection(gc_cm)
+
+    return
