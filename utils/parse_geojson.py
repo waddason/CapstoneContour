@@ -217,13 +217,17 @@ def save_as_geojson(
 
 
 def plot_GeometryCollection(
-    geom_col: GeometryCollection, figsize=(30, 30), **kwargs
+    geom_col: GeometryCollection, figsize=(30, 30), path_to_save=None,**kwargs
 ):
     """Plot the geometry collection."""
     gs = gpd.GeoSeries(geom_col)
     fig, ax = plt.subplots(figsize=figsize)
-    gs.plot(ax=ax, **kwargs)
-    plt.show()
+    gs.plot(ax=ax, edgecolor="black", **kwargs)
+    if path_to_save is not None:
+        ax.axis('off')
+        fig.savefig("Test_image/outpout0.png", bbox_inches='tight', dpi=30)
+        fig.show()
+    fig.show()
 
 
 ####################################################################################################
