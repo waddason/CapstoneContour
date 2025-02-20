@@ -11,6 +11,7 @@ import json
 import shapely  # buit with shapely 2.0.6
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.patches import Patch
 import geopandas as gpd
 from pathlib import Path
 
@@ -447,6 +448,33 @@ class PlanGraph:
             else:
                 print(f"Warning, instance {type(geom)} not supported.")
 
+    def draw(self, figsize=(20, 20)) -> plt:
+        """Draw the known polygons in a plot"""
+        fig, ax = plt.subplots(figsize=figsize)
+        ax.axis("off")
+        ax.set_aspect("equal")
+        for poly in self.polygons:
+            coords = np.array(poly)
+            # ax.scatter(coords[:, 0], coords[:, 1], s=0.5, c="b")
+            ax.fill(coords[:, 0], coords[:, 1], "b-", alpha=0.5)
+
+        drawn_lines = set()
+        for (x1, y1), point in self.points.items():
+            for x2, y2 in point.link_to:
+                if ((x1, y1), (x2, y2)) not in drawn_lines and (
+                    (x2, y2),
+                    (x1, y1),
+                ) not in drawn_lines:
+                    ax.plot([x1, x2], [y1, y2], "g-")
+                    drawn_lines.add(((x1, y1), (x2, y2)))
+
+        # Add legend for lines and polygons
+        line_legend = plt.Line2D([0], [0], color="g", lw=2, label="Lines")
+        polygon_legend = Patch(color="b", alpha=0.5, label="Polygons")
+        ax.legend(handles=[line_legend, polygon_legend], loc="upper right")
+        # plt.show()
+        return fig, ax
+
 
 def construct_graph(filepath: Path):
     """Construct a graph of points from the raw geojson file."""
@@ -464,4 +492,52 @@ def construct_graph(filepath: Path):
     )
     pg.add_geom_collection(gc_cm)
 
+    return pg
+
+
+def compare_graph(filepath: Path):
+    """Plot the original geom and the graph."""
+
+    geom_col, transform_param = load_geojson(filepath)
+
+    # Iterate trough the points and keep the relations
+    # - equal to
+    # - linked to
+
+    pg = PlanGraph()
+    # transform into interger coordinates
+    gc_cm = shapely.affinity.scale(
+        geom_col, xfact=100, yfact=100, origin=shapely.Point(0, 0)
+    )
+    pg.add_geom_collection(gc_cm)
+
+    # plot
+    fig, axs = plt.subplots(1, 2, figsize=(40, 20))
+    axs[0].set_title("Geometry collection")
+    gpd.GeoSeries(geom_col).plot(ax=axs[0])
+
+    for poly in pg.polygons:
+        coords = np.array(poly)
+        # ax.scatter(coords[:, 0], coords[:, 1], s=0.5, c="b")
+        axs[1].fill(coords[:, 0], coords[:, 1], "b-", alpha=0.5)
+
+        drawn_lines = set()
+        for (x1, y1), point in pg.points.items():
+            for x2, y2 in point.link_to:
+                if ((x1, y1), (x2, y2)) not in drawn_lines and (
+                    (x2, y2),
+                    (x1, y1),
+                ) not in drawn_lines:
+                    axs[1].plot([x1, x2], [y1, y2], "g-")
+                    drawn_lines.add(((x1, y1), (x2, y2)))
+
+        # Add legend for lines and polygons
+        line_legend = plt.Line2D([0], [0], color="g", lw=2, label="Lines")
+        polygon_legend = Patch(color="b", alpha=0.5, label="Polygons")
+        axs[1].legend(handles=[line_legend, polygon_legend], loc="upper right")
+    axs[1].set_title("Graph")
+    axs[1].set_aspect("equal")
+    # axs[1].imshow(fig2.canvas.buffer_rgba())
+
+    plt.show()
     return
