@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 6104.0,
-                "surface_m2": 2441599.9999999995,
+                "surface_m2": 2.4416,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -56,7 +56,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 12833.0,
-                "surface_m2": 5133199.999999999,
+                "surface_m2": 5.1332,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -107,7 +107,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 9228.5,
-                "surface_m2": 3691399.999999999,
+                "surface_m2": 3.6914,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -206,7 +206,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 13439.0,
-                "surface_m2": 5375599.999999999,
+                "surface_m2": 5.3756,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -289,7 +289,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 561995.0,
-                "surface_m2": 224797999.99999997,
+                "surface_m2": 224.798,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -676,7 +676,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 31691.0,
-                "surface_m2": 12676399.999999998,
+                "surface_m2": 12.6764,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -759,7 +759,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 708915.5,
-                "surface_m2": 283566199.99999994,
+                "surface_m2": 283.5662,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -2318,7 +2318,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 36777.5,
-                "surface_m2": 14710999.999999996,
+                "surface_m2": 14.711,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -2425,7 +2425,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 8496.0,
-                "surface_m2": 3398399.9999999995,
+                "surface_m2": 3.3984,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -2524,7 +2524,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 5545.0,
-                "surface_m2": 2217999.9999999995,
+                "surface_m2": 2.218,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -2607,7 +2607,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 15131.0,
-                "surface_m2": 6052399.999999999,
+                "surface_m2": 6.0524,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -2690,7 +2690,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 22322.5,
-                "surface_m2": 8928999.999999998,
+                "surface_m2": 8.929,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -2789,7 +2789,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 35286.0,
-                "surface_m2": 14114399.999999998,
+                "surface_m2": 14.1144,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -2872,7 +2872,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 35031.0,
-                "surface_m2": 14012399.999999998,
+                "surface_m2": 14.0124,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -2971,7 +2971,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 34975.5,
-                "surface_m2": 13990199.999999998,
+                "surface_m2": 13.9902,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -3202,7 +3202,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 72358.5,
-                "surface_m2": 28943399.999999993,
+                "surface_m2": 28.9434,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -3545,7 +3545,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 7784.0,
-                "surface_m2": 3113599.9999999995,
+                "surface_m2": 3.1136,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -3636,7 +3636,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 38150.5,
-                "surface_m2": 15260199.999999996,
+                "surface_m2": 15.2602,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -3719,7 +3719,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 33956.0,
-                "surface_m2": 13582399.999999998,
+                "surface_m2": 13.5824,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -3794,7 +3794,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 8512.0,
-                "surface_m2": 3404799.9999999995,
+                "surface_m2": 3.4048,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -3861,7 +3861,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 38152.0,
-                "surface_m2": 15260799.999999996,
+                "surface_m2": 15.2608,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -3952,7 +3952,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 132933.5,
-                "surface_m2": 53173399.99999999,
+                "surface_m2": 53.1734,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -4459,7 +4459,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 154122.5,
-                "surface_m2": 61648999.999999985,
+                "surface_m2": 61.649,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -4858,7 +4858,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 76316.0,
-                "surface_m2": 30526399.999999993,
+                "surface_m2": 30.5264,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -5093,7 +5093,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 326201.5,
-                "surface_m2": 130480599.99999997,
+                "surface_m2": 130.4806,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -5256,7 +5256,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 60033.5,
-                "surface_m2": 24013399.999999996,
+                "surface_m2": 24.0134,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -5539,7 +5539,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 38638.5,
-                "surface_m2": 15455399.999999996,
+                "surface_m2": 15.4554,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -5630,7 +5630,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 39367.0,
-                "surface_m2": 15746799.999999996,
+                "surface_m2": 15.7468,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -5721,7 +5721,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 23847.0,
-                "surface_m2": 9538799.999999998,
+                "surface_m2": 9.5388,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -5804,7 +5804,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 186808.0,
-                "surface_m2": 74723199.99999999,
+                "surface_m2": 74.7232,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -6791,7 +6791,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 42368.5,
-                "surface_m2": 16947399.999999996,
+                "surface_m2": 16.9474,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -7082,7 +7082,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 8368.5,
-                "surface_m2": 3347399.9999999995,
+                "surface_m2": 3.3474,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -7157,7 +7157,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 156923.0,
-                "surface_m2": 62769199.999999985,
+                "surface_m2": 62.7692,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -7824,7 +7824,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 16134.5,
-                "surface_m2": 6453799.999999999,
+                "surface_m2": 6.4538,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -7915,7 +7915,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 6213.0,
-                "surface_m2": 2485199.9999999995,
+                "surface_m2": 2.4852,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -8006,7 +8006,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 9509.5,
-                "surface_m2": 3803799.999999999,
+                "surface_m2": 3.8038,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -8105,7 +8105,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 22081.0,
-                "surface_m2": 8832399.999999998,
+                "surface_m2": 8.8324,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -8188,7 +8188,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 22541.0,
-                "surface_m2": 9016399.999999998,
+                "surface_m2": 9.0164,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -8271,7 +8271,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 22656.0,
-                "surface_m2": 9062399.999999998,
+                "surface_m2": 9.0624,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -8354,7 +8354,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 25966.0,
-                "surface_m2": 10386399.999999998,
+                "surface_m2": 10.3864,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -8533,7 +8533,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 583672.0,
-                "surface_m2": 233468799.99999994,
+                "surface_m2": 233.4688,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -10656,7 +10656,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 933388.5,
-                "surface_m2": 373355399.99999994,
+                "surface_m2": 373.3554,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -13019,7 +13019,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 730158.0,
-                "surface_m2": 292063199.99999994,
+                "surface_m2": 292.0632,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -13338,7 +13338,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 50650.0,
-                "surface_m2": 20259999.999999996,
+                "surface_m2": 20.26,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -13389,7 +13389,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 10944.0,
-                "surface_m2": 4377599.999999999,
+                "surface_m2": 4.3776,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -13464,7 +13464,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 104464.5,
-                "surface_m2": 41785799.99999999,
+                "surface_m2": 41.7858,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -13771,7 +13771,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 47233.0,
-                "surface_m2": 18893199.999999996,
+                "surface_m2": 18.8932,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -13822,7 +13822,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 14373.5,
-                "surface_m2": 5749399.999999999,
+                "surface_m2": 5.7494,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -13961,7 +13961,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 377692.0,
-                "surface_m2": 151076799.99999997,
+                "surface_m2": 151.0768,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -15304,7 +15304,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 33938.5,
-                "surface_m2": 13575399.999999998,
+                "surface_m2": 13.5754,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -15467,7 +15467,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 47032.0,
-                "surface_m2": 18812799.999999996,
+                "surface_m2": 18.8128,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -15518,7 +15518,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 9044.0,
-                "surface_m2": 3617599.999999999,
+                "surface_m2": 3.6176,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -15609,7 +15609,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 7556.0,
-                "surface_m2": 3022399.9999999995,
+                "surface_m2": 3.0224,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -15716,7 +15716,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 62963.5,
-                "surface_m2": 25185399.999999996,
+                "surface_m2": 25.1854,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -15879,7 +15879,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 27705.0,
-                "surface_m2": 11081999.999999998,
+                "surface_m2": 11.082,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -15954,7 +15954,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 10854.5,
-                "surface_m2": 4341799.999999999,
+                "surface_m2": 4.3418,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -16053,7 +16053,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 8150.5,
-                "surface_m2": 3260199.9999999995,
+                "surface_m2": 3.2602,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -16112,7 +16112,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 13413.5,
-                "surface_m2": 5365399.999999999,
+                "surface_m2": 5.3654,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -16251,7 +16251,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 35331.0,
-                "surface_m2": 14132399.999999998,
+                "surface_m2": 14.1324,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -16398,7 +16398,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 72473.0,
-                "surface_m2": 28989199.999999993,
+                "surface_m2": 28.9892,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -16481,7 +16481,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 23627.5,
-                "surface_m2": 9450999.999999998,
+                "surface_m2": 9.451,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -16580,7 +16580,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 18589.0,
-                "surface_m2": 7435599.999999998,
+                "surface_m2": 7.4356,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -16663,7 +16663,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 18589.0,
-                "surface_m2": 7435599.999999998,
+                "surface_m2": 7.4356,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -16746,7 +16746,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 12872.0,
-                "surface_m2": 5148799.999999999,
+                "surface_m2": 5.1488,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -16861,7 +16861,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 29575.0,
-                "surface_m2": 11829999.999999998,
+                "surface_m2": 11.83,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -16944,7 +16944,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 90787.5,
-                "surface_m2": 36314999.99999999,
+                "surface_m2": 36.315,
                 "image": "Output0_binary"
             },
             "geometry": {
@@ -17027,7 +17027,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 1039299.5,
-                "surface_m2": 415719799.99999994,
+                "surface_m2": 415.7198,
                 "image": "Output0_binary"
             },
             "geometry": {

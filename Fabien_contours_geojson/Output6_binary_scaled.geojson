@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 13639.5,
-                "surface_m2": 5455799.999999999,
+                "surface_m2": 5.4558,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -72,7 +72,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 12708.0,
-                "surface_m2": 5083199.999999999,
+                "surface_m2": 5.0832,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -167,7 +167,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 56133.0,
-                "surface_m2": 22453199.999999996,
+                "surface_m2": 22.4532,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -370,7 +370,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 56728.0,
-                "surface_m2": 22691199.999999996,
+                "surface_m2": 22.6912,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -557,7 +557,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 56238.0,
-                "surface_m2": 22495199.999999996,
+                "surface_m2": 22.4952,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -744,7 +744,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 15285.0,
-                "surface_m2": 6113999.999999999,
+                "surface_m2": 6.114,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -871,7 +871,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 58006.0,
-                "surface_m2": 23202399.999999996,
+                "surface_m2": 23.2024,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -1026,7 +1026,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 58710.5,
-                "surface_m2": 23484199.999999996,
+                "surface_m2": 23.4842,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -1189,7 +1189,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 57789.5,
-                "surface_m2": 23115799.999999996,
+                "surface_m2": 23.1158,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -1344,7 +1344,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 58680.5,
-                "surface_m2": 23472199.999999996,
+                "surface_m2": 23.4722,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -1507,7 +1507,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 55690.5,
-                "surface_m2": 22276199.999999996,
+                "surface_m2": 22.2762,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -1686,7 +1686,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 5533.0,
-                "surface_m2": 2213199.9999999995,
+                "surface_m2": 2.2132,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -1737,7 +1737,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 10991.0,
-                "surface_m2": 4396399.999999999,
+                "surface_m2": 4.3964,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -1820,7 +1820,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 55797.5,
-                "surface_m2": 22318999.999999996,
+                "surface_m2": 22.319,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -1999,7 +1999,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 74207.0,
-                "surface_m2": 29682799.999999993,
+                "surface_m2": 29.6828,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -2258,7 +2258,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 14038.0,
-                "surface_m2": 5615199.999999999,
+                "surface_m2": 5.6152,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -2437,7 +2437,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 59977.5,
-                "surface_m2": 23990999.999999996,
+                "surface_m2": 23.991,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -2568,7 +2568,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 155651.5,
-                "surface_m2": 62260599.999999985,
+                "surface_m2": 62.2606,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -2699,7 +2699,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 17340.0,
-                "surface_m2": 6935999.999999999,
+                "surface_m2": 6.936,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -2814,7 +2814,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 56439.0,
-                "surface_m2": 22575599.999999996,
+                "surface_m2": 22.5756,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -3017,7 +3017,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 56509.0,
-                "surface_m2": 22603599.999999996,
+                "surface_m2": 22.6036,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -3204,7 +3204,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 56163.0,
-                "surface_m2": 22465199.999999996,
+                "surface_m2": 22.4652,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -3407,7 +3407,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 56005.5,
-                "surface_m2": 22402199.999999996,
+                "surface_m2": 22.4022,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -3594,7 +3594,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 56238.0,
-                "surface_m2": 22495199.999999996,
+                "surface_m2": 22.4952,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -3781,7 +3781,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 56320.0,
-                "surface_m2": 22527999.999999996,
+                "surface_m2": 22.528,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -3968,7 +3968,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 55007.5,
-                "surface_m2": 22002999.999999996,
+                "surface_m2": 22.003,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -4131,7 +4131,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 932755.0,
-                "surface_m2": 373101999.99999994,
+                "surface_m2": 373.102,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -4470,7 +4470,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 55053.5,
-                "surface_m2": 22021399.999999996,
+                "surface_m2": 22.0214,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -4633,7 +4633,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 13141.0,
-                "surface_m2": 5256399.999999999,
+                "surface_m2": 5.2564,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -4728,7 +4728,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 27365.5,
-                "surface_m2": 10946199.999999998,
+                "surface_m2": 10.9462,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -4819,7 +4819,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 56262.0,
-                "surface_m2": 22504799.999999996,
+                "surface_m2": 22.5048,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -5006,7 +5006,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 135254.0,
-                "surface_m2": 54101599.99999999,
+                "surface_m2": 54.1016,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -5089,7 +5089,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 11374.5,
-                "surface_m2": 4549799.999999999,
+                "surface_m2": 4.5498,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -5180,7 +5180,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 34666.5,
-                "surface_m2": 13866599.999999998,
+                "surface_m2": 13.8666,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -5279,7 +5279,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 35966.5,
-                "surface_m2": 14386599.999999996,
+                "surface_m2": 14.3866,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -5378,7 +5378,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 13194.5,
-                "surface_m2": 5277799.999999999,
+                "surface_m2": 5.2778,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -5477,7 +5477,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 17502.5,
-                "surface_m2": 7000999.999999999,
+                "surface_m2": 7.001,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -5576,7 +5576,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 49536.0,
-                "surface_m2": 19814399.999999996,
+                "surface_m2": 19.8144,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -5651,7 +5651,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 78409.5,
-                "surface_m2": 31363799.999999993,
+                "surface_m2": 31.3638,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -5750,7 +5750,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 5700.5,
-                "surface_m2": 2280199.9999999995,
+                "surface_m2": 2.2802,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -5841,7 +5841,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 16115.5,
-                "surface_m2": 6446199.999999999,
+                "surface_m2": 6.4462,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -5976,7 +5976,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 56608.0,
-                "surface_m2": 22643199.999999996,
+                "surface_m2": 22.6432,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -6163,7 +6163,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 74060.0,
-                "surface_m2": 29623999.999999993,
+                "surface_m2": 29.624,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -6422,7 +6422,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 55735.5,
-                "surface_m2": 22294199.999999996,
+                "surface_m2": 22.2942,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -6601,7 +6601,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 35548.0,
-                "surface_m2": 14219199.999999998,
+                "surface_m2": 14.2192,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -6828,7 +6828,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 56446.0,
-                "surface_m2": 22578399.999999996,
+                "surface_m2": 22.5784,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -7015,7 +7015,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 55825.5,
-                "surface_m2": 22330199.999999996,
+                "surface_m2": 22.3302,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -7194,7 +7194,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 56246.0,
-                "surface_m2": 22498399.999999996,
+                "surface_m2": 22.4984,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -7381,7 +7381,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 56147.0,
-                "surface_m2": 22458799.999999996,
+                "surface_m2": 22.4588,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -7568,7 +7568,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 26658.5,
-                "surface_m2": 10663399.999999998,
+                "surface_m2": 10.6634,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -7667,7 +7667,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 31178.0,
-                "surface_m2": 12471199.999999998,
+                "surface_m2": 12.4712,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -7774,7 +7774,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 56299.0,
-                "surface_m2": 22519599.999999996,
+                "surface_m2": 22.5196,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -7961,7 +7961,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 14787.0,
-                "surface_m2": 5914799.999999999,
+                "surface_m2": 5.9148,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -8184,7 +8184,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 55984.5,
-                "surface_m2": 22393799.999999996,
+                "surface_m2": 22.3938,
                 "image": "Output6_binary"
             },
             "geometry": {
@@ -8371,7 +8371,7 @@
             "type": "Feature",
             "properties": {
                 "surface_px": 58483.5,
-                "surface_m2": 23393399.999999996,
+                "surface_m2": 23.3934,
                 "image": "Output6_binary"
             },
             "geometry": {
