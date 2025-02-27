@@ -51,10 +51,17 @@ git checkout -b maBranche
     - @Tristan transformer le Json en graph ⿻
     - @Tristan envoyer le 'mid-term document', cf mail Anna Korba du 26 janvier   
  
-- **Jeudi 20 février** : 👨‍💻  
+- **Jeudi 20 février** : 👨‍💻
+    - 13h30: Point de situation avec Vinci -> doit nous fournir des plans complémentaires
+        - @Abdoul: Segmentation à améliorer
+        - @Maha: Plus de contexte pour le clustering
+        - @Fabien: Faire ressembler les fichiers Vinci au dataset
+        - @Tristan: Json en graph
     - 16h30: Mid term discussion avec Charles-Albert Lehalle, professeur référent sur Zoom
   
 - **Jeudi 27 février**:
+    - 13h30: Point de situation avec Vinci
+       
 - **Jeudi 6 mars**:
 - **Jeudi 13 mars**
 - **Jeudi 20 mars** 📑
