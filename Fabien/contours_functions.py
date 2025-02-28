@@ -28,7 +28,7 @@ import contours_functions as cf
 ####################################################################################################
 
 
-def generate_binary_image(segment, transform_parameter, file_name,
+def generate_binary_image(segment, transform_parameter, file_name, binary_images_dir, metadatas_dir,
                           scale=100, thickness=1, method='ellipse'):
     """
     Génère une image binaire à partir d'un segment et sauvegarde 
@@ -46,8 +46,8 @@ def generate_binary_image(segment, transform_parameter, file_name,
     height = int((maxy - miny) * scale) + 1
     
     # Sauvegarder les paramètres de transformation
-    binary_image_path = Path("02_binary_images") / f"{file_name}_binary_image.png"
-    metadata_path = Path("03_metadatas") / f"{file_name}_metadata.json"
+    binary_image_path = binary_images_dir  / f"{file_name}_binary_image.png"
+    metadata_path = metadatas_dir / f"{file_name}_metadata.json"
     with open(metadata_path, "w", encoding="utf-8") as f:
         json.dump({"transform_parameters": transform_parameter, "dpi_scale": scale}, f, indent=4)
     
@@ -125,7 +125,7 @@ def supprimer_polygone_le_plus_long(contours):
     return contours
 
 # Fonction pour convertir les contours en format GeoJSON avec échelle et transformation
-def contours_to_geojson(contours, image_name, hauteur_totale, surface_minimale, x_offset, y_offset, scale_factor, dpi_scale):   
+def contours_to_geojson(contours, image_name, hauteur_totale, surface_minimale, x_offset, y_offset, scale_factor, dpi_scale, rooms_contours_geojson_dir):   
     # Structure GeoJSON
     geojson = {
         "type": "FeatureCollection",
@@ -164,7 +164,7 @@ def contours_to_geojson(contours, image_name, hauteur_totale, surface_minimale, 
             geojson["features"].append(polygon)
 
     # Sauvegarde du GeoJSON dans un fichier
-    output_dir = Path("05_rooms_contours_geojson")
+    output_dir = rooms_contours_geojson_dir
     os.makedirs(output_dir, exist_ok=True)
     output_path = os.path.join(output_dir, f"{image_name}_rooms_contours.geojson")
     with open(output_path, 'w') as geojson_file:
@@ -173,10 +173,10 @@ def contours_to_geojson(contours, image_name, hauteur_totale, surface_minimale, 
     print(f"GeoJSON avec échelle enregistré : {output_path}")
 
 # Fonction principale pour générer les pièces et exporter en GeoJSON
-def generer_et_afficher_pieces(file_name, surface_minimale=5000):
+def generer_et_afficher_pieces(file_name, binary_images_dir, metadatas_dir, contours_images_dir, rooms_contours_geojson_dir, surface_minimale=5000):
     # Charger les paramètres de transformation
-    image_path = Path("02_binary_images") / f"{file_name}_binary_image.png"
-    metadata_path = Path("03_metadatas") / f"{file_name}_metadata.json"
+    image_path = binary_images_dir / f"{file_name}_binary_image.png"
+    metadata_path = metadatas_dir / f"{file_name}_metadata.json"
     transform_parameters, dpi_scale = charger_parametres_transformation(metadata_path)
     x_offset = transform_parameters[0]
     y_offset = transform_parameters[1]
@@ -224,7 +224,7 @@ def generer_et_afficher_pieces(file_name, surface_minimale=5000):
     print(f"Nombre de pièces détectées pour {image_path} : {compteur_pieces}")
 
     # Sauvegarde de l'image colorée en PNG
-    contours_image_dir = Path("04_contours_images")
+    contours_image_dir = contours_images_dir
     output_image_path = os.path.join(contours_image_dir, f"{file_name}_contours_image.png")
     cv2.imwrite(str(output_image_path), color_img_area)
     print(f"Image enregistrée : {output_image_path}")
@@ -236,4 +236,4 @@ def generer_et_afficher_pieces(file_name, surface_minimale=5000):
     plt.show()
 
     # Export des contours en GeoJSON avec échelle appliquée
-    contours_to_geojson(contours_hierarchy_morph, file_name, hauteur_totale, surface_minimale, x_offset, y_offset, scale_factor, dpi_scale)
+    contours_to_geojson(contours_hierarchy_morph, file_name, hauteur_totale, surface_minimale, x_offset, y_offset, scale_factor, dpi_scale, rooms_contours_geojson_dir)
