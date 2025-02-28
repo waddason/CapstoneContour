@@ -1,0 +1,84 @@
+\documentclass[11pt]{article}
+
+% Related to page geomety
+\usepackage[a4paper,vmargin={2.4cm,2.8cm},hmargin={2.4cm,2.4cm}]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{1pt}
+\fancyhead[C]{CONFIDENTIAL}
+\fancyhead[L]{Team 04 - Contour Detection}
+\fancyhead[R]{M2DS Capstone projects, IPP, 2025}
+
+
+% Related to math
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+
+% Related to figures
+\usepackage{graphicx}
+
+%Related to referencing
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+\begin{document}
+
+\begin{center}
+\textbf{Contour detection} \\
+Fabien Lagnieu, Maha Kadraoui, Tristan Waddington, Abdoul Zeba\\
+\textbf{Mentor:} Stéphane Maviel(Vinci/Diane) \\\vspace{2em}
+\textbf{\Large }
+\end{center}
+\vspace{-1cm}
+
+This is a latex template for your report. Your report should fit in 5 pages  excluding references and appendices and summarize your main findings and process of thoughts. It should be self-contained, and you should not modify the template. . You can use appendices for additional figures and details, provide explanation of parallel tracks you gave up etc.
+
+\section{Context}
+\textit{What is the question to be answered? Why is it important for the mentor?\\
+Present briefly the dataset (type of data, dimensionality, what else is notable?)}
+
+\section{Methods}
+\label{sec:methods}
+\textit{Which methods did you try or could you have tried?\\
+Which one did you choose and why?}\\\\
+Include references if you use a non-standard method \cite{pml1Book}. The corresponding entry is defined in the file \texttt{references.bib}. Do no cite textbooks, \cite{pml1Book} is just an example. 
+
+\section{Results}
+\textit{Provide convincing plots/tables to support your conclusions.\\
+Justify the metrics you have used to compare methods/assess performance.}
+
+\subsection{An example of subsection}
+Text of the subsection.
+
+\paragraph{An example of paragraph header} 
+Begining of the paragraph, where you could refer to \cref{fig:my_label} and previous \cref{sec:methods}, or point to additional details in \cref{app:sec:details}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.1\textwidth]{figures/ipparis.png}
+    \hspace{0.2\textwidth}
+    \includegraphics[width=0.1\textwidth]{figures/ipparis.png}
+    \caption{Example figure with example spacing and caption: Left, ipp paris logo. Right, ipp paris logo.}
+    \label{fig:my_label}
+\end{figure}
+
+\section{Conclusion}
+\textit{Summarize and discuss the main findings. What are the limitations?\\
+Are the experiments conclusive? With more time, what else would you have tried?}
+
+\paragraph{Organization within the team}
+\textit{How did you share the work among yourselves? (short paragraph, 1/2 page max)}
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\appendix
+
+\newpage
+The appendix does not count towards the 5-page limit. 
+\section{Additional details on X}
+\label{app:sec:details}
+
+\section{Additional information on X}
+
+\end{document}

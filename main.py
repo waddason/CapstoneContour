@@ -3,7 +3,7 @@ import geopandas as gpd
 from shapely.geometry import LineString, Polygon, MultiLineString
 from pathlib import Path
 
-path = Path("data", "Output2.geojson")
+path = Path("data/clean", "Output2.geojson")
 
 gdf = gpd.GeoDataFrame.from_file(path)
 

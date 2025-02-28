@@ -227,6 +227,61 @@ def plot_GeometryCollection(
 
 
 ####################################################################################################
+# Spaces and walls files
+####################################################################################################
+import geopandas as gpd
+import matplotlib.pyplot as plt
+import numpy as np
+from shapely.geometry import Polygon
+
+
+def segment_to_rectangle(p1, p2, width):
+    """
+    Convert a line segment (p1 to p2) into a rectangle of given width.
+
+    Returns:
+        Polygon: A Shapely Polygon representing the rectangle.
+    """
+    p1, p2 = np.array(p1), np.array(p2)
+    direction = p2 - p1
+    length = np.linalg.norm(direction)
+    if length == 0:
+        return None  # Skip zero-length segments
+
+    direction /= length  # Normalize direction vector
+    normal = np.array([-direction[1], direction[0]])  # Perpendicular vector
+    offset = (width / 2) * normal  # Half-width offset
+
+    # Compute four corners
+    corner1, corner2 = p1 + offset, p1 - offset
+    corner3, corner4 = p2 - offset, p2 + offset
+
+    return Polygon([corner1, corner2, corner3, corner4, corner1])
+
+
+def open_spaces_walls_in_folder_and_save_svg(folder_path: Path):
+    """Open the tuple of geojson files Walls and Spaces in a single folder."""
+    walls_name = "Walls.geojson"
+    spaces_name = "Spaces.geojson"
+    walls_gdf = gpd.read_file(folder_path / walls_name)
+    walls_gdf.geometry = walls_gdf.apply(
+        lambda x: segment_to_rectangle(
+            np.array(x.geometry.coords[0]),
+            np.array(x.geometry.coords[1]),
+            x["Width"],
+        ),
+        axis=1,
+    )
+    spaces_gdf = gpd.read_file(folder_path / spaces_name)
+
+    ax = walls_gdf.plot(lw=0.01, zorder=3)
+    ax.set_aspect("equal")
+    spaces_gdf.plot(color="red", ax=ax, zorder=4, alpha=0.8)
+
+    plt.savefig(folder_path / "plot.svg", format="svg")
+
+
+####################################################################################################
 # Main
 ####################################################################################################
 if __name__ == "__main__":
