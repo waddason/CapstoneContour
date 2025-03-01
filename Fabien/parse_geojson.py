@@ -92,7 +92,7 @@ def load_GeometryCollection_from_geojson(filepath: Path) -> GeometryCollection:
 def clean_geojson_to_segments_and_save(filepath: Path, output_filepath: Path):
     """Load the geojson file, offset the map and reduce to meters, then
     extract the segments and save the segments in a new geojson file."""
-    print(f"Cleaning {filepath} to {output_filepath}")
+    #print(f"Cleaning {filepath} to {output_filepath}")
     geom_col, transform_parameters = load_geojson(filepath)
     segments_list = extract_segments(geom_col)
 
@@ -176,9 +176,9 @@ def extract_segments(geom_col: GeometryCollection) -> list[LineString]:
             raise ValueError(f"Geometry type {type(geom)} not supported.")
 
     # Remove duplicates
-    print(f"\t{len(segments)} segments extracted")
+    #print(f"\t{len(segments)} segments extracted")
     segments = list(set(segments))
-    print(f"\t{len(segments)} unique segments")
+    #print(f"\t{len(segments)} unique segments")
 
     return segments
 
@@ -231,9 +231,9 @@ def plot_GeometryCollection(
 ####################################################################################################
 if __name__ == "__main__":
     """Clean the geojson file to extract the segments."""
-    data_dir = Path("input_geojson")
-    output_dir = Path("preprocessed_geojson")
-    for filepath in data_dir.iterdir():
+    input_dir = Path("00_input_geojson")
+    output_dir = Path("01_processed_geojson")
+    for filepath in input_dir.iterdir():
         out_file = output_dir / f"{filepath.stem}_clean.geojson"
         clean_geojson_to_segments_and_save(filepath, out_file)
 

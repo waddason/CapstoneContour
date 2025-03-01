@@ -21,14 +21,15 @@ import cv2.ximgproc
 import os
 # own imports
 import parse_geojson as pg
-import contours_functions as cf
 
 ####################################################################################################
 # @Fabien : Genrate binary image from segments
 ####################################################################################################
 
 
-def generate_binary_image(segment, transform_parameter, file_name, binary_images_dir, metadatas_dir,
+def generate_binary_image(segment, transform_parameter, file_name, 
+                          binary_images_dir=Path("02_binary_images"), 
+                          metadatas_dir=Path("03_metadatas"),
                           scale=100, thickness=1, method='ellipse'):
     """
     Génère une image binaire à partir d'un segment et sauvegarde 
@@ -85,7 +86,7 @@ def generate_binary_image(segment, transform_parameter, file_name, binary_images
     binary_image.save(binary_image_path)
     
     print(f"Saved binary map: {binary_image_path}")
-    print(f"Saved transform metadata: {metadata_path}")
+    print(f"Saved transform metadata: {metadata_path}\n")
 
     
 ####################################################################################################
@@ -120,7 +121,7 @@ def filtrer_par_surface(contours, surface_minimale):
 def supprimer_polygone_le_plus_long(contours):
     longueurs = calculer_longueur_contours(contours)
     index_max = np.argmax(longueurs)
-    print(f"Suppression du polygone le plus long (murs extérieurs) avec une longueur de : {longueurs[index_max]} pixels")
+    #print(f"Suppression du polygone le plus long (murs extérieurs) avec une longueur de : {longueurs[index_max]} pixels")
     contours.pop(index_max)
     return contours
 
@@ -133,7 +134,7 @@ def contours_to_geojson(contours, image_name, hauteur_totale, surface_minimale, 
     }
 
     # Parcours des contours pour les convertir en polygones GeoJSON
-    for contour in contours:
+    for i, contour in enumerate(contours):
         # Calcul de la surface de chaque contour
         surface = cv2.contourArea(contour)
 
@@ -152,6 +153,7 @@ def contours_to_geojson(contours, image_name, hauteur_totale, surface_minimale, 
             polygon = {
                 "type": "Feature",
                 "properties": {
+                    "name" : f"room_{i+1} / {len(contours)}",
                     "surface_px": surface,
                     "surface_m2": surface / (dpi_scale**2),  # Conversion en m²
                     "image": image_name
@@ -170,10 +172,10 @@ def contours_to_geojson(contours, image_name, hauteur_totale, surface_minimale, 
     with open(output_path, 'w') as geojson_file:
         json.dump(geojson, geojson_file, indent=4)
     
-    print(f"GeoJSON avec échelle enregistré : {output_path}")
+    print(f"GeoJSON avec échelle enregistré : {output_path}\n")
 
 # Fonction principale pour générer les pièces et exporter en GeoJSON
-def generer_et_afficher_pieces(file_name, binary_images_dir, metadatas_dir, contours_images_dir, rooms_contours_geojson_dir, surface_minimale=5000):
+def generer_pieces_image_et_geojson(file_name, binary_images_dir, metadatas_dir, contours_images_dir=Path("04_contours_images"), rooms_contours_geojson_dir=Path("05_rooms_contours_geojson"), surface_minimale=5000):
     # Charger les paramètres de transformation
     image_path = binary_images_dir / f"{file_name}_binary_image.png"
     metadata_path = metadatas_dir / f"{file_name}_metadata.json"
@@ -221,7 +223,7 @@ def generer_et_afficher_pieces(file_name, binary_images_dir, metadatas_dir, cont
             compteur_pieces += 1
 
     # Affichage du nombre de pièces détectées
-    print(f"Nombre de pièces détectées pour {image_path} : {compteur_pieces}")
+    print(f"Nombre de pièces détectées pour le fichier '{file_name}' : {compteur_pieces}")
 
     # Sauvegarde de l'image colorée en PNG
     contours_image_dir = contours_images_dir
@@ -229,11 +231,80 @@ def generer_et_afficher_pieces(file_name, binary_images_dir, metadatas_dir, cont
     cv2.imwrite(str(output_image_path), color_img_area)
     print(f"Image enregistrée : {output_image_path}")
 
-    # Affichage du résultat
-    plt.figure(figsize=(10, 10))
-    plt.imshow(cv2.cvtColor(color_img_area, cv2.COLOR_BGR2RGB))
-    plt.axis('off')
-    plt.show()
 
     # Export des contours en GeoJSON avec échelle appliquée
     contours_to_geojson(contours_hierarchy_morph, file_name, hauteur_totale, surface_minimale, x_offset, y_offset, scale_factor, dpi_scale, rooms_contours_geojson_dir)
+
+
+####################################################################################################
+# Main
+####################################################################################################
+if __name__ == "__main__":
+
+    ### ETAPE 0 : Création des fichiers de stockage des données ###
+    input_dir = Path("00_input_geojson")
+    processed_dir = Path("01_processed_geojson")
+    binary_images_dir = Path("02_binary_images")
+    metadatas_dir = Path("03_metadatas")
+    contours_images_dir = Path("04_contours_images")
+    rooms_contours_geojson_dir = Path("05_rooms_contours_geojson")
+
+    for directory in [processed_dir, binary_images_dir, metadatas_dir, contours_images_dir, rooms_contours_geojson_dir]:
+        directory.mkdir(exist_ok=True)
+
+    ### ETAPE 1 : Nettoyage et uniformisation des données d'entrée (geojson) en segments + Chargement des segments ###
+    files_names = []
+    for filepath in sorted(input_dir.iterdir()):
+        files_names.append(filepath.stem)
+        out_file = processed_dir / f"{filepath.stem}_clean.geojson"
+        pg.clean_geojson_to_segments_and_save(filepath, out_file)
+
+    paths = []
+    for file_name in files_names:
+        paths.append(processed_dir / f"{file_name}_clean.geojson")
+
+    # Load the segments
+    segments = []
+    transform_parameters = []
+    for i, path in enumerate(paths):
+        segment, transform_parameter = pg.load_segments(path)
+        segments.append(segment)
+        transform_parameters.append(transform_parameter)
+ 
+
+    ### ETAPE 2 : Génération des images binaires à partir des segments ###
+    
+    # Paramètres pour la génération des images
+    dpi_choice = 50  # Changer la résolution ici (ex: 30, 50, 100...)
+    thickness_choice = 3  # Épaisseur des lignes en pixels (impair de préférence)
+    scale = dpi_choice  # 1m = dpi_choice pixels
+
+    # Méthode de dilatation ('ellipse', 'cross', 'gaussian' 
+    # -> gaussien est plus efficace pour l'épaississement des traits obliques et courbes)
+    method_choice = 'gaussian'
+
+    # Génération des images avec le DPI et épaisseur des traits choisis
+    for segment, file_name in zip(segments, files_names):
+        generate_binary_image(
+            segment,
+            transform_parameters[i],
+            file_name,
+            binary_images_dir,
+            metadatas_dir,
+            scale=scale,
+            thickness=thickness_choice,
+            method=method_choice
+        )
+
+    ### ETAPE 3 : Détection des contours des pièces et export de l'image colorée + GeoJSON ###
+
+    for file_name in files_names:
+        generer_pieces_image_et_geojson(
+            file_name,
+            binary_images_dir,
+            metadatas_dir,
+            contours_images_dir,
+            rooms_contours_geojson_dir,
+            surface_minimale=4000
+        )
+

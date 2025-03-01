@@ -4,6 +4,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_1 / 71",
                 "surface_px": 6104.0,
                 "surface_m2": 2.4416,
                 "image": "Output0"
@@ -55,6 +56,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_2 / 71",
                 "surface_px": 12833.0,
                 "surface_m2": 5.1332,
                 "image": "Output0"
@@ -106,6 +108,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_3 / 71",
                 "surface_px": 9228.5,
                 "surface_m2": 3.6914,
                 "image": "Output0"
@@ -205,6 +208,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_4 / 71",
                 "surface_px": 4460.0,
                 "surface_m2": 1.784,
                 "image": "Output0"
@@ -256,6 +260,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_5 / 71",
                 "surface_px": 13439.0,
                 "surface_m2": 5.3756,
                 "image": "Output0"
@@ -339,6 +344,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_6 / 71",
                 "surface_px": 561995.0,
                 "surface_m2": 224.798,
                 "image": "Output0"
@@ -726,6 +732,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_7 / 71",
                 "surface_px": 31691.0,
                 "surface_m2": 12.6764,
                 "image": "Output0"
@@ -809,6 +816,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_8 / 71",
                 "surface_px": 708915.5,
                 "surface_m2": 283.5662,
                 "image": "Output0"
@@ -2368,6 +2376,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_9 / 71",
                 "surface_px": 36777.5,
                 "surface_m2": 14.711,
                 "image": "Output0"
@@ -2475,6 +2484,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_10 / 71",
                 "surface_px": 4392.0,
                 "surface_m2": 1.7568,
                 "image": "Output0"
@@ -2590,6 +2600,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_11 / 71",
                 "surface_px": 8496.0,
                 "surface_m2": 3.3984,
                 "image": "Output0"
@@ -2689,6 +2700,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_12 / 71",
                 "surface_px": 5545.0,
                 "surface_m2": 2.218,
                 "image": "Output0"
@@ -2772,6 +2784,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_13 / 71",
                 "surface_px": 15131.0,
                 "surface_m2": 6.0524,
                 "image": "Output0"
@@ -2855,6 +2868,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_14 / 71",
                 "surface_px": 22322.5,
                 "surface_m2": 8.929,
                 "image": "Output0"
@@ -2954,6 +2968,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_15 / 71",
                 "surface_px": 35286.0,
                 "surface_m2": 14.1144,
                 "image": "Output0"
@@ -3037,6 +3052,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_16 / 71",
                 "surface_px": 35031.0,
                 "surface_m2": 14.0124,
                 "image": "Output0"
@@ -3136,6 +3152,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_17 / 71",
                 "surface_px": 34975.5,
                 "surface_m2": 13.9902,
                 "image": "Output0"
@@ -3367,6 +3384,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_18 / 71",
                 "surface_px": 72358.5,
                 "surface_m2": 28.9434,
                 "image": "Output0"
@@ -3710,6 +3728,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_19 / 71",
                 "surface_px": 7784.0,
                 "surface_m2": 3.1136,
                 "image": "Output0"
@@ -3801,6 +3820,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_20 / 71",
                 "surface_px": 38150.5,
                 "surface_m2": 15.2602,
                 "image": "Output0"
@@ -3884,6 +3904,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_21 / 71",
                 "surface_px": 33956.0,
                 "surface_m2": 13.5824,
                 "image": "Output0"
@@ -3959,6 +3980,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_22 / 71",
                 "surface_px": 8512.0,
                 "surface_m2": 3.4048,
                 "image": "Output0"
@@ -4026,6 +4048,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_23 / 71",
                 "surface_px": 38152.0,
                 "surface_m2": 15.2608,
                 "image": "Output0"
@@ -4117,6 +4140,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_24 / 71",
                 "surface_px": 132933.5,
                 "surface_m2": 53.1734,
                 "image": "Output0"
@@ -4624,6 +4648,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_25 / 71",
                 "surface_px": 154122.5,
                 "surface_m2": 61.649,
                 "image": "Output0"
@@ -5023,6 +5048,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_26 / 71",
                 "surface_px": 76316.0,
                 "surface_m2": 30.5264,
                 "image": "Output0"
@@ -5258,6 +5284,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_27 / 71",
                 "surface_px": 326201.5,
                 "surface_m2": 130.4806,
                 "image": "Output0"
@@ -5421,6 +5448,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_28 / 71",
                 "surface_px": 60033.5,
                 "surface_m2": 24.0134,
                 "image": "Output0"
@@ -5704,6 +5732,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_29 / 71",
                 "surface_px": 4734.0,
                 "surface_m2": 1.8936,
                 "image": "Output0"
@@ -5755,6 +5784,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_30 / 71",
                 "surface_px": 38638.5,
                 "surface_m2": 15.4554,
                 "image": "Output0"
@@ -5846,6 +5876,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_31 / 71",
                 "surface_px": 39367.0,
                 "surface_m2": 15.7468,
                 "image": "Output0"
@@ -5937,6 +5968,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_32 / 71",
                 "surface_px": 23847.0,
                 "surface_m2": 9.5388,
                 "image": "Output0"
@@ -6020,6 +6052,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_33 / 71",
                 "surface_px": 186808.0,
                 "surface_m2": 74.7232,
                 "image": "Output0"
@@ -7007,6 +7040,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_34 / 71",
                 "surface_px": 42368.5,
                 "surface_m2": 16.9474,
                 "image": "Output0"
@@ -7298,6 +7332,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_35 / 71",
                 "surface_px": 8368.5,
                 "surface_m2": 3.3474,
                 "image": "Output0"
@@ -7373,6 +7408,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_36 / 71",
                 "surface_px": 156923.0,
                 "surface_m2": 62.7692,
                 "image": "Output0"
@@ -8040,6 +8076,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_37 / 71",
                 "surface_px": 16134.5,
                 "surface_m2": 6.4538,
                 "image": "Output0"
@@ -8131,6 +8168,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_38 / 71",
                 "surface_px": 6213.0,
                 "surface_m2": 2.4852,
                 "image": "Output0"
@@ -8222,6 +8260,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_39 / 71",
                 "surface_px": 9509.5,
                 "surface_m2": 3.8038,
                 "image": "Output0"
@@ -8321,6 +8360,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_40 / 71",
                 "surface_px": 22081.0,
                 "surface_m2": 8.8324,
                 "image": "Output0"
@@ -8404,6 +8444,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_41 / 71",
                 "surface_px": 22541.0,
                 "surface_m2": 9.0164,
                 "image": "Output0"
@@ -8487,6 +8528,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_42 / 71",
                 "surface_px": 22656.0,
                 "surface_m2": 9.0624,
                 "image": "Output0"
@@ -8570,6 +8612,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_43 / 71",
                 "surface_px": 25966.0,
                 "surface_m2": 10.3864,
                 "image": "Output0"
@@ -8749,6 +8792,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_44 / 71",
                 "surface_px": 583672.0,
                 "surface_m2": 233.4688,
                 "image": "Output0"
@@ -10872,6 +10916,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_45 / 71",
                 "surface_px": 933388.5,
                 "surface_m2": 373.3554,
                 "image": "Output0"
@@ -13235,6 +13280,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_46 / 71",
                 "surface_px": 730158.0,
                 "surface_m2": 292.0632,
                 "image": "Output0"
@@ -13554,6 +13600,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_47 / 71",
                 "surface_px": 4227.0,
                 "surface_m2": 1.6908,
                 "image": "Output0"
@@ -13649,6 +13696,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_48 / 71",
                 "surface_px": 50650.0,
                 "surface_m2": 20.26,
                 "image": "Output0"
@@ -13700,6 +13748,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_49 / 71",
                 "surface_px": 10944.0,
                 "surface_m2": 4.3776,
                 "image": "Output0"
@@ -13775,6 +13824,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_50 / 71",
                 "surface_px": 104464.5,
                 "surface_m2": 41.7858,
                 "image": "Output0"
@@ -14082,6 +14132,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_51 / 71",
                 "surface_px": 47233.0,
                 "surface_m2": 18.8932,
                 "image": "Output0"
@@ -14133,6 +14184,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_52 / 71",
                 "surface_px": 14373.5,
                 "surface_m2": 5.7494,
                 "image": "Output0"
@@ -14272,6 +14324,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_53 / 71",
                 "surface_px": 377692.0,
                 "surface_m2": 151.0768,
                 "image": "Output0"
@@ -15615,6 +15668,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_54 / 71",
                 "surface_px": 33938.5,
                 "surface_m2": 13.5754,
                 "image": "Output0"
@@ -15778,6 +15832,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_55 / 71",
                 "surface_px": 47032.0,
                 "surface_m2": 18.8128,
                 "image": "Output0"
@@ -15829,6 +15884,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_56 / 71",
                 "surface_px": 9044.0,
                 "surface_m2": 3.6176,
                 "image": "Output0"
@@ -15920,6 +15976,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_57 / 71",
                 "surface_px": 7556.0,
                 "surface_m2": 3.0224,
                 "image": "Output0"
@@ -16027,6 +16084,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_58 / 71",
                 "surface_px": 62963.5,
                 "surface_m2": 25.1854,
                 "image": "Output0"
@@ -16190,6 +16248,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_59 / 71",
                 "surface_px": 27705.0,
                 "surface_m2": 11.082,
                 "image": "Output0"
@@ -16265,6 +16324,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_60 / 71",
                 "surface_px": 10854.5,
                 "surface_m2": 4.3418,
                 "image": "Output0"
@@ -16364,6 +16424,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_61 / 71",
                 "surface_px": 8150.5,
                 "surface_m2": 3.2602,
                 "image": "Output0"
@@ -16423,6 +16484,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_62 / 71",
                 "surface_px": 13413.5,
                 "surface_m2": 5.3654,
                 "image": "Output0"
@@ -16562,6 +16624,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_63 / 71",
                 "surface_px": 35331.0,
                 "surface_m2": 14.1324,
                 "image": "Output0"
@@ -16709,6 +16772,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_64 / 71",
                 "surface_px": 72473.0,
                 "surface_m2": 28.9892,
                 "image": "Output0"
@@ -16792,6 +16856,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_65 / 71",
                 "surface_px": 23627.5,
                 "surface_m2": 9.451,
                 "image": "Output0"
@@ -16891,6 +16956,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_66 / 71",
                 "surface_px": 18589.0,
                 "surface_m2": 7.4356,
                 "image": "Output0"
@@ -16974,6 +17040,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_67 / 71",
                 "surface_px": 18589.0,
                 "surface_m2": 7.4356,
                 "image": "Output0"
@@ -17057,6 +17124,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_68 / 71",
                 "surface_px": 12872.0,
                 "surface_m2": 5.1488,
                 "image": "Output0"
@@ -17172,6 +17240,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_69 / 71",
                 "surface_px": 29575.0,
                 "surface_m2": 11.83,
                 "image": "Output0"
@@ -17255,6 +17324,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_70 / 71",
                 "surface_px": 90787.5,
                 "surface_m2": 36.315,
                 "image": "Output0"
@@ -17338,6 +17408,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_71 / 71",
                 "surface_px": 1039299.5,
                 "surface_m2": 415.7198,
                 "image": "Output0"

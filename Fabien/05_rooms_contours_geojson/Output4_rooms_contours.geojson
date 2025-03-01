@@ -4,6 +4,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_1 / 43",
                 "surface_px": 21148.0,
                 "surface_m2": 8.4592,
                 "image": "Output4"
@@ -55,6 +56,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_2 / 43",
                 "surface_px": 11823.5,
                 "surface_m2": 4.7294,
                 "image": "Output4"
@@ -130,6 +132,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_3 / 43",
                 "surface_px": 12069.0,
                 "surface_m2": 4.8276,
                 "image": "Output4"
@@ -197,6 +200,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_4 / 43",
                 "surface_px": 8437.0,
                 "surface_m2": 3.3748,
                 "image": "Output4"
@@ -248,6 +252,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_5 / 43",
                 "surface_px": 245257.0,
                 "surface_m2": 98.1028,
                 "image": "Output4"
@@ -331,6 +336,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_6 / 43",
                 "surface_px": 71878.0,
                 "surface_m2": 28.7512,
                 "image": "Output4"
@@ -470,6 +476,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_7 / 43",
                 "surface_px": 39957.0,
                 "surface_m2": 15.9828,
                 "image": "Output4"
@@ -593,6 +600,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_8 / 43",
                 "surface_px": 9447.0,
                 "surface_m2": 3.7788,
                 "image": "Output4"
@@ -660,6 +668,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_9 / 43",
                 "surface_px": 102814.0,
                 "surface_m2": 41.1256,
                 "image": "Output4"
@@ -775,6 +784,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_10 / 43",
                 "surface_px": 213865.0,
                 "surface_m2": 85.546,
                 "image": "Output4"
@@ -882,6 +892,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_11 / 43",
                 "surface_px": 23752.0,
                 "surface_m2": 9.5008,
                 "image": "Output4"
@@ -933,6 +944,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_12 / 43",
                 "surface_px": 23705.0,
                 "surface_m2": 9.482,
                 "image": "Output4"
@@ -1016,6 +1028,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_13 / 43",
                 "surface_px": 29924.0,
                 "surface_m2": 11.9696,
                 "image": "Output4"
@@ -1115,6 +1128,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_14 / 43",
                 "surface_px": 33742.0,
                 "surface_m2": 13.4968,
                 "image": "Output4"
@@ -1166,6 +1180,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_15 / 43",
                 "surface_px": 17092.5,
                 "surface_m2": 6.837,
                 "image": "Output4"
@@ -1273,6 +1288,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_16 / 43",
                 "surface_px": 41064.5,
                 "surface_m2": 16.4258,
                 "image": "Output4"
@@ -1492,6 +1508,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_17 / 43",
                 "surface_px": 17348.5,
                 "surface_m2": 6.9394,
                 "image": "Output4"
@@ -1639,6 +1656,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_18 / 43",
                 "surface_px": 243225.0,
                 "surface_m2": 97.29,
                 "image": "Output4"
@@ -1706,6 +1724,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_19 / 43",
                 "surface_px": 241011.0,
                 "surface_m2": 96.4044,
                 "image": "Output4"
@@ -1773,6 +1792,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_20 / 43",
                 "surface_px": 6708.0,
                 "surface_m2": 2.6832,
                 "image": "Output4"
@@ -1928,6 +1948,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_21 / 43",
                 "surface_px": 58271.0,
                 "surface_m2": 23.3084,
                 "image": "Output4"
@@ -2303,6 +2324,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_22 / 43",
                 "surface_px": 6721.5,
                 "surface_m2": 2.6886,
                 "image": "Output4"
@@ -2458,6 +2480,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_23 / 43",
                 "surface_px": 4048.0,
                 "surface_m2": 1.6192,
                 "image": "Output4"
@@ -2509,6 +2532,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_24 / 43",
                 "surface_px": 4157.5,
                 "surface_m2": 1.663,
                 "image": "Output4"
@@ -2568,6 +2592,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_25 / 43",
                 "surface_px": 243244.0,
                 "surface_m2": 97.2976,
                 "image": "Output4"
@@ -2651,6 +2676,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_26 / 43",
                 "surface_px": 245308.0,
                 "surface_m2": 98.1232,
                 "image": "Output4"
@@ -2734,6 +2760,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_27 / 43",
                 "surface_px": 334355.0,
                 "surface_m2": 133.742,
                 "image": "Output4"
@@ -3137,6 +3164,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_28 / 43",
                 "surface_px": 65310.5,
                 "surface_m2": 26.1242,
                 "image": "Output4"
@@ -3348,6 +3376,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_29 / 43",
                 "surface_px": 243244.0,
                 "surface_m2": 97.2976,
                 "image": "Output4"
@@ -3431,6 +3460,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_30 / 43",
                 "surface_px": 245308.0,
                 "surface_m2": 98.1232,
                 "image": "Output4"
@@ -3514,6 +3544,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_31 / 43",
                 "surface_px": 56425.0,
                 "surface_m2": 22.57,
                 "image": "Output4"
@@ -3597,6 +3628,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_32 / 43",
                 "surface_px": 99325.0,
                 "surface_m2": 39.73,
                 "image": "Output4"
@@ -3744,6 +3776,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_33 / 43",
                 "surface_px": 40066.0,
                 "surface_m2": 16.0264,
                 "image": "Output4"
@@ -3795,6 +3828,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_34 / 43",
                 "surface_px": 41179.0,
                 "surface_m2": 16.4716,
                 "image": "Output4"
@@ -3846,6 +3880,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_35 / 43",
                 "surface_px": 40641.5,
                 "surface_m2": 16.2566,
                 "image": "Output4"
@@ -3905,6 +3940,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_36 / 43",
                 "surface_px": 12318.0,
                 "surface_m2": 4.9272,
                 "image": "Output4"
@@ -3956,6 +3992,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_37 / 43",
                 "surface_px": 138089.5,
                 "surface_m2": 55.2358,
                 "image": "Output4"
@@ -4143,6 +4180,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_38 / 43",
                 "surface_px": 24078.0,
                 "surface_m2": 9.6312,
                 "image": "Output4"
@@ -4194,6 +4232,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_39 / 43",
                 "surface_px": 48630.5,
                 "surface_m2": 19.4522,
                 "image": "Output4"
@@ -4261,6 +4300,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_40 / 43",
                 "surface_px": 145896.5,
                 "surface_m2": 58.3586,
                 "image": "Output4"
@@ -4368,6 +4408,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_41 / 43",
                 "surface_px": 23974.0,
                 "surface_m2": 9.5896,
                 "image": "Output4"
@@ -4419,6 +4460,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_42 / 43",
                 "surface_px": 58127.5,
                 "surface_m2": 23.251,
                 "image": "Output4"
@@ -4486,6 +4528,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_43 / 43",
                 "surface_px": 179232.0,
                 "surface_m2": 71.6928,
                 "image": "Output4"

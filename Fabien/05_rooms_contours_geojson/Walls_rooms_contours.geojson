@@ -4,6 +4,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_1 / 25",
                 "surface_px": 4611.5,
                 "surface_m2": 1.8446,
                 "image": "Walls"
@@ -63,6 +64,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_2 / 25",
                 "surface_px": 20250.0,
                 "surface_m2": 8.1,
                 "image": "Walls"
@@ -114,6 +116,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_3 / 25",
                 "surface_px": 26059.0,
                 "surface_m2": 10.4236,
                 "image": "Walls"
@@ -165,6 +168,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_4 / 25",
                 "surface_px": 9756.0,
                 "surface_m2": 3.9024,
                 "image": "Walls"
@@ -216,6 +220,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_5 / 25",
                 "surface_px": 43385.0,
                 "surface_m2": 17.354,
                 "image": "Walls"
@@ -299,6 +304,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_6 / 25",
                 "surface_px": 80886.5,
                 "surface_m2": 32.3546,
                 "image": "Walls"
@@ -366,6 +372,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_7 / 25",
                 "surface_px": 48022.0,
                 "surface_m2": 19.2088,
                 "image": "Walls"
@@ -417,6 +424,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_8 / 25",
                 "surface_px": 75070.0,
                 "surface_m2": 30.028,
                 "image": "Walls"
@@ -468,6 +476,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_9 / 25",
                 "surface_px": 22984.5,
                 "surface_m2": 9.1938,
                 "image": "Walls"
@@ -535,6 +544,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_10 / 25",
                 "surface_px": 111100.0,
                 "surface_m2": 44.44,
                 "image": "Walls"
@@ -678,6 +688,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_11 / 25",
                 "surface_px": 25064.0,
                 "surface_m2": 10.0256,
                 "image": "Walls"
@@ -729,6 +740,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_12 / 25",
                 "surface_px": 105950.0,
                 "surface_m2": 42.38,
                 "image": "Walls"
@@ -780,6 +792,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_13 / 25",
                 "surface_px": 19875.0,
                 "surface_m2": 7.95,
                 "image": "Walls"
@@ -831,6 +844,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_14 / 25",
                 "surface_px": 9264.0,
                 "surface_m2": 3.7056,
                 "image": "Walls"
@@ -882,6 +896,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_15 / 25",
                 "surface_px": 20709.0,
                 "surface_m2": 8.2836,
                 "image": "Walls"
@@ -933,6 +948,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_16 / 25",
                 "surface_px": 6312.0,
                 "surface_m2": 2.5248,
                 "image": "Walls"
@@ -984,6 +1000,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_17 / 25",
                 "surface_px": 435858.0,
                 "surface_m2": 174.3432,
                 "image": "Walls"
@@ -1035,6 +1052,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_18 / 25",
                 "surface_px": 214500.0,
                 "surface_m2": 85.8,
                 "image": "Walls"
@@ -1094,6 +1112,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_19 / 25",
                 "surface_px": 89927.0,
                 "surface_m2": 35.9708,
                 "image": "Walls"
@@ -1145,6 +1164,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_20 / 25",
                 "surface_px": 19875.0,
                 "surface_m2": 7.95,
                 "image": "Walls"
@@ -1196,6 +1216,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_21 / 25",
                 "surface_px": 427904.5,
                 "surface_m2": 171.1618,
                 "image": "Walls"
@@ -1331,6 +1352,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_22 / 25",
                 "surface_px": 46921.5,
                 "surface_m2": 18.7686,
                 "image": "Walls"
@@ -1398,6 +1420,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_23 / 25",
                 "surface_px": 45058.0,
                 "surface_m2": 18.0232,
                 "image": "Walls"
@@ -1465,6 +1488,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_24 / 25",
                 "surface_px": 325438.0,
                 "surface_m2": 130.1752,
                 "image": "Walls"
@@ -1516,6 +1540,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_25 / 25",
                 "surface_px": 1539466.0,
                 "surface_m2": 615.7864,
                 "image": "Walls"
