@@ -209,7 +209,7 @@ def generer_pieces_image_et_geojson(file_name, binary_images_dir, metadatas_dir,
     compteur_pieces = 0
 
     # Parcours des contours hiérarchiques pour colorer uniquement les pièces assez grandes
-    for i, contour in enumerate(contours_hierarchy_morph):
+    for contour in contours_hierarchy_morph:
         # Calcul de la surface de chaque contour
         surface = cv2.contourArea(contour)
 
@@ -250,7 +250,7 @@ if __name__ == "__main__":
     rooms_contours_geojson_dir = Path("05_rooms_contours_geojson")
 
     for directory in [processed_dir, binary_images_dir, metadatas_dir, contours_images_dir, rooms_contours_geojson_dir]:
-        directory.mkdir(exist_ok=True)
+        directory.mkdir(parents=True, exist_ok=True)
 
     ### ETAPE 1 : Nettoyage et uniformisation des données d'entrée (geojson) en segments + Chargement des segments ###
     files_names = []
@@ -284,7 +284,7 @@ if __name__ == "__main__":
     method_choice = 'gaussian'
 
     # Génération des images avec le DPI et épaisseur des traits choisis
-    for segment, file_name in zip(segments, files_names):
+    for i, segment, file_name in zip(range(len(segments)), segments, files_names):
         generate_binary_image(
             segment,
             transform_parameters[i],
