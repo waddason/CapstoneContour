@@ -231,9 +231,9 @@ def plot_GeometryCollection(
 ####################################################################################################
 if __name__ == "__main__":
     """Clean the geojson file to extract the segments."""
-    data_dir = Path("input_geojson")
-    output_dir = Path("preprocessed_geojson")
-    for filepath in data_dir.iterdir():
+    input_dir = Path("00_input_geojson")
+    output_dir = Path("01_processed_geojson")
+    for filepath in input_dir.iterdir():
         out_file = output_dir / f"{filepath.stem}_clean.geojson"
         clean_geojson_to_segments_and_save(filepath, out_file)
 
