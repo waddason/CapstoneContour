@@ -4,6 +4,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "room_1 / 1",
                 "surface_px": 6924.0,
                 "surface_m2": 2.7696,
                 "image": "Output7"

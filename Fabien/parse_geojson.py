@@ -92,7 +92,7 @@ def load_GeometryCollection_from_geojson(filepath: Path) -> GeometryCollection:
 def clean_geojson_to_segments_and_save(filepath: Path, output_filepath: Path):
     """Load the geojson file, offset the map and reduce to meters, then
     extract the segments and save the segments in a new geojson file."""
-    print(f"Cleaning {filepath} to {output_filepath}")
+    #print(f"Cleaning {filepath} to {output_filepath}")
     geom_col, transform_parameters = load_geojson(filepath)
     segments_list = extract_segments(geom_col)
 
@@ -176,9 +176,9 @@ def extract_segments(geom_col: GeometryCollection) -> list[LineString]:
             raise ValueError(f"Geometry type {type(geom)} not supported.")
 
     # Remove duplicates
-    print(f"\t{len(segments)} segments extracted")
+    #print(f"\t{len(segments)} segments extracted")
     segments = list(set(segments))
-    print(f"\t{len(segments)} unique segments")
+    #print(f"\t{len(segments)} unique segments")
 
     return segments
 
