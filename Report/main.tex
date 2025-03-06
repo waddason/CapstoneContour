@@ -101,7 +101,14 @@ After a first phase of data cleaning we have focused on two different paths to s
 Text of the subsection.
 
 \subsection{The results}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/Output6_contours_image.png}
 
+    \caption{Example of the results obtained with image segmentation, each room 
+    should be in a different color.}
+    \label{fig:result_segmentation}
+\end{figure}
 \section{Conclusion}
 \textit{Summarize and discuss the main findings. What are the limitations?\\
 Are the experiments conclusive? With more time, what else would you have tried?}
@@ -113,8 +120,17 @@ Since then, we have been working remotely in a smooth way, meeting with
 Vinci/Diane at the beginning of each Thursday afternoon. We were using a shared 
 git repository to share our code and results\footnote{Private: https://github.com/waddason/CapstoneContour}.
 
-After a first quick diverging phase where every one has tried different methods and
-dug into the data, we have split in teams of two to focus on two paths described in \cref{sec:methods}. 
+Tristan took care of the global information management process and organized the
+relations with Vinci. After a first quick diverging phase where every one has 
+tried different methods and dug into the data,  we have split in teams of two 
+to focus on two paths described in \cref{sec:methods}. 
+\begin{itemize}
+    \item Tristan handled the initial data cleaning, then worked with Maha on 
+    the geometric process.
+    \item Abdoul explored first the computer vision path and Fabien made the 
+    breakthrough in the results with the image segmentation.
+\end{itemize}
+
 
 
 % Automatic bibliography form references.bib
