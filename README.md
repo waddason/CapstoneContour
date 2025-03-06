@@ -65,15 +65,16 @@ git checkout -b maBranche
         - @Fabien, essayer GPTo 👀
         - @Maha/@Tristan, poursuivre le traitement vectoriel ⿻ et préparer nouveau format
         - @Abdoul, poursuivre l'entrainement segmentation
-    - GPT4 fonctionne bien avec cv.contourArea
+    - GPT4 fonctionne bien avec cv.contourArea 🎉
 
 - **Jeudi 6 mars**: 📍
     - 13h30: Point de situation avec Vinci
-    - réception des donnés labellisées
+    - réception des donnés labellisées ✅
 
 - **Jeudi 13 mars**
 
 - **Jeudi 20 mars** 📑
    -  Rapport 5 pages + annexes
+
 -  **fin mars** : 🎤
     - Soutnance à l'école Polytechnique + zoom pour mentors

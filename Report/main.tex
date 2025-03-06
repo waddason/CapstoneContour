@@ -26,56 +26,121 @@
 \begin{center}
 \textbf{Contour detection} \\
 Fabien Lagnieu, Maha Kadraoui, Tristan Waddington, Abdoul Zeba\\
-\textbf{Mentor:} Stéphane Maviel(Vinci/Diane) \\\vspace{2em}
+\textbf{Mentor:} Stéphane Maviel (CEO Vinci/Diane\footnote{Diane is Vinci's inside Startup tasked to find numerical solutions
+to ease the work of Vinci collaborators.}) \\\vspace{2em}
 \textbf{\Large }
 \end{center}
 \vspace{-1cm}
 
-This is a latex template for your report. Your report should fit in 5 pages  excluding references and appendices and summarize your main findings and process of thoughts. It should be self-contained, and you should not modify the template. . You can use appendices for additional figures and details, provide explanation of parallel tracks you gave up etc.
+Architects are drawing floor plans using a CAD software. These files are used
+by engineers to plan and conduct the construction of the building. In this process,
+additional measures are needed such as the room size or adjacency. The goal of 
+this project is to develop a tool that can automatically detect the contours of 
+the rooms in the floor plan and draw it back into their CAD software. 
 
-\section{Context}
-\textit{What is the question to be answered? Why is it important for the mentor?\\
-Present briefly the dataset (type of data, dimensionality, what else is notable?)}
-
-\section{Methods}
-\label{sec:methods}
-\textit{Which methods did you try or could you have tried?\\
-Which one did you choose and why?}\\\\
-Include references if you use a non-standard method \cite{pml1Book}. The corresponding entry is defined in the file \texttt{references.bib}. Do no cite textbooks, \cite{pml1Book} is just an example. 
-
-\section{Results}
-\textit{Provide convincing plots/tables to support your conclusions.\\
-Justify the metrics you have used to compare methods/assess performance.}
-
-\subsection{An example of subsection}
-Text of the subsection.
-
-\paragraph{An example of paragraph header} 
-Begining of the paragraph, where you could refer to \cref{fig:my_label} and previous \cref{sec:methods}, or point to additional details in \cref{app:sec:details}.
-
+% This is a latex template for your report. Your report should fit in 5 pages  excluding references and appendices and summarize your main findings and process of thoughts. It should be self-contained, and you should not modify the template. . You can use appendices for additional figures and details, provide explanation of parallel tracks you gave up etc.
 \begin{figure}[h]
     \centering
+    \includegraphics[width=0.1\textwidth]{figures/Diane.png}
+    \hspace{0.1\textwidth}
+    \includegraphics[width=0.3\textwidth]{figures/logo_vinci.png}
+    \hspace{0.1\textwidth}
     \includegraphics[width=0.1\textwidth]{figures/ipparis.png}
-    \hspace{0.2\textwidth}
-    \includegraphics[width=0.1\textwidth]{figures/ipparis.png}
-    \caption{Example figure with example spacing and caption: Left, ipp paris logo. Right, ipp paris logo.}
+
+    %\caption{Example figure with example spacing and caption: Left, ipp paris logo. Right, ipp paris logo.}
     \label{fig:my_label}
 \end{figure}
 
+\section{Context}
+Vinci's engineers are dealing with a different floor plan for every project they are working on.
+Every plan has its own drawing style and the contours of the rooms are often mixed with other
+lines, but they need this information to plan the location of smoke detectors, fire extinguishers,
+and other facilities in the building. The goal of this project is to develop a tool that can
+automatically detect the contours of the rooms in the floor plan and draw back the polygons in the CAD software as 
+a vector layer for further automatic processing. 
+Diane's teams have already worked on this problem and developed a first version of the tool
+that is too slow and not accurate enough. They are looking for other approaches
+to improve it.
+% \textit{What is the question to be answered? Why is it important for the mentor?\\
+% Present briefly the dataset (type of data, dimensionality, what else is notable?)}
+\paragraph{Datasets}
+We were given examples of GeoJson\footnote{The current standard for GeoJson format was 
+published in August 2016 by the Internet Engineering Task Force (IETF), 
+in \href{https://datatracker.ietf.org/doc/html/rfc7946}{RFC 7946}.} exports of CAD plans. The first dataset was 
+composed of 9 GeoJson exports of floor plans :
+the geometric description of the drawing lines. 
+The second dataset exported the floor plans of 5 whole buildings, including width of walls, and
+the contours of the actual rooms as a target.
+
+
+\section{Methods}
+\label{sec:methods}
+
+% \textit{Which methods did you try or could you have tried?\\
+% Which one did you choose and why?}\\\\
+% Include references if you use a non-standard method \cite{pml1Book}. The corresponding entry is defined in the file \texttt{references.bib}. Do no cite textbooks, \cite{pml1Book} is just an example. 
+\label{sec:methods}
+After a first phase of data cleaning we have focused on two different paths to solve the problem:
+
+\begin{enumerate}
+    \item \textbf{Geometric process} Transform the list of lines into a graph and 
+    construct polygons \cite{Schafer2011AutomaticGO} then cluster the lines to 
+    create the polygons\cite{dominguez2012Semiautomaticdetection}. This path relies on the
+    geometric libraries \texttt{shapely} and \texttt{geopandas}. 
+    \item \textbf{Image segmentation} Using a dense literature review\cite{PIZARRO2022104348}, we 
+    spotted some successful uses of CNNs\cite{ijgi10020097}. This same paper also provides the list
+    of datasets of floor plans as image we can use. Ultimately, this path lead
+    to the segmentation of the floor plans into rooms.
+\end{enumerate}
+
+\section{Results}
+% \textit{Provide convincing plots/tables to support your conclusions.\\
+% Justify the metrics you have used to compare methods/assess performance.}
+
+\subsection{The metric to use}
+Text of the subsection.
+
+\subsection{The results}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/Output6_contours_image.png}
+
+    \caption{Example of the results obtained with image segmentation, each room 
+    should be in a different color.}
+    \label{fig:result_segmentation}
+\end{figure}
 \section{Conclusion}
 \textit{Summarize and discuss the main findings. What are the limitations?\\
 Are the experiments conclusive? With more time, what else would you have tried?}
 
 \paragraph{Organization within the team}
-\textit{How did you share the work among yourselves? (short paragraph, 1/2 page max)}
+%\textit{How did you share the work among yourselves? (short paragraph, 1/2 page max)}
+The project initially started in the office of Vinci/Diane for a brainstorming session.
+Since then, we have been working remotely in a smooth way, meeting with 
+Vinci/Diane at the beginning of each Thursday afternoon. We were using a shared 
+git repository to share our code and results\footnote{Private: https://github.com/waddason/CapstoneContour}.
 
+Tristan took care of the global information management process and organized the
+relations with Vinci. After a first quick diverging phase where every one has 
+tried different methods and dug into the data,  we have split in teams of two 
+to focus on two paths described in \cref{sec:methods}. 
+\begin{itemize}
+    \item Tristan handled the initial data cleaning, then worked with Maha on 
+    the geometric process.
+    \item Abdoul explored first the computer vision path and Fabien made the 
+    breakthrough in the results with the image segmentation.
+\end{itemize}
+
+
+
+% Automatic bibliography form references.bib
 \bibliographystyle{plain}
 \bibliography{references}
 
 \appendix
 
 \newpage
-The appendix does not count towards the 5-page limit. 
+%The appendix does not count towards the 5-page limit. 
 \section{Additional details on X}
 \label{app:sec:details}
 
