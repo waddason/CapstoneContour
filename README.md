@@ -21,7 +21,7 @@ git checkout -b maBranche
     - [ ] quid des poteaux, vides sanitaires, exclusions ?
 3. **Export GeoJson**
     - [X] inverse transform
-    - [ ] Estimation des coordonnées depuis une image
+    - [X] Estimation des coordonnées depuis une image
     - [ ] bonus: label de la pièce avec ML
 
 
@@ -69,12 +69,21 @@ git checkout -b maBranche
 
 - **Jeudi 6 mars**: 📍
     - 13h30: Point de situation avec Vinci
-    - réception des donnés labellisées ✅
+    - réception des donnés labellisées ✅ -> servent de validation pour les modèles
+    - rationaliser les travaux 
+    - @Tristan: metric + pipeline
+    - @Maha: nettoyage des segments
+    - @Abdoul: finaliser modèle de segmentation
+    - @Fabien: déterriorer inputs + appliquer règles métier
+    - @tous: trouver comment fermer les pièces
 
 - **Jeudi 13 mars**
+    - 13h30: Point de situation avec Vinci (Jérôme)
+    - EoD: draft rapport pour Vinci
+
 
 - **Jeudi 20 mars** 📑
    -  Rapport 5 pages + annexes
 
--  **fin mars** : 🎤
+-  **Jeudi 27 mars** : 🎤
     - Soutnance à l'école Polytechnique + zoom pour mentors
