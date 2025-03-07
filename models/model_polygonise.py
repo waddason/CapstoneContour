@@ -1,27 +1,46 @@
 """Models predicting polygons from GeoJson."""
 
-import shapely
+from pathlib import Path
+
 import numpy as np
-from shapely.geometry import LineString, Polygon, MultiPolygon
-from shapely.ops import unary_union, polygonize
-import matplotlib.pyplot as plt
+import shapely
+from shapely.geometry import LineString, MultiPolygon, Polygon
+from shapely.ops import polygonize, unary_union
+
+from utils.parse_geojson import extract_segments
 
 
 # Baseline model
-def predict_poly(x: shapely.GeometryCollection) -> shapely.GeometryCollection:
-    """Return the well defined polygons of the geometry collection."""
-    poly, cut_edges, dangles, invalid = shapely.polygonize_full(x.geoms)
+class predict_poly:
+    """Find rooms in geojson file using basic geometric rules."""
 
-    return poly
+    def __call__(
+        self,
+        x: shapely.GeometryCollection,
+    ) -> shapely.GeometryCollection:
+        return self.predict_poly(x)
+
+    def predict_poly(
+        x: shapely.GeometryCollection,
+    ) -> shapely.GeometryCollection:
+        """Return the well defined polygons of the geometry collection."""
+        poly, cut_edges, dangles, invalid = shapely.polygonize_full(x.geoms)
+
+        return poly
 
 
 # Made by Maha, from the segments
 
 
 class SegmentBasedClustering:
-    def __init__(self, segments):
-        self.segments = segments
+    """Find rooms in geojson file using geometric rules."""
+
+    def __init__(self, min_room_area=1.0, max_room_area=1000.0):
+        self.min_room_area = min_room_area
+        self.max_room_area = max_room_area
+        self.segments = None
         self.rooms = None
+        self.__name__ = "SegmentBasedClustering"
 
     def find_closed_paths(self):
         """Identifie les chemins fermés formés par les segments."""
@@ -122,15 +141,16 @@ class SegmentBasedClustering:
                 modified = True
                 break
 
-    def fit(self, min_room_area=1.0, max_room_area=1000.0):
+    def fit(self, X, y):
         """Exécute l'algorithme complet de détection des pièces."""
+        self.segments = X
         self.rooms = self.find_closed_paths()
 
         if not self.rooms:
             print("Aucune pièce fermée n'a été trouvée")
             return []
 
-        self.rooms = self.filter_rooms(min_room_area, max_room_area)
+        self.rooms = self.filter_rooms(self.min_room_area, self.max_room_area)
 
         if not self.rooms:
             print("Aucune pièce ne correspond aux critères de taille")
@@ -138,3 +158,30 @@ class SegmentBasedClustering:
 
         self.merge_small_rooms()
         return self.rooms
+
+    def predict(
+        self, geometry_collection: shapely.GeometryCollection
+    ) -> shapely.GeometryCollection:
+        """Exécute l'algorithme complet de détection des pièces."""
+        self.segments = extract_segments(geometry_collection)
+        self.rooms = self.find_closed_paths()
+
+        if not self.rooms:
+            print("SBC: Aucune pièce fermée n'a été trouvée")
+            return None
+
+        self.rooms = self.filter_rooms(self.min_room_area, self.max_room_area)
+
+        if not self.rooms:
+            print("SBC: Aucune pièce ne correspond aux critères de taille")
+            return None
+
+        self.merge_small_rooms()
+        return shapely.GeometryCollection(self.rooms)
+
+    def __call__(
+        self,
+        geometry_collection: shapely.GeometryCollection,
+    ) -> shapely.GeometryCollection:
+        """Predict polygons from the geometry collection."""
+        return self.predict(geometry_collection)
