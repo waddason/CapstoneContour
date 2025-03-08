@@ -125,6 +125,42 @@ def supprimer_polygone_le_plus_long(contours):
     contours.pop(index_max)
     return contours
 
+def supprimer_murs_par_squelettisation(contours, img, murs_seuil_epaisseur=10, murs_seuil_connexite=0.005):
+    """
+    Supprime les murs en analysant leur épaisseur et leur connexion.
+    - murs_seuil_epaisseur : Largeur moyenne du contour à partir de laquelle on considère un mur.
+    - murs_seuil_connexite : Pourcentage de pixels connectés nécessaires pour considérer un contour comme un mur.
+    """
+    contours_filtres = []
+    
+    # Appliquer une squelettisation de l'image pour réduire les murs à des lignes fines
+    skeleton = cv2.ximgproc.thinning(img)
+    
+    for contour in contours:
+        surface = cv2.contourArea(contour)
+        perimetre = cv2.arcLength(contour, True)
+
+        if perimetre > 0:
+            # Épaisseur moyenne = Surface / Périmètre (distance moyenne entre les bords)
+            epaisseur_moyenne = surface / perimetre
+            
+            # Détection des murs connectés en comparant avec la squelettisation
+            masque = np.zeros_like(img)
+            cv2.drawContours(masque, [contour], -1, 255, thickness=cv2.FILLED)
+            nb_pixels_connectes = np.count_nonzero(skeleton & masque)
+            ratio_connexite = nb_pixels_connectes / np.count_nonzero(masque)
+
+            # Suppression si c'est un mur épais et très connecté
+            if epaisseur_moyenne < murs_seuil_epaisseur and ratio_connexite > murs_seuil_connexite:
+                continue  # On ignore ce contour (mur détecté)
+            
+            # Sinon, on le garde
+            contours_filtres.append(contour)
+
+    print(f"🛠️ Suppression des murs : {len(contours) - len(contours_filtres)} contours supprimés.")
+    return contours_filtres
+
+
 # Fonction pour convertir les contours en format GeoJSON avec échelle et transformation
 def contours_to_geojson(contours, image_name, hauteur_totale, surface_minimale, x_offset, y_offset, scale_factor, dpi_scale, rooms_contours_geojson_dir):   
     # Structure GeoJSON
@@ -175,7 +211,8 @@ def contours_to_geojson(contours, image_name, hauteur_totale, surface_minimale, 
     print(f"GeoJSON avec échelle enregistré : {output_path}\n")
 
 # Fonction principale pour générer les pièces et exporter en GeoJSON
-def generer_pieces_image_et_geojson(file_name, binary_images_dir, metadatas_dir, contours_images_dir=Path("04_contours_images"), rooms_contours_geojson_dir=Path("05_rooms_contours_geojson"), surface_minimale=5000):
+def generer_pieces_image_et_geojson(file_name, binary_images_dir, metadatas_dir, contours_images_dir=Path("04_contours_images"), rooms_contours_geojson_dir=Path("05_rooms_contours_geojson"), surface_minimale=5000, murs_seuil_epaisseur=10, 
+        murs_seuil_connexite=0.01):
     # Charger les paramètres de transformation
     image_path = binary_images_dir / f"{file_name}_binary_image.png"
     metadata_path = metadatas_dir / f"{file_name}_metadata.json"
@@ -201,6 +238,14 @@ def generer_pieces_image_et_geojson(file_name, binary_images_dir, metadatas_dir,
 
     # Suppression du polygone avec la longueur maximale (murs extérieurs)
     contours_hierarchy_morph = supprimer_polygone_le_plus_long(contours_hierarchy_morph)
+
+    # Suppression des murs via analyse d'épaisseur et connexité
+    contours_hierarchy_morph = supprimer_murs_par_squelettisation(
+        contours_hierarchy_morph, 
+        binary_improved,  # Image binaire traitée
+        murs_seuil_epaisseur=murs_seuil_epaisseur, 
+        murs_seuil_connexite=murs_seuil_connexite
+    )
 
     # Réinitialisation de l'image couleur pour la coloration
     color_img_area = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
@@ -276,7 +321,7 @@ if __name__ == "__main__":
     
     # Paramètres pour la génération des images
     dpi_choice = 50  # Changer la résolution ici (ex: 30, 50, 100...)
-    thickness_choice = 3  # Épaisseur des lignes en pixels (impair de préférence)
+    thickness_choice = 9  # Épaisseur des lignes en pixels (impair de préférence)
     scale = dpi_choice  # 1m = dpi_choice pixels
 
     # Méthode de dilatation ('ellipse', 'cross', 'gaussian' 
@@ -298,13 +343,20 @@ if __name__ == "__main__":
 
     ### ETAPE 3 : Détection des contours des pièces et export de l'image colorée + GeoJSON ###
 
+    surface_minimale=3 # surface minimale en m²
+    surface_minimale_pixels = surface_minimale * (dpi_choice**2)  # Conversion en pixels
+    murs_seuil_epaisseur=100 # Seuil d'épaisseur pour les murs
+    murs_seuil_connexite=0.01 # Seuil de connexité pour les murs
+
     for file_name in files_names:
-        generer_pieces_image_et_geojson(
+        ccg.generer_pieces_image_et_geojson(
             file_name,
             binary_images_dir,
             metadatas_dir,
             contours_images_dir,
             rooms_contours_geojson_dir,
-            surface_minimale=4000
-        )
+            surface_minimale=surface_minimale_pixels,
+            murs_seuil_epaisseur=murs_seuil_epaisseur,
+            murs_seuil_connexite=murs_seuil_connexite
+    )
 
