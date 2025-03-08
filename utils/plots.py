@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import shapely
 from matplotlib.lines import Line2D
 
-import parse_geojson as pg
+import utils.parse_geojson as pg
 
 
 def try_to_polygonize(file: Path, outsize: int = 20) -> plt:
@@ -21,7 +21,7 @@ def try_to_polygonize(file: Path, outsize: int = 20) -> plt:
     """
     assert Path.exists(file), "Invalid index for geojson file."
 
-    gc = pg.load_GeometryCollection_from_geojson(file)
+    gc = pg.load_geometrycollection_from_geojson(file)
     poly, cut_edges, dangles, invalid = shapely.polygonize_full(gc.geoms)
 
     # Convert each variable to a GeoSeries
@@ -56,3 +56,58 @@ def try_to_polygonize(file: Path, outsize: int = 20) -> plt:
     ax.set_title(file.parent)
     plt.show()
     print(f"{poly_series.shape[0]} polygons detected")
+
+
+def plot_score(model: callable, sample_folder: Path, metric: callable) -> plt:
+    """Plot the score on a specific sample.
+
+    Args:
+    ----
+    model: a instance of a geometry collection prediction model.
+        The model that will make the prediction on the given files.
+    sample_folder: Path
+        the folder containing Spaces and Walls GeoJson files.
+    metric: callable
+
+    """
+    fig, axs = plt.subplots(1, 3, layout="constrained")
+
+    # Walls
+    x = pg.load_geometrycollection_from_geojson(
+        sample_folder / "Walls.geojson",
+    )
+    x_df = gpd.GeoDataFrame(
+        x.geoms,
+        columns=["geometry"],
+    ).reset_index()
+    x_df.plot(ax=axs[0], alpha=0.5, column="index", edgecolor="black")
+    axs[0].set_title("Walls")
+
+    # Predictions
+    y_pred = model(x)
+
+    y_pred_df = gpd.GeoDataFrame(
+        y_pred.geoms,
+        columns=["geometry"],
+    ).reset_index()
+    y_pred_df.plot(ax=axs[1], alpha=0.5, column="index", edgecolor="black")
+    axs[1].set_title("Prediction")
+
+    # Ground Truth
+    axs[2].set_title("Ground truth")
+    geoms_true = pg.load_geometrycollection_from_geojson(
+        sample_folder / "Spaces.geojson",
+    )
+    gpd.GeoSeries(geoms_true).plot(ax=axs[2], alpha=0.5)
+
+    # Ensure the same bounds
+    axs[1].set_xlim(axs[2].get_xlim())
+    axs[1].set_ylim(axs[2].get_ylim())
+    axs[0].set_xlim(axs[2].get_xlim())
+    axs[0].set_ylim(axs[2].get_ylim())
+    # Display the score in the title
+    score = metric(geoms_true.geoms, y_pred.geoms)
+    plt.suptitle(
+        f"Prediction score: {score:.3f}, {len(y_pred.geoms)} rooms found."
+    )
+    return plt

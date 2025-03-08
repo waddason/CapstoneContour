@@ -12,7 +12,7 @@ import numpy as np
 import shapely
 from scipy.optimize import linear_sum_assignment
 
-import parse_geojson as pg
+import utils.parse_geojson as pg
 
 
 ###############################################################################
@@ -141,8 +141,8 @@ def score_model(model: callable, data_folder: Path, metric: callable) -> float:
             and (subfolder / ground_truth_file).exists()
         ):
             # Load the geometries
-            x = pg.load_GeometryCollection_from_geojson(subfolder / x_file)
-            geoms_true = pg.load_GeometryCollection_from_geojson(
+            x = pg.load_geometrycollection_from_geojson(subfolder / x_file)
+            geoms_true = pg.load_geometrycollection_from_geojson(
                 subfolder / ground_truth_file,
             )
             # Compute prediction
@@ -189,8 +189,8 @@ def test_model_on_sample(
         raise ValueError(msg)
 
     # Load the geometries
-    x = pg.load_GeometryCollection_from_geojson(sample_folder / x_file)
-    geoms_true = pg.load_GeometryCollection_from_geojson(
+    x = pg.load_geometrycollection_from_geojson(sample_folder / x_file)
+    geoms_true = pg.load_geometrycollection_from_geojson(
         sample_folder / ground_truth_file,
     )
     # Compute prediction

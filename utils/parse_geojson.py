@@ -1,9 +1,9 @@
 """Parse the geojson files to extract the segments.
 
 Manipulate GeometryCollection from shapely
-@Version: 0.1
+@Version: 0.2
 @Project: Capstone Vinci Contour Detection
-@Date: 2025-01-25
+@Date: 2025-03-07
 @Author: Tristan Waddington (GitHub:waddason)
 """
 

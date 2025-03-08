@@ -1,8 +1,8 @@
 """Parse the geojson function to detect the contours of the pieces.
 
-@Version: 0.1
+@Version: 0.2
 @Project: Capstone Vinci Contour Detection
-@Date: 2025-01-25
+@Date: 2025-03-06
 @Author: Fabien Lagnieu, Tristan Waddington
 """
 
@@ -26,21 +26,46 @@ class CVSegmentation:
     """Find rooms in GeometryCollection using CV segmentation."""
 
     def __init__(
-        self, dpi: int = 50, thickness: int = 7, dilatation_method="gaussian"
+        self,
+        dpi: int = 50,
+        thickness: int = 7,
+        dilatation_method: str = "gaussian",
+        surf_min: int = 1,
+        surf_max: int = 5_000,
     ) -> "CVSegmentation":
-        """Find rooms in GeometryCollection."""
+        """Find rooms in GeometryCollection using CV segmentation.
+
+        Args:
+        ----
+        dpi: int
+            number of pixel to represent 1m in image. Default to 50.
+        thickness: int
+            number of pixels to draw walls and compute dilatation. Will be
+            rounded to the next odd integer.
+            Default to 7.
+        dilatation_method: str
+            name of the dilatation method to use. Choose from ["gaussian",
+            "ellipse", "cross"]. Default to "gaussian", as more efficient on
+            curves.
+        surf_min: int
+            The minimum square meter of the detected rooms. Deflaut to 1m^2.
+        surf_max: int
+            The maximum square meter of the detected rooms. Deflaut to 5000m^2.
+        """
         # Paramètres pour la génération des images
         self.dpi = dpi  # Changer la résolution ici (ex: 30, 50, 100...)
         # Épaisseur des lignes en pixels (impair de préférence)
         self.thickness = thickness if thickness % 2 else thickness + 1
-        # 1m = dpi_choice pixels
-        # Méthode de dilatation ('ellipse', 'cross', 'gaussian')
-        # -> gaussien est plus efficace pour l'épaississement des traits
-        # obliques et courbes)/
         self.dilation_method = dilatation_method
+        # Transform the surfaces into number of pixels
+        self.surf_min = surf_min * self.dpi * self.dpi
+        self.surf_max = surf_max * self.dpi * self.dpi
 
         # Class constants
-        self.__name__ = f"CVSegmentation(dpi:{self.dpi}, thickness:{self.thickness}, dilatation:{self.dilation_method}"
+        self.__name__ = (
+            f"CVSegmentation(dpi:{self.dpi}, thickness:"
+            f"{self.thickness}, dilatation:{self.dilation_method}"
+        )
         self.BLACK: int = 0  # cv2 color
         self.kernels_dic = {
             "ellipse": cv2.getStructuringElement(
@@ -94,7 +119,11 @@ class CVSegmentation:
 
         return self.polygons
 
-    def __call__(self, x):
+    def __call__(self, x) -> shapely.GeometryCollection:
+        """Call predict."""
+        if type(x) is not shapely.GeometryCollection:
+            msg = "This model handles only shapely.GeometryCollection."
+            raise ValueError(msg)
         return self.predict(x, draw_image=False)
 
     def generate_binary_image(self) -> None:
@@ -139,7 +168,7 @@ class CVSegmentation:
         return img
         # return Image.fromarray(img)
 
-    def find_contours(self, surf_min: int = 5000) -> list:
+    def find_contours(self) -> list:
         """Find and create polygons."""
         # image preprocessing
         # 1. morphology closing
@@ -185,25 +214,31 @@ class CVSegmentation:
                 method=cv2.CHAIN_APPROX_SIMPLE,
             )[0],
         )
-        # print("Debug, contour hierarchy morph")
-        # print(contours_hierarchy_morph[:2])
-        # 3. Filter out too small polygons
-        contours_hierarchy_morph = filtrer_par_surface(
-            contours_hierarchy_morph,
-            surf_min,
-        )
-        # 4. Suppress the outpolygon (biggest one)
-        contours_hierarchy_morph = supprimer_polygone_le_plus_long(
-            contours_hierarchy_morph,
-        )
-        return contours_hierarchy_morph
+        # filter out polygons
+        return self.filter_out_polygons(contours_hierarchy_morph)
 
-    def draw_contours(self):
+    def filter_out_polygons(
+        self, contours_list: list[np.array]
+    ) -> list[np.array]:
+        """Filter out unwanted polygons with expert rules."""
+        # print(contours_hierarchy_morph[:2])
+        # 1. Remove the too small
+        # 3. Remove the ones touching borders of images
+        keep_contours = []
+        for contour in contours_list:
+            area = cv2.contourArea(contour)
+            touch_border = False
+            if self.surf_min <= area <= self.surf_max and not touch_border:
+                keep_contours.append(contour)
+
+        return keep_contours
+
+    def draw_contours(self) -> np.ndarray:
         """Draw the contours on a color image."""
         if not self.contours:
             msg = "No contour to draw on plan."
             raise ValueError(msg)
-        # Init a color image
+        # Init a color image from the walls
         color_img_area = cv2.cvtColor(self.binary, cv2.COLOR_GRAY2BGR)
         # Draw contours
         rng = np.random.default_rng(seed=1)
