@@ -218,11 +218,11 @@ class SAMSegmentation:
         masks = self.get_sam_masks()
         # Find contours
         contours = []
-        for j in range(len(self.masks)):
-            mask = self.masks[j]['segmentation']
+        for j in range(len(masks)):
+            mask = masks[j]['segmentation']
             mask = mask.astype(np.uint8)
             contour = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-            contours.append(contour[0])
+            contours.append(contour[0][0])
         return contours
 
     def filter_out_polygons(
