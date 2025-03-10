@@ -170,6 +170,8 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
+# Mac os files
+.DS_Store
 
 # LaTeX auxiliary files
 *.aux
