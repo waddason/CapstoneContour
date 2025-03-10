@@ -230,18 +230,11 @@ def extract_segments(geom_col: GeometryCollection) -> list[LineString]:
         elif isinstance(geom, LineString):
             segments.extend(_extract_segments_from_LineString(geom))
         else:
-            raise ValueError(f"Geometry type {type(geom)} not supported.")
+            msg = f"Geometry type {type(geom)} not supported."
+            raise TypeError(msg)
 
     # Remove duplicates
-    tot_segments = len(segments)
-    segments = list(set(segments))
-    unique_segments = len(segments)
-    # print(
-    #     f"Extract {unique_segments} unique segments "
-    #     f"({tot_segments - unique_segments} duplicates)",
-    # )
-
-    return segments
+    return list(set(segments))
 
 
 def _sort_points(p1, p2):
@@ -300,6 +293,7 @@ def save_as_geojson(
     transform_parameters: tuple[float, float, float] (min_x, min_y, factor)
         The parameters used by _offset_reduce_GeometryCollection to transform
         the geometry for future inverse transform.
+        DEPRECATED
     filepath: Path
         The path to save the geojson file.
 
@@ -327,6 +321,37 @@ def plot_GeometryCollection(
     fig, ax = plt.subplots(figsize=figsize)
     gs.plot(ax=ax, **kwargs)
     plt.show()
+
+
+def export_to_geojson(geom_col: GeometryCollection, filepath: Path) -> None:
+    """Save the GeometryCollection as a GeoJson file.
+
+    Args:
+    ----
+    geom_col: GeometryCollection
+        The geometry collection to save.
+    filepath: Path
+        The path to save the geojson file.
+
+    """
+    # Include the GeometryCollection in a FeatureCollection to mimic the output
+    # from AutoCAD
+    header = '{"type":"FeatureCollection","features": ['
+    footer = "]}"
+    geojson_data = ""
+    feature_head = '{"type": "Feature", "geometry":'
+    feature_tail = ',"properties":{}},'
+    for feature in geom_col.geoms:
+        geojson_data += (
+            feature_head
+            + shapely.to_geojson(feature, OUTPUT_GEOJSON_INDENT)
+            + feature_tail
+        )
+    # Write file on disk
+    with Path.open(filepath, "w") as f:
+        f.write(header)
+        f.write(geojson_data[:-1])  # Remove trailing comma
+        f.write(footer)
 
 
 ###############################################################################

@@ -1,4 +1,11 @@
-"""Generate plots."""
+"""Generate plots from Geometries.
+
+Manipulate GeometryCollection from shapely
+@Version: 0.2
+@Project: Capstone Vinci Contour Detection
+@Date: 2025-03-07
+@Author: Tristan Waddington (GitHub:waddason)
+"""
 
 from pathlib import Path
 
@@ -19,7 +26,9 @@ def try_to_polygonize(file: Path, outsize: int = 20) -> plt:
     - dangles: edges connected on one end but not part of polygonal output
     - invalid rings: polygons formed but which are not valid
     """
-    assert Path.exists(file), "Invalid index for geojson file."
+    if not Path.exists(file):
+        error_message = f"GeoJSON file not found: {file}"
+        raise FileNotFoundError(error_message)
 
     gc = pg.load_geometrycollection_from_geojson(file)
     poly, cut_edges, dangles, invalid = shapely.polygonize_full(gc.geoms)
@@ -34,7 +43,9 @@ def try_to_polygonize(file: Path, outsize: int = 20) -> plt:
     fig, ax = plt.subplots(figsize=(outsize, outsize))
     if not poly.is_empty:
         poly_series.boundary.plot(
-            ax=ax, color="darkblue", label="Polygon Boundaries"
+            ax=ax,
+            color="darkblue",
+            label="Polygon Boundaries",
         )
         poly_series.plot(ax=ax, color="blue", label="Polygons", alpha=0.2)
     if not cut_edges.is_empty:
@@ -98,7 +109,9 @@ def plot_score(model: callable, sample_folder: Path, metric: callable) -> plt:
     geoms_true = pg.load_geometrycollection_from_geojson(
         sample_folder / "Spaces.geojson",
     )
-    gpd.GeoSeries(geoms_true).plot(ax=axs[2], alpha=0.5)
+    gpd.GeoSeries(geoms_true.geoms).reset_index().plot(
+        ax=axs[2], column="index", edgecolor="black", alpha=0.5
+    )
 
     # Ensure the same bounds
     axs[1].set_xlim(axs[2].get_xlim())
@@ -108,6 +121,6 @@ def plot_score(model: callable, sample_folder: Path, metric: callable) -> plt:
     # Display the score in the title
     score = metric(geoms_true.geoms, y_pred.geoms)
     plt.suptitle(
-        f"Prediction score: {score:.3f}, {len(y_pred.geoms)} rooms found."
+        f"Prediction score: {score:.3f}, {len(y_pred.geoms)} rooms found.",
     )
     return plt

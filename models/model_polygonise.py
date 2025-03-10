@@ -8,6 +8,7 @@ from shapely.geometry import LineString, MultiPolygon, Polygon
 from shapely.ops import polygonize, unary_union
 
 from utils.parse_geojson import extract_segments
+from utils.preprocess_segments import complete_preprocessing
 
 
 # Baseline model
@@ -35,9 +36,15 @@ class predict_poly:
 class SegmentBasedClustering:
     """Find rooms in geojson file using geometric rules."""
 
-    def __init__(self, min_room_area=1.0, max_room_area=1000.0):
+    def __init__(
+        self,
+        min_room_area=1.0,
+        max_room_area=1000.0,
+        clean_segments: bool = False,
+    ):
         self.min_room_area = min_room_area
         self.max_room_area = max_room_area
+        self.clean_segments = clean_segments
         self.segments = None
         self.rooms = None
         self.__name__ = "SegmentBasedClustering"
@@ -160,10 +167,15 @@ class SegmentBasedClustering:
         return self.rooms
 
     def predict(
-        self, geometry_collection: shapely.GeometryCollection
+        self,
+        geometry_collection: shapely.GeometryCollection,
     ) -> shapely.GeometryCollection:
         """Exécute l'algorithme complet de détection des pièces."""
         self.segments = extract_segments(geometry_collection)
+
+        if self.clean_segments:
+            self.segments = complete_preprocessing(self.segments)
+
         self.rooms = self.find_closed_paths()
 
         if not self.rooms:
