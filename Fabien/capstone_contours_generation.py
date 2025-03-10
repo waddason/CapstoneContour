@@ -117,48 +117,90 @@ def calculer_longueur_contours(contours):
 def filtrer_par_surface(contours, surface_minimale):
     return [contour for contour in contours if cv2.contourArea(contour) >= surface_minimale]
 
-# Fonction pour supprimer le polygone ayant le périmètre le plus long -> murs extérieurs
-def supprimer_polygone_le_plus_long(contours):
-    longueurs = calculer_longueur_contours(contours)
-    index_max = np.argmax(longueurs)
-    #print(f"Suppression du polygone le plus long (murs extérieurs) avec une longueur de : {longueurs[index_max]} pixels")
-    contours.pop(index_max)
-    return contours
+# Fonction pour détecter et supprimer le polygone sucetibles d'être des murs
+def detecter_et_filtrer_murs(contours, img, dpi=50, epaisseur_min_m=0.5, epsilon_ratio=0.01):
+    """
+    Détection et filtrage des contours de murs :
+    
+    Étapes :
+    1️⃣ Supprimer le contour avec le périmètre le plus long
+    2️⃣ Supprimer les contours dont le périmètre dépasse le périmètre global de l'image
+    3️⃣ Simplifier les contours restants avec approxPolyDP
+    4️⃣ Calculer les épaisseurs et supprimer ceux en dessous du seuil
+    5️⃣ Retourner les contours ORIGINAUX filtrés
+    
+    Paramètres :
+    - dpi : résolution en pixels par mètre
+    - epaisseur_min_m : épaisseur minimale en mètres
+    - epsilon_ratio : pourcentage de tolérance pour approxPolyDP
+    """
+    
+    if len(contours) == 0:
+        print("❗ Aucun contour fourni.")
+        return []
 
-def supprimer_murs_par_squelettisation(contours, img, murs_seuil_epaisseur=10, murs_seuil_connexite=0.005):
-    """
-    Supprime les murs en analysant leur épaisseur et leur connexion.
-    - murs_seuil_epaisseur : Largeur moyenne du contour à partir de laquelle on considère un mur.
-    - murs_seuil_connexite : Pourcentage de pixels connectés nécessaires pour considérer un contour comme un mur.
-    """
-    contours_filtres = []
+    contours_filtres = contours.copy()
+
+    # ➡️ 1. Supprimer le contour le plus long
+    longueurs = [cv2.arcLength(c, True) for c in contours_filtres]
+    index_max = np.argmax(longueurs)
+    perim_max = longueurs[index_max]
+    print(f"➡️ Suppression du contour le plus long : index {index_max}, périmètre {perim_max:.2f}px")
     
-    # Appliquer une squelettisation de l'image pour réduire les murs à des lignes fines
-    skeleton = cv2.ximgproc.thinning(img)
-    
-    for contour in contours:
-        surface = cv2.contourArea(contour)
+    contours_filtres.pop(index_max)
+
+    # # ➡️ 2. Calcul du périmètre global de l'image
+    # h, w = img.shape
+    # perimetre_image = 2 * (w + h)
+
+    contours_apres_perimetre = []
+    for idx, contour in enumerate(contours_filtres):
         perimetre = cv2.arcLength(contour, True)
 
-        if perimetre > 0:
-            # Épaisseur moyenne = Surface / Périmètre (distance moyenne entre les bords)
-            epaisseur_moyenne = surface / perimetre
-            
-            # Détection des murs connectés en comparant avec la squelettisation
-            masque = np.zeros_like(img)
-            cv2.drawContours(masque, [contour], -1, 255, thickness=cv2.FILLED)
-            nb_pixels_connectes = np.count_nonzero(skeleton & masque)
-            ratio_connexite = nb_pixels_connectes / np.count_nonzero(masque)
+        # if perimetre > perimetre_image:
+        #     print(f"❌ Contour {idx} supprimé : périmètre {perimetre:.2f}px > périmètre image {perimetre_image:.2f}px")
+        #     continue
+        
+        contours_apres_perimetre.append(contour)
 
-            # Suppression si c'est un mur épais et très connecté
-            if epaisseur_moyenne < murs_seuil_epaisseur and ratio_connexite > murs_seuil_connexite:
-                continue  # On ignore ce contour (mur détecté)
-            
-            # Sinon, on le garde
-            contours_filtres.append(contour)
+    print(f"✅ Restants après suppression périmètre : {len(contours_apres_perimetre)} / {len(contours)}")
 
-    print(f"🛠️ Suppression des murs : {len(contours) - len(contours_filtres)} contours supprimés.")
-    return contours_filtres
+    # ➡️ 3. Approximation des contours pour simplification géométrique
+    contours_approximated = []
+    for idx, contour in enumerate(contours_apres_perimetre):
+        epsilon = epsilon_ratio * cv2.contourArea(contour)/cv2.arcLength(contour, True)
+        approx = cv2.approxPolyDP(contour, epsilon, True)
+        contours_approximated.append(approx)
+
+    # ➡️ 4. Vérifier l'épaisseur moyenne sur les contours approximés
+    seuil_epaisseur_pixels = epaisseur_min_m * dpi
+    print(f"ℹ️ Seuil d'épaisseur en pixels : {seuil_epaisseur_pixels:.2f}px (équivalent à {epaisseur_min_m}m)")
+
+    contours_resultats = []
+    murs_supprimes = 0
+
+    for idx, (contour_orig, contour_approx) in enumerate(zip(contours_apres_perimetre, contours_approximated)):
+        surface = cv2.contourArea(contour_approx)
+        perimetre = cv2.arcLength(contour_approx, True)
+
+        if perimetre == 0 or surface == 0:
+            print(f"❌ Contour {idx} ignoré : surface ou périmètre nul")
+            continue
+
+        epaisseur_moyenne = surface / perimetre
+
+        if epaisseur_moyenne < seuil_epaisseur_pixels:
+            murs_supprimes += 1
+            print(f"❌ Contour {idx} supprimé : épaisseur {epaisseur_moyenne:.2f}px < seuil {seuil_epaisseur_pixels:.2f}px")
+            continue
+
+        # ➡️ Ajouter le contour original à la liste des résultats
+        contours_resultats.append(contour_orig)
+
+    print(f"\n✅ Murs supprimés par épaisseur : {murs_supprimes}")
+    print(f"✅ Contours retenus : {len(contours_resultats)} / {len(contours)} initiaux")
+
+    return contours_resultats
 
 
 # Fonction pour convertir les contours en format GeoJSON avec échelle et transformation
@@ -211,8 +253,8 @@ def contours_to_geojson(contours, image_name, hauteur_totale, surface_minimale, 
     print(f"GeoJSON avec échelle enregistré : {output_path}\n")
 
 # Fonction principale pour générer les pièces et exporter en GeoJSON
-def generer_pieces_image_et_geojson(file_name, binary_images_dir, metadatas_dir, contours_images_dir=Path("04_contours_images"), rooms_contours_geojson_dir=Path("05_rooms_contours_geojson"), surface_minimale=5000, murs_seuil_epaisseur=10, 
-        murs_seuil_connexite=0.01):
+def generer_pieces_image_et_geojson(file_name, binary_images_dir, metadatas_dir, contours_images_dir=Path("04_contours_images"), rooms_contours_geojson_dir=Path("05_rooms_contours_geojson"), surface_minimale=5000,                              
+                                    dpi=50, epaisseur_min_m=0.5, epsilon_ratio=0.01):
     # Charger les paramètres de transformation
     image_path = binary_images_dir / f"{file_name}_binary_image.png"
     metadata_path = metadatas_dir / f"{file_name}_metadata.json"
@@ -236,16 +278,8 @@ def generer_pieces_image_et_geojson(file_name, binary_images_dir, metadatas_dir,
     contours_hierarchy_morph = list(cv2.findContours(closed_morph, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)[0])
     contours_hierarchy_morph = filtrer_par_surface(contours_hierarchy_morph, surface_minimale)
 
-    # Suppression du polygone avec la longueur maximale (murs extérieurs)
-    contours_hierarchy_morph = supprimer_polygone_le_plus_long(contours_hierarchy_morph)
-
     # Suppression des murs via analyse d'épaisseur et connexité
-    contours_hierarchy_morph = supprimer_murs_par_squelettisation(
-        contours_hierarchy_morph, 
-        binary_improved,  # Image binaire traitée
-        murs_seuil_epaisseur=murs_seuil_epaisseur, 
-        murs_seuil_connexite=murs_seuil_connexite
-    )
+    contours_hierarchy_morph = detecter_et_filtrer_murs(contours_hierarchy_morph, img, dpi=dpi, epaisseur_min_m=epaisseur_min_m, epsilon_ratio=epsilon_ratio)
 
     # Réinitialisation de l'image couleur pour la coloration
     color_img_area = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
@@ -280,6 +314,8 @@ def generer_pieces_image_et_geojson(file_name, binary_images_dir, metadatas_dir,
     # Export des contours en GeoJSON avec échelle appliquée
     contours_to_geojson(contours_hierarchy_morph, file_name, hauteur_totale, surface_minimale, x_offset, y_offset, scale_factor, dpi_scale, rooms_contours_geojson_dir)
 
+    # retourner le nombre de pièces détectées
+    return compteur_pieces
 
 ####################################################################################################
 # Main
@@ -321,7 +357,7 @@ if __name__ == "__main__":
     
     # Paramètres pour la génération des images
     dpi_choice = 50  # Changer la résolution ici (ex: 30, 50, 100...)
-    thickness_choice = 9  # Épaisseur des lignes en pixels (impair de préférence)
+    thickness_choice = 3  # Épaisseur des lignes en pixels (impair de préférence)
     scale = dpi_choice  # 1m = dpi_choice pixels
 
     # Méthode de dilatation ('ellipse', 'cross', 'gaussian' 
@@ -343,20 +379,21 @@ if __name__ == "__main__":
 
     ### ETAPE 3 : Détection des contours des pièces et export de l'image colorée + GeoJSON ###
 
-    surface_minimale=3 # surface minimale en m²
+    surface_minimale=1 # surface minimale en m²
     surface_minimale_pixels = surface_minimale * (dpi_choice**2)  # Conversion en pixels
-    murs_seuil_epaisseur=100 # Seuil d'épaisseur pour les murs
-    murs_seuil_connexite=0.01 # Seuil de connexité pour les murs
+    epaisseur_min_m=0.25
+    epsilon_ratio=0.05
 
     for file_name in files_names:
-        ccg.generer_pieces_image_et_geojson(
-            file_name,
-            binary_images_dir,
-            metadatas_dir,
-            contours_images_dir,
-            rooms_contours_geojson_dir,
-            surface_minimale=surface_minimale_pixels,
-            murs_seuil_epaisseur=murs_seuil_epaisseur,
-            murs_seuil_connexite=murs_seuil_connexite
-    )
+        generer_pieces_image_et_geojson(
+                file_name,
+                binary_images_dir,
+                metadatas_dir,
+                contours_images_dir,
+                rooms_contours_geojson_dir,
+                surface_minimale=surface_minimale_pixels,
+                dpi=dpi_choice,
+                epaisseur_min_m=epaisseur_min_m, 
+                epsilon_ratio=epsilon_ratio
+        )
 
