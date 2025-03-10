@@ -66,7 +66,8 @@ def load_geojson(
 
 def get_segments(filepath: Path) -> GeometryCollection:
     """Extract the segments from a raw GeoJson."""
-    gc = load_geometrycollection_from_geojson(filepath)
+    gc = 
+    _geometrycollection_from_geojson(filepath)
     return shapely.GeometryCollection(extract_segments(gc))
 
 

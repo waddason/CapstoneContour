@@ -3,7 +3,7 @@ from IPython.display import display, clear_output
 import matplotlib.pyplot as plt
 from PIL import Image
 from pathlib import Path
-import parse_geojson as pg
+import tools.parse_geojson as pg
 import capstone_contours_generation as ccg
 
 def create_ui_pipeline():

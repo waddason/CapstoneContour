@@ -20,7 +20,7 @@ import cv2
 import cv2.ximgproc
 import os
 # own imports
-import parse_geojson as pg
+import tools.parse_geojson as pg
 
 ####################################################################################################
 # @Fabien : Genrate binary image from segments
