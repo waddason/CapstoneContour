@@ -6,11 +6,10 @@ from pathlib import Path
 import parse_geojson as pg
 import capstone_contours_generation as ccg
 
-
 def create_ui_pipeline():
     """
     Interface interactive pour le pipeline de traitement GeoJSON.
-    Tous les paramètres sont accessibles, avec des explications claires.
+    Menu déroulant pour sélectionner le fichier d'entrée dans 00_input_geojson.
     """
 
     ### Répertoires de travail ###
@@ -24,10 +23,15 @@ def create_ui_pipeline():
     for directory in [input_dir, processed_dir, binary_images_dir, metadatas_dir, contours_images_dir, rooms_contours_geojson_dir]:
         directory.mkdir(parents=True, exist_ok=True)
 
-    ### Widgets ###
-    file_name_input = widgets.Text(
-        value="",
-        placeholder="Nom du fichier sans extension (ex : Output0)",
+    ### Chargement des fichiers disponibles dans 00_input_geojson ###
+    fichiers_disponibles = sorted([f.stem for f in input_dir.glob("*.geojson")])
+
+    if not fichiers_disponibles:
+        print("❗ Aucun fichier GeoJSON trouvé dans 00_input_geojson.")
+        return
+
+    file_name_dropdown = widgets.Dropdown(
+        options=fichiers_disponibles,
         description="📁 Fichier :",
         style={'description_width': '150px'},
         layout=widgets.Layout(width='50%')
@@ -37,7 +41,7 @@ def create_ui_pipeline():
     # Bloc 1 : Image Binaire
     # -------------------------
     dpi_label = widgets.HTML(
-        "<b>📏 DPI (px/m)</b><br>Définit l’échelle de conversion des distances en pixels. Plus il est élevé, plus l’image est détaillée. <br><i>Valeur conseillée : 50</i>"
+        "<b>📏 DPI (px/m)</b><br>Définit l’échelle de conversion des distances en pixels. Plus il est élevé, plus l’image est détaillée.<br><i>Valeur conseillée : 50</i>"
     )
     dpi_choice_slider = widgets.IntSlider(
         value=50, min=10, max=150, step=5,
@@ -75,10 +79,10 @@ def create_ui_pipeline():
     )
 
     epsilon_label = widgets.HTML(
-        "<b>📐 Tolérance approximation (epsilon)</b><br>Contrôle la simplification géométrique (Douglas-Peucker). <br>Plus la valeur est grande, plus le contour est simplifié.<br><i>Valeur conseillée : 0.01 à 0.1</i>"
+        "<b>📐 Tolérance approximation (epsilon)</b><br>Contrôle la simplification géométrique (Douglas-Peucker).<br><i>Valeur conseillée : 0.01 à 0.1</i>"
     )
     epsilon_ratio_slider = widgets.FloatSlider(
-        value=0.05, min=0.001, max=0.2, step=0.005,
+        value=0.05, min=0.001, max=3, step=0.005,
         layout=widgets.Layout(width='50%')
     )
 
@@ -97,7 +101,7 @@ def create_ui_pipeline():
     ui = widgets.VBox([
         widgets.HTML("<h2>📋 Traitement complet des plans GeoJSON</h2>"),
 
-        file_name_input,
+        file_name_dropdown,
 
         widgets.HTML("<h4>1️⃣ Paramètres de génération de l’image binaire</h4>"),
         dpi_label, dpi_choice_slider,
@@ -118,10 +122,10 @@ def create_ui_pipeline():
     def on_button_clicked(b):
         with output:
             clear_output(wait=True)
-            file_name = file_name_input.value.strip()
+            file_name = file_name_dropdown.value
 
             if not file_name:
-                print("⚠️ Veuillez entrer un nom de fichier.")
+                print("⚠️ Veuillez sélectionner un fichier.")
                 return
 
             # Paramètres récupérés depuis les sliders
