@@ -2,8 +2,8 @@
 
 @Version: 0.2
 @Project: Capstone Vinci Contour Detection
-@Date: 2025-03-06
-@Author: Fabien Lagnieu, Tristan Waddington
+@Date: 2025-03-10
+@Author: Fabien Lagnieu, Tristan Waddington, Abdoul ZEBA
 """
 
 import cv2
