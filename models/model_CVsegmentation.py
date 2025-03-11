@@ -1,12 +1,11 @@
 """Parse the geojson function to detect the contours of the pieces.
 
-@Version: 0.2
+@Version: 0.3
 @Project: Capstone Vinci Contour Detection
-@Date: 2025-03-06
+@Date: 2025-03-11
 @Author: Fabien Lagnieu, Tristan Waddington
 """
 
-import os
 from pathlib import Path
 
 import cv2
@@ -32,6 +31,7 @@ class CVSegmentation:
         dilatation_method: str = "gaussian",
         surf_min: int = 1,
         surf_max: int = 5_000,
+        *,
         clean_segements: bool = False,
     ) -> "CVSegmentation":
         """Find rooms in GeometryCollection using CV segmentation.
@@ -49,9 +49,11 @@ class CVSegmentation:
             "ellipse", "cross"]. Default to "gaussian", as more efficient on
             curves.
         surf_min: int
-            The minimum square meter of the detected rooms. Deflaut to 1m^2.
+            The minimum square meter of the detected rooms. Default to 1m^2.
         surf_max: int
-            The maximum square meter of the detected rooms. Deflaut to 5000m^2.
+            The maximum square meter of the detected rooms. Default to 5000m^2.
+        clean_segment: bool
+            Whether to apply Maha's preprocessing on the segments.
 
         """
         # Paramètres pour la génération des images
@@ -84,6 +86,7 @@ class CVSegmentation:
     def predict(
         self,
         geometry_collection: shapely.GeometryCollection,
+        *,
         draw_image: bool = False,
     ) -> shapely.GeometryCollection:
         """Find rooms from geometry collection."""
@@ -210,37 +213,95 @@ class CVSegmentation:
         #   chain approximation algorithm [209]
         # - cv.CHAIN_APPROX_TC89_KCOS: applies one of the flavors of the
         #   Teh-Chin chain approximation algorithm [209]
-        contours_hierarchy_morph = list(
-            cv2.findContours(
-                closed_morph,
-                mode=cv2.RETR_CCOMP,
-                # mode=cv2.RETR_LIST,
-                method=cv2.CHAIN_APPROX_SIMPLE,
-            )[0],
+
+        # Change the cv2 parameters
+        contours, hierarchy = cv2.findContours(
+            closed_morph,
+            cv2.RETR_CCOMP,
+            cv2.CHAIN_APPROX_SIMPLE,
         )
         # filter out polygons
-        return self.filter_out_polygons(contours_hierarchy_morph)
+        return self.filter_out_polygons(contours, hierarchy)
 
     def filter_out_polygons(
         self,
-        contours_list: list[np.array],
+        contours: list[np.array],
+        hierarchy: np.array,
+        width_threshold_m: float = 0.05,
     ) -> list[np.array]:
-        """Filter out unwanted polygons with expert rules."""
-        # 1. Remove the too small or too big
-        # 3. Remove the ones touching borders of images
+        """Filter out unwanted polygons with expert rules.
+
+        Return the polygons that are not walls, nor too small or too big,
+        nor touching the border of the image (outside).
+
+        """
+        if len(contours) == 0:
+            print("Empty contours.")
+            return []
+
+        width_threshold_px = width_threshold_m * self.dpi
         keep_contours = []
-        for contour in contours_list:
+        for idx, contour in enumerate(contours):
             area = cv2.contourArea(contour)
+            surface = self.surf_minus_holes(
+                contours,
+                hierarchy,
+                idx,
+            )
+            # May be a wall
+            perimetre = cv2.arcLength(contour, closed=True)
+            if perimetre * surface == 0:
+                continue
+            mean_width = surface / perimetre
+            if mean_width < width_threshold_px:
+                continue
+            # Remove the ones touching borders of images
             touch_border = self.is_touch_border(contour)
+            # Remove the too small or too big
             if self.surf_min <= area <= self.surf_max and not touch_border:
                 keep_contours.append(contour)
 
+        print(f"Filter: kepp {len(keep_contours)}/{len(contours)}")
         return keep_contours
 
-    def draw_contours(self) -> np.ndarray:
+    def surf_minus_holes(
+        self,
+        contours: list,
+        hierarchy: list,
+        idx_parent: int,
+    ) -> float:
+        """Compute the actual surface of the polygon, minus its holes.
+
+        Args:
+        ----
+        contours: list[]
+            polygons found by cv2.findContours.
+        hierarchy: np.array
+            hierarchy of polygons according to cv2.findContours.
+        idx_parent: int
+            index of the polygon which surface to compute in hierarchy.
+
+        Return:
+        ------
+        surface: float
+            Actual surface of the polygon after removing the holes.
+
+        """
+        surface = cv2.contourArea(contours[idx_parent])
+
+        # Look for children / holes
+        idx_child = hierarchy[0][idx_parent][2]  # 2 => premier enfant
+        while idx_child != -1:
+            hole_area = cv2.contourArea(contours[idx_child])
+            surface -= hole_area
+            idx_child = hierarchy[0][idx_child][0]  # 0 => sibling suivant
+
+        return abs(surface)
+
+    def draw_contours(self) -> np.array:
         """Draw the contours on a color image."""
         if not self.contours:
-            msg = "No contour to draw on plan."
+            msg = "No contour to draw on plan. Try to modify thickness."
             raise ValueError(msg)
         # Init a color image from the walls
         color_img_area = cv2.cvtColor(self.binary, cv2.COLOR_GRAY2BGR)
@@ -260,7 +321,7 @@ class CVSegmentation:
         # switch the y-axis
         return np.flipud(color_img_area)
 
-    def is_touch_border(self, contour: np.ndarray) -> bool:
+    def is_touch_border(self, contour: np.array) -> bool:
         """Compute if the polygon touches the border of the image."""
         height, width = self.binary.shape
         for point in contour:
@@ -275,7 +336,7 @@ class CVSegmentation:
             msg = "No contour to draw on plan."
             raise ValueError(msg)
 
-        # Reshape to list of coordinnates and convert to polygons
+        # Reshape to list of coordinates and convert to polygons
         polygon_list = [
             shapely.Polygon(poly.reshape(-1, 2)) for poly in self.contours
         ]
