@@ -144,6 +144,7 @@ readline=8.2=h9e318b2_1
 requests=2.32.3=pyhd8ed1ab_1
 scikit-learn=1.6.1=py313hedeaec8_0
 scipy=1.15.1=py313h1cb6e1a_0
+segment-anything=1.0=pypi_0
 setuptools=75.8.0=pyhff2d567_0
 shapely=2.0.6=py313h28dc897_2
 six=1.17.0=pyhd8ed1ab_0
@@ -160,6 +161,7 @@ tzdata=2024b=hc8b5060_0
 uriparser=0.9.8=h6aefe2f_0
 urllib3=2.3.0=pyhd8ed1ab_0
 wcwidth=0.2.13=pyhd8ed1ab_1
+wget=3.2=pypi_0
 x265=3.5=hbb4e6a2_3
 xerces-c=3.2.5=h197e74d_2
 xorg-libxau=1.0.12=h6e16a3a_0

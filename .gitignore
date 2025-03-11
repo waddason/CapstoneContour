@@ -193,3 +193,8 @@ cython_debug/
 *.fdb_latexmk
 *.synctex.gz
 *.xdv
+
+
+
+# model weights
+.pth
