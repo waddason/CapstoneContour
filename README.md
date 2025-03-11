@@ -79,6 +79,8 @@ git checkout -b maBranche
 
 - **Jeudi 13 mars**
     - 13h30: Point de situation avec Vinci (Jérôme)
+    - ✅ validation du format de sortie geojson
+    - 🚧 nettoyage segement trop abrasif sur Walls
     - EoD: draft rapport pour Vinci
 
 
