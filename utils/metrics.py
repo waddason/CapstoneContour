@@ -95,14 +95,30 @@ def match_polygons(
     return row_ind, col_ind, iou_matrix
 
 
+def matched_iou(
+    geoms_true: shapely.GeometryCollection.geoms,
+    geoms_pred: shapely.GeometryCollection.geoms,
+) -> np.ndarray[float]:
+    """Calculate IoU per ground truth on matched predicted poly.
+
+    Return:
+    ------
+    score per ground truth polygon.
+
+    """
+    row_ind, col_ind, iou_matrix = match_polygons(geoms_true, geoms_pred)
+    return iou_matrix[row_ind, col_ind]
+
+
 def average_matched_iou(
     geoms_true: shapely.GeometryCollection.geoms,
     geoms_pred: shapely.GeometryCollection.geoms,
 ) -> float:
     """Calculate average IoU for matched ground truth and predicted poly."""
-    row_ind, col_ind, iou_matrix = match_polygons(geoms_true, geoms_pred)
-    matched_ious = iou_matrix[row_ind, col_ind]
-    return np.nanmean(matched_ious)
+    # row_ind, col_ind, iou_matrix = match_polygons(geoms_true, geoms_pred)
+    # matched_ious = iou_matrix[row_ind, col_ind]
+    # return np.nanmean(matched_ious)
+    return np.nanmean(matched_iou(geoms_true, geoms_pred))
 
 
 ###############################################################################

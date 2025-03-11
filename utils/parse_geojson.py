@@ -57,7 +57,7 @@ def load_geojson(
         the content as Shapely Geometries. Access throug .geoms.
     transform_parameters: list[float, float, float]
         the paramters used to normalized the geometries:
-        [shoft_x, shif_y, scale]
+        [shift_x, shif_y, scale]
 
     """
     geom_col = load_geometrycollection_from_geojson(filepath)
@@ -66,8 +66,7 @@ def load_geojson(
 
 def get_segments(filepath: Path) -> GeometryCollection:
     """Extract the segments from a raw GeoJson."""
-    gc = 
-    _geometrycollection_from_geojson(filepath)
+    gc = load_geometrycollection_from_geojson(filepath)
     return shapely.GeometryCollection(extract_segments(gc))
 
 
@@ -77,7 +76,7 @@ def load_segments(filepath: Path) -> tuple[GeometryCollection, tuple[float,]]:
     This file contains only one feature: a Geometry collection
     Also returns the transformation parameters.
     """
-    with open(filepath) as f:
+    with Path.open(filepath) as f:
         json_dic = json.load(f)
         transform_parameters = json_dic["transform_parameters"]
     return (
@@ -239,7 +238,7 @@ def extract_segments(geom_col: GeometryCollection) -> list[LineString]:
 
 
 def _sort_points(p1, p2):
-    """Sort the points for concistency."""
+    """Sort the points for consistency."""
     return (p1, p2) if p1 <= p2 else (p2, p1)
 
 
@@ -315,7 +314,9 @@ def save_as_geojson(
 
 
 def plot_GeometryCollection(
-    geom_col: GeometryCollection, figsize=(30, 30), **kwargs
+    geom_col: GeometryCollection,
+    figsize: tuple[float, float] = (30, 30),
+    **kwargs,
 ):
     """Plot the geometry collection."""
     gs = gpd.GeoSeries(geom_col)
@@ -386,11 +387,12 @@ from shapely.geometry import Polygon
 
 
 def segment_to_rectangle(p1, p2, width):
-    """
-    Convert a line segment (p1 to p2) into a rectangle of given width.
+    """Convert a line segment (p1 to p2) into a rectangle of given width.
 
     Returns:
-        Polygon: A Shapely Polygon representing the rectangle.
+    -------
+    Polygon: A Shapely Polygon representing the rectangle.
+
     """
     p1, p2 = np.array(p1), np.array(p2)
     direction = p2 - p1

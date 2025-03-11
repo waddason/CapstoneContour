@@ -15,6 +15,7 @@ import shapely
 from matplotlib.lines import Line2D
 
 import utils.parse_geojson as pg
+from utils.metrics import matched_iou, average_matched_iou
 
 
 def try_to_polygonize(file: Path, outsize: int = 20) -> plt:
@@ -69,7 +70,12 @@ def try_to_polygonize(file: Path, outsize: int = 20) -> plt:
     print(f"{poly_series.shape[0]} polygons detected")
 
 
-def plot_score(model: callable, sample_folder: Path, metric: callable) -> plt:
+def plot_score(
+    model: callable,
+    sample_folder: Path,
+    metric: callable,
+    show_iou=False,
+) -> plt:
     """Plot the score on a specific sample.
 
     Args:
@@ -79,9 +85,11 @@ def plot_score(model: callable, sample_folder: Path, metric: callable) -> plt:
     sample_folder: Path
         the folder containing Spaces and Walls GeoJson files.
     metric: callable
+    show_iou: bool
+        whether to color the prediction wrt their iou score
 
     """
-    fig, axs = plt.subplots(1, 3, layout="constrained")
+    fig, axs = plt.subplots(1, 3, layout="constrained", figsize=(20, 20))
 
     # Walls
     x = pg.load_geometrycollection_from_geojson(
@@ -94,33 +102,55 @@ def plot_score(model: callable, sample_folder: Path, metric: callable) -> plt:
     x_df.plot(ax=axs[0], alpha=0.5, column="index", edgecolor="black")
     axs[0].set_title("Walls")
 
-    # Predictions
-    y_pred = model(x)
-
-    y_pred_df = gpd.GeoDataFrame(
-        y_pred.geoms,
-        columns=["geometry"],
-    ).reset_index()
-    y_pred_df.plot(ax=axs[1], alpha=0.5, column="index", edgecolor="black")
-    axs[1].set_title("Prediction")
-
     # Ground Truth
-    axs[2].set_title("Ground truth")
+    axs[1].set_title("Ground truth")
     geoms_true = pg.load_geometrycollection_from_geojson(
         sample_folder / "Spaces.geojson",
     )
     gpd.GeoSeries(geoms_true.geoms).reset_index().plot(
-        ax=axs[2], column="index", edgecolor="black", alpha=0.5
+        ax=axs[1],
+        column="index",
+        edgecolor="black",
+        alpha=0.5,
     )
 
+    # Predictions
+    y_pred = model(x)
+    y_pred_df = gpd.GeoDataFrame(
+        y_pred.geoms,
+        columns=["geometry"],
+    ).reset_index()
+
+    if show_iou:
+        y_pred_df["metric"] = matched_iou(geoms_true.geoms, y_pred.geoms)
+        y_pred_df.plot(
+            ax=axs[2],
+            alpha=0.9,
+            column="metric",
+            edgecolor="black",
+            cmap="RdYlGn",
+            legend=True,
+            legend_kwds={
+                "label": "Prediction IoU",
+                "shrink": 0.6,
+                "extend": "min",
+            },
+            vmin=0.5,
+            vmax=1,
+        )
+    else:
+        y_pred_df.plot(ax=axs[2], alpha=0.5, column="index", edgecolor="black")
+
     # Ensure the same bounds
-    axs[1].set_xlim(axs[2].get_xlim())
-    axs[1].set_ylim(axs[2].get_ylim())
-    axs[0].set_xlim(axs[2].get_xlim())
-    axs[0].set_ylim(axs[2].get_ylim())
+    axs[2].set_xlim(axs[1].get_xlim())
+    axs[2].set_ylim(axs[1].get_ylim())
+    axs[0].set_xlim(axs[1].get_xlim())
+    axs[0].set_ylim(axs[1].get_ylim())
+
     # Display the score in the title
     score = metric(geoms_true.geoms, y_pred.geoms)
-    plt.suptitle(
+    axs[2].set_title(
         f"Prediction score: {score:.3f}, {len(y_pred.geoms)} rooms found.",
     )
+
     return plt
