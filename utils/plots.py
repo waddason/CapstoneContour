@@ -15,7 +15,7 @@ import shapely
 from matplotlib.lines import Line2D
 
 import utils.parse_geojson as pg
-from utils.metrics import matched_iou, average_matched_iou
+from utils.metrics import matched_iou
 
 
 def try_to_polygonize(file: Path, outsize: int = 20) -> plt:
@@ -74,7 +74,8 @@ def plot_score(
     model: callable,
     sample_folder: Path,
     metric: callable,
-    show_iou=False,
+    *,
+    show_iou: bool = False,
 ) -> plt:
     """Plot the score on a specific sample.
 
@@ -115,42 +116,54 @@ def plot_score(
     )
 
     # Predictions
-    y_pred = model(x)
-    y_pred_df = gpd.GeoDataFrame(
-        y_pred.geoms,
-        columns=["geometry"],
-    ).reset_index()
+    x_df.plot(ax=axs[2], alpha=0.5, column="index", edgecolor="black")
+    try:
+        y_pred = model(x)
+        y_pred_df = gpd.GeoDataFrame(
+            y_pred.geoms,
+            columns=["geometry"],
+        ).reset_index()
 
-    if show_iou:
-        y_pred_df["metric"] = matched_iou(geoms_true.geoms, y_pred.geoms)
-        y_pred_df.plot(
-            ax=axs[2],
-            alpha=0.9,
-            column="metric",
-            edgecolor="black",
-            cmap="RdYlGn",
-            legend=True,
-            legend_kwds={
-                "label": "Prediction IoU",
-                "shrink": 0.6,
-                "extend": "min",
-            },
-            vmin=0.5,
-            vmax=1,
+        if show_iou:
+            y_pred_df["metric"] = matched_iou(geoms_true.geoms, y_pred.geoms)
+            y_pred_df.plot(
+                ax=axs[2],
+                alpha=0.9,
+                column="metric",
+                edgecolor="black",
+                cmap="RdYlGn",
+                legend=True,
+                legend_kwds={
+                    "label": "Prediction IoU",
+                    "shrink": 0.6,
+                    "extend": "min",
+                },
+                vmin=0.5,
+                vmax=1,
+            )
+        else:
+            y_pred_df.plot(
+                ax=axs[2],
+                alpha=0.5,
+                column="index",
+                edgecolor="black",
+            )
+
+        # Display the score in the title
+        score = metric(geoms_true.geoms, y_pred.geoms)
+        axs[2].set_title(
+            f"Prediction score: {score:.3f}, {len(y_pred.geoms)} rooms found.",
         )
-    else:
-        y_pred_df.plot(ax=axs[2], alpha=0.5, column="index", edgecolor="black")
+
+    except ValueError as e:
+        print(e)
+        print("No prediction, impossible to compute score.")
+        axs[2].set_title("No prediction")
 
     # Ensure the same bounds
     axs[2].set_xlim(axs[1].get_xlim())
     axs[2].set_ylim(axs[1].get_ylim())
     axs[0].set_xlim(axs[1].get_xlim())
     axs[0].set_ylim(axs[1].get_ylim())
-
-    # Display the score in the title
-    score = metric(geoms_true.geoms, y_pred.geoms)
-    axs[2].set_title(
-        f"Prediction score: {score:.3f}, {len(y_pred.geoms)} rooms found.",
-    )
 
     return plt

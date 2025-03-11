@@ -19,14 +19,16 @@ import utils.parse_geojson as pg
 # vector geometry
 # Intersection over Union IoU
 def intersection_over_union(
-    geom1: shapely.Polygon, geom2: shapely.Polygon
+    geom1: shapely.Polygon,
+    geom2: shapely.Polygon,
 ) -> float:
     """Calculate the IoU of 2 shapely objects."""
     # Catch GEOSException: TopologyException:
     try:
         intersection = geom1.intersection(geom2)
         union_area = geom1.union(geom2).area
-    except:
+    except ValueError as e:
+        print(e)
         return 0.0
     return intersection.area / union_area if union_area else 0.0
 
@@ -115,22 +117,19 @@ def average_matched_iou(
     geoms_pred: shapely.GeometryCollection.geoms,
 ) -> float:
     """Calculate average IoU for matched ground truth and predicted poly."""
-    # row_ind, col_ind, iou_matrix = match_polygons(geoms_true, geoms_pred)
-    # matched_ious = iou_matrix[row_ind, col_ind]
-    # return np.nanmean(matched_ious)
+    if geoms_pred is None or geoms_true is None:
+        return 0.0
     return np.nanmean(matched_iou(geoms_true, geoms_pred))
 
 
 ###############################################################################
 # Computer vision
 # mAP mean Average Precision
-def average_precision():
-    # need a prediction
-    pass
-
-
 def mean_ap() -> float:
-    """Compute mean Average Precision score (mAP)."""
+    """Compute mean Average Precision score (mAP).
+
+    TODO: not implanted yet.
+    """
     return 0.0
 
 
@@ -183,9 +182,11 @@ def score_model(model: callable, data_folder: Path, metric: callable) -> float:
 
 
 def test_model_on_sample(
-    model: callable, sample_folder: Path, metric: callable
+    model: callable,
+    sample_folder: Path,
+    metric: callable,
 ) -> float:
-    """Comptute the model score on a sample.
+    """Compute the model score on a sample.
 
     model returns a geometry collection
     **sample contains a Walls and Spaces geojson file per subfolder**
@@ -214,6 +215,7 @@ def test_model_on_sample(
         geoms_pred = model(x)
     except ValueError as e:
         print(f"ValueError in folder {sample_folder}: {e}")
+        return 0.0
 
     # Compute the metric
-    return metric(geoms_true.geoms, geoms_pred.geoms) if geoms_pred else None
+    return metric(geoms_true.geoms, geoms_pred.geoms) if geoms_pred else 0.0
