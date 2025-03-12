@@ -19,6 +19,7 @@ from shapely.geometry import (
     MultiLineString,
     Polygon,
     shape,
+    mapping
 )
 
 OUTPUT_GEOJSON_INDENT = None
@@ -368,7 +369,7 @@ def clean_geojson_to_segments_and_save(
     Load the geojson file, offset the map and reduce to meters, then
     extract the segments and save the segments in a new geojson file.
     """
-    print(f"Cleaning {filepath} to {output_filepath}")
+    #print(f"Cleaning {filepath} to {output_filepath}")
     geom_col, transform_parameters = load_geojson(filepath)
     segments_list = extract_segments(geom_col)
 
@@ -431,3 +432,58 @@ def open_spaces_walls_in_folder_and_save_svg(folder_path: Path):
     spaces_gdf.plot(color="red", ax=ax, zorder=4, alpha=0.8)
 
     plt.savefig(folder_path / "plot.svg", format="svg")
+
+
+#### @Fabien Ajouts de fonctions pour manipuler des GeometryCollection shapely ####
+
+def save_geometry_collection_to_geojson(geometry_collection, output_path):
+    """
+    Sauvegarde une GeometryCollection shapely dans un fichier GeoJSON.
+
+    Args:
+        geometry_collection (shapely.GeometryCollection): collection à enregistrer
+        output_path (Path): chemin du fichier geojson de sortie
+    """
+    features = []
+    for geom in geometry_collection.geoms:
+        features.append({
+            "type": "Feature",
+            "properties": {},
+            "geometry": mapping(geom)
+        })
+
+    geojson_dict = {
+        "type": "FeatureCollection",
+        "features": features
+    }
+
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(geojson_dict, f, indent=4)
+
+    #print(f"✅ GeometryCollection sauvegardée dans {output_path}")
+
+
+
+def load_geojson_as_geometry_collection(geojson_path):
+    """
+    Charge un fichier GeoJSON et retourne une GeometryCollection de shapely.
+
+    Args:
+    ----
+    geojson_path: Path du fichier GeoJSON.
+
+    Returns:
+    ----
+    shapely.GeometryCollection : collection des polygones.
+    """
+    with open(geojson_path, "r", encoding="utf-8") as f:
+        geojson_data = json.load(f)
+
+    polygons = []
+    for feature in geojson_data["features"]:
+        geom = shape(feature["geometry"])
+        polygons.append(geom)
+
+    gc = GeometryCollection(polygons)
+    #print(f"✅ GeometryCollection chargée avec {len(gc.geoms)} polygones depuis {geojson_path}")
+    return gc
