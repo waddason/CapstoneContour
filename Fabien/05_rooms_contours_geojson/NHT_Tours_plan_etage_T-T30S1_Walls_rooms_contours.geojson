@@ -4,7 +4,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_1 / 171",
+                "name": "room_1 / 172",
                 "surface_px": 710375.5,
                 "surface_m2": 284.1502,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -584,7 +584,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_2 / 171",
+                "name": "room_2 / 172",
                 "surface_px": 119011.0,
                 "surface_m2": 47.6044,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -708,9 +708,9 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_3 / 171",
-                "surface_px": 55002.0,
-                "surface_m2": 22.0008,
+                "name": "room_3 / 172",
+                "surface_px": 78522.0,
+                "surface_m2": 31.4088,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
             },
             "geometry": {
@@ -718,40 +718,40 @@
                 "coordinates": [
                     [
                         [
-                            22.278975233289906,
-                            -200.25037434593239
+                            77.8189752332899,
+                            -203.1503743459324
                         ],
                         [
-                            30.558975233289907,
-                            -200.25037434593239
+                            81.0989752332899,
+                            -203.1503743459324
                         ],
                         [
-                            30.61897523328991,
-                            -200.3103743459324
+                            81.15897523328991,
+                            -203.21037434593237
                         ],
                         [
-                            30.61897523328991,
-                            -202.8103743459324
+                            81.15897523328991,
+                            -212.33037434593237
                         ],
                         [
-                            30.558975233289907,
-                            -202.87037434593236
+                            81.0989752332899,
+                            -212.39037434593237
                         ],
                         [
-                            22.278975233289906,
-                            -202.87037434593236
+                            77.8189752332899,
+                            -212.39037434593237
                         ],
                         [
-                            22.218975233289903,
-                            -202.8103743459324
+                            77.7589752332899,
+                            -212.33037434593237
                         ],
                         [
-                            22.218975233289903,
-                            -200.3103743459324
+                            77.7589752332899,
+                            -203.21037434593237
                         ],
                         [
-                            22.278975233289906,
-                            -200.25037434593239
+                            77.8189752332899,
+                            -203.1503743459324
                         ]
                     ]
                 ]
@@ -760,7 +760,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_4 / 171",
+                "name": "room_4 / 172",
                 "surface_px": 119864.5,
                 "surface_m2": 47.9458,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -868,7 +868,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_5 / 171",
+                "name": "room_5 / 172",
                 "surface_px": 20057.0,
                 "surface_m2": 8.0228,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -920,7 +920,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_6 / 171",
+                "name": "room_6 / 172",
                 "surface_px": 851599.5,
                 "surface_m2": 340.6398,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -1284,7 +1284,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_7 / 171",
+                "name": "room_7 / 172",
                 "surface_px": 862340.0,
                 "surface_m2": 344.936,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -1400,7 +1400,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_8 / 171",
+                "name": "room_8 / 172",
                 "surface_px": 9378.0,
                 "surface_m2": 3.7512,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -1452,7 +1452,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_9 / 171",
+                "name": "room_9 / 172",
                 "surface_px": 98508.0,
                 "surface_m2": 39.4032,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -1568,7 +1568,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_10 / 171",
+                "name": "room_10 / 172",
                 "surface_px": 181699.0,
                 "surface_m2": 72.6796,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -1708,7 +1708,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_11 / 171",
+                "name": "room_11 / 172",
                 "surface_px": 46602.0,
                 "surface_m2": 18.6408,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -1760,7 +1760,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_12 / 171",
+                "name": "room_12 / 172",
                 "surface_px": 110957.0,
                 "surface_m2": 44.3828,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -1812,7 +1812,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_13 / 171",
+                "name": "room_13 / 172",
                 "surface_px": 1266541.5,
                 "surface_m2": 506.6166,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -2024,7 +2024,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_14 / 171",
+                "name": "room_14 / 172",
                 "surface_px": 235694.0,
                 "surface_m2": 94.2776,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -2076,7 +2076,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_15 / 171",
+                "name": "room_15 / 172",
                 "surface_px": 378888.5,
                 "surface_m2": 151.5554,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -2400,7 +2400,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_16 / 171",
+                "name": "room_16 / 172",
                 "surface_px": 11132.0,
                 "surface_m2": 4.4528,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -2452,7 +2452,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_17 / 171",
+                "name": "room_17 / 172",
                 "surface_px": 47182.0,
                 "surface_m2": 18.8728,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -2504,7 +2504,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_18 / 171",
+                "name": "room_18 / 172",
                 "surface_px": 6723.0,
                 "surface_m2": 2.6892,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -2556,7 +2556,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_19 / 171",
+                "name": "room_19 / 172",
                 "surface_px": 184785.0,
                 "surface_m2": 73.914,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -2872,7 +2872,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_20 / 171",
+                "name": "room_20 / 172",
                 "surface_px": 106880.0,
                 "surface_m2": 42.752,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -2924,7 +2924,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_21 / 171",
+                "name": "room_21 / 172",
                 "surface_px": 57156.0,
                 "surface_m2": 22.8624,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -3072,7 +3072,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_22 / 171",
+                "name": "room_22 / 172",
                 "surface_px": 194782.0,
                 "surface_m2": 77.9128,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -3300,7 +3300,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_23 / 171",
+                "name": "room_23 / 172",
                 "surface_px": 300375.0,
                 "surface_m2": 120.15,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -3480,7 +3480,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_24 / 171",
+                "name": "room_24 / 172",
                 "surface_px": 7595.5,
                 "surface_m2": 3.0382,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -3564,7 +3564,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_25 / 171",
+                "name": "room_25 / 172",
                 "surface_px": 310835.0,
                 "surface_m2": 124.334,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -3768,7 +3768,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_26 / 171",
+                "name": "room_26 / 172",
                 "surface_px": 51523.0,
                 "surface_m2": 20.6092,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -3868,7 +3868,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_27 / 171",
+                "name": "room_27 / 172",
                 "surface_px": 14466.0,
                 "surface_m2": 5.7864,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -3920,7 +3920,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_28 / 171",
+                "name": "room_28 / 172",
                 "surface_px": 40930.5,
                 "surface_m2": 16.3722,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -4036,7 +4036,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_29 / 171",
+                "name": "room_29 / 172",
                 "surface_px": 270442.0,
                 "surface_m2": 108.1768,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -4336,7 +4336,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_30 / 171",
+                "name": "room_30 / 172",
                 "surface_px": 7780.5,
                 "surface_m2": 3.1122,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -4420,7 +4420,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_31 / 171",
+                "name": "room_31 / 172",
                 "surface_px": 7780.5,
                 "surface_m2": 3.1122,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -4504,7 +4504,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_32 / 171",
+                "name": "room_32 / 172",
                 "surface_px": 207603.5,
                 "surface_m2": 83.0414,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -4668,7 +4668,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_33 / 171",
+                "name": "room_33 / 172",
                 "surface_px": 69912.5,
                 "surface_m2": 27.965,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -4752,7 +4752,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_34 / 171",
+                "name": "room_34 / 172",
                 "surface_px": 18748.5,
                 "surface_m2": 7.4994,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -4804,7 +4804,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_35 / 171",
+                "name": "room_35 / 172",
                 "surface_px": 1553782.5,
                 "surface_m2": 621.513,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -4944,7 +4944,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_36 / 171",
+                "name": "room_36 / 172",
                 "surface_px": 47922.0,
                 "surface_m2": 19.1688,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -4996,7 +4996,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_37 / 171",
+                "name": "room_37 / 172",
                 "surface_px": 150833.5,
                 "surface_m2": 60.3334,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -5072,7 +5072,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_38 / 171",
+                "name": "room_38 / 172",
                 "surface_px": 220985.0,
                 "surface_m2": 88.394,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -5260,7 +5260,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_39 / 171",
+                "name": "room_39 / 172",
                 "surface_px": 14941.5,
                 "surface_m2": 5.9766,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -5392,7 +5392,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_40 / 171",
+                "name": "room_40 / 172",
                 "surface_px": 22637.0,
                 "surface_m2": 9.0548,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -5444,7 +5444,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_41 / 171",
+                "name": "room_41 / 172",
                 "surface_px": 48144.0,
                 "surface_m2": 19.2576,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -5496,7 +5496,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_42 / 171",
+                "name": "room_42 / 172",
                 "surface_px": 46626.0,
                 "surface_m2": 18.6504,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -5548,7 +5548,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_43 / 171",
+                "name": "room_43 / 172",
                 "surface_px": 18582.0,
                 "surface_m2": 7.4328,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -5600,7 +5600,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_44 / 171",
+                "name": "room_44 / 172",
                 "surface_px": 12162.0,
                 "surface_m2": 4.8648,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -5652,7 +5652,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_45 / 171",
+                "name": "room_45 / 172",
                 "surface_px": 41097.5,
                 "surface_m2": 16.439,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -5736,7 +5736,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_46 / 171",
+                "name": "room_46 / 172",
                 "surface_px": 14454.0,
                 "surface_m2": 5.7816,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -5788,7 +5788,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_47 / 171",
+                "name": "room_47 / 172",
                 "surface_px": 21628.5,
                 "surface_m2": 8.6514,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -5872,7 +5872,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_48 / 171",
+                "name": "room_48 / 172",
                 "surface_px": 12942.0,
                 "surface_m2": 5.1768,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -5924,7 +5924,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_49 / 171",
+                "name": "room_49 / 172",
                 "surface_px": 115495.0,
                 "surface_m2": 46.198,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -6136,7 +6136,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_50 / 171",
+                "name": "room_50 / 172",
                 "surface_px": 90406.0,
                 "surface_m2": 36.1624,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -6188,7 +6188,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_51 / 171",
+                "name": "room_51 / 172",
                 "surface_px": 197016.0,
                 "surface_m2": 78.8064,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -6288,7 +6288,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_52 / 171",
+                "name": "room_52 / 172",
                 "surface_px": 32382.0,
                 "surface_m2": 12.9528,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -6340,7 +6340,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_53 / 171",
+                "name": "room_53 / 172",
                 "surface_px": 37082.0,
                 "surface_m2": 14.8328,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -6392,7 +6392,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_54 / 171",
+                "name": "room_54 / 172",
                 "surface_px": 17730.0,
                 "surface_m2": 7.092,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -6444,7 +6444,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_55 / 171",
+                "name": "room_55 / 172",
                 "surface_px": 47822.0,
                 "surface_m2": 19.1288,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -6496,7 +6496,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_56 / 171",
+                "name": "room_56 / 172",
                 "surface_px": 71367.5,
                 "surface_m2": 28.547,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -6580,7 +6580,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_57 / 171",
+                "name": "room_57 / 172",
                 "surface_px": 176324.5,
                 "surface_m2": 70.5298,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -6704,7 +6704,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_58 / 171",
+                "name": "room_58 / 172",
                 "surface_px": 60142.0,
                 "surface_m2": 24.0568,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -6756,7 +6756,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_59 / 171",
+                "name": "room_59 / 172",
                 "surface_px": 101604.0,
                 "surface_m2": 40.6416,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -6856,7 +6856,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_60 / 171",
+                "name": "room_60 / 172",
                 "surface_px": 57089.5,
                 "surface_m2": 22.8358,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -6988,7 +6988,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_61 / 171",
+                "name": "room_61 / 172",
                 "surface_px": 42466.0,
                 "surface_m2": 16.9864,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -7040,7 +7040,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_62 / 171",
+                "name": "room_62 / 172",
                 "surface_px": 10036.0,
                 "surface_m2": 4.0144,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -7092,7 +7092,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_63 / 171",
+                "name": "room_63 / 172",
                 "surface_px": 221432.0,
                 "surface_m2": 88.5728,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -7400,7 +7400,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_64 / 171",
+                "name": "room_64 / 172",
                 "surface_px": 45242.0,
                 "surface_m2": 18.0968,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -7452,7 +7452,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_65 / 171",
+                "name": "room_65 / 172",
                 "surface_px": 65129.0,
                 "surface_m2": 26.0516,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -7544,7 +7544,59 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_66 / 171",
+                "name": "room_66 / 172",
+                "surface_px": 55002.0,
+                "surface_m2": 22.0008,
+                "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            22.278975233289906,
+                            -200.25037434593239
+                        ],
+                        [
+                            30.558975233289907,
+                            -200.25037434593239
+                        ],
+                        [
+                            30.61897523328991,
+                            -200.3103743459324
+                        ],
+                        [
+                            30.61897523328991,
+                            -202.8103743459324
+                        ],
+                        [
+                            30.558975233289907,
+                            -202.87037434593236
+                        ],
+                        [
+                            22.278975233289906,
+                            -202.87037434593236
+                        ],
+                        [
+                            22.218975233289903,
+                            -202.8103743459324
+                        ],
+                        [
+                            22.218975233289903,
+                            -200.3103743459324
+                        ],
+                        [
+                            22.278975233289906,
+                            -200.25037434593239
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "room_67 / 172",
                 "surface_px": 136132.0,
                 "surface_m2": 54.4528,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -7596,7 +7648,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_67 / 171",
+                "name": "room_68 / 172",
                 "surface_px": 14036.5,
                 "surface_m2": 5.6146,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -7728,7 +7780,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_68 / 171",
+                "name": "room_69 / 172",
                 "surface_px": 9502.0,
                 "surface_m2": 3.8008,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -7812,7 +7864,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_69 / 171",
+                "name": "room_70 / 172",
                 "surface_px": 189566.5,
                 "surface_m2": 75.8266,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -7976,7 +8028,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_70 / 171",
+                "name": "room_71 / 172",
                 "surface_px": 67182.0,
                 "surface_m2": 26.8728,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -8028,7 +8080,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_71 / 171",
+                "name": "room_72 / 172",
                 "surface_px": 73106.0,
                 "surface_m2": 29.2424,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -8080,7 +8132,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_72 / 171",
+                "name": "room_73 / 172",
                 "surface_px": 85541.5,
                 "surface_m2": 34.2166,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -8140,7 +8192,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_73 / 171",
+                "name": "room_74 / 172",
                 "surface_px": 141391.5,
                 "surface_m2": 56.5566,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -8224,7 +8276,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_74 / 171",
+                "name": "room_75 / 172",
                 "surface_px": 26781.5,
                 "surface_m2": 10.7126,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -8308,7 +8360,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_75 / 171",
+                "name": "room_76 / 172",
                 "surface_px": 40110.0,
                 "surface_m2": 16.044,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -8360,7 +8412,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_76 / 171",
+                "name": "room_77 / 172",
                 "surface_px": 178686.0,
                 "surface_m2": 71.4744,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -8684,7 +8736,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_77 / 171",
+                "name": "room_78 / 172",
                 "surface_px": 60983.5,
                 "surface_m2": 24.3934,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -8816,7 +8868,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_78 / 171",
+                "name": "room_79 / 172",
                 "surface_px": 66615.0,
                 "surface_m2": 26.646,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -8868,7 +8920,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_79 / 171",
+                "name": "room_80 / 172",
                 "surface_px": 58766.0,
                 "surface_m2": 23.5064,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -8920,7 +8972,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_80 / 171",
+                "name": "room_81 / 172",
                 "surface_px": 30160.5,
                 "surface_m2": 12.0642,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -8972,7 +9024,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_81 / 171",
+                "name": "room_82 / 172",
                 "surface_px": 65577.5,
                 "surface_m2": 26.231,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -9056,7 +9108,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_82 / 171",
+                "name": "room_83 / 172",
                 "surface_px": 20382.0,
                 "surface_m2": 8.1528,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -9108,7 +9160,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_83 / 171",
+                "name": "room_84 / 172",
                 "surface_px": 14982.0,
                 "surface_m2": 5.9928,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -9248,7 +9300,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_84 / 171",
+                "name": "room_85 / 172",
                 "surface_px": 16595.5,
                 "surface_m2": 6.6382,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -9324,7 +9376,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_85 / 171",
+                "name": "room_86 / 172",
                 "surface_px": 334200.0,
                 "surface_m2": 133.68,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -9376,7 +9428,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_86 / 171",
+                "name": "room_87 / 172",
                 "surface_px": 7905.5,
                 "surface_m2": 3.1622,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -9468,7 +9520,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_87 / 171",
+                "name": "room_88 / 172",
                 "surface_px": 787674.0,
                 "surface_m2": 315.0696,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -9608,7 +9660,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_88 / 171",
+                "name": "room_89 / 172",
                 "surface_px": 95471.0,
                 "surface_m2": 38.1884,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -9660,7 +9712,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_89 / 171",
+                "name": "room_90 / 172",
                 "surface_px": 64611.0,
                 "surface_m2": 25.8444,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -9712,7 +9764,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_90 / 171",
+                "name": "room_91 / 172",
                 "surface_px": 16565.0,
                 "surface_m2": 6.626,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -9764,7 +9816,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_91 / 171",
+                "name": "room_92 / 172",
                 "surface_px": 21973.0,
                 "surface_m2": 8.7892,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -9832,7 +9884,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_92 / 171",
+                "name": "room_93 / 172",
                 "surface_px": 42323.5,
                 "surface_m2": 16.9294,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -9916,7 +9968,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_93 / 171",
+                "name": "room_94 / 172",
                 "surface_px": 11712.0,
                 "surface_m2": 4.6848,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -9968,7 +10020,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_94 / 171",
+                "name": "room_95 / 172",
                 "surface_px": 111905.5,
                 "surface_m2": 44.7622,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -10132,7 +10184,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_95 / 171",
+                "name": "room_96 / 172",
                 "surface_px": 46702.0,
                 "surface_m2": 18.6808,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -10184,7 +10236,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_96 / 171",
+                "name": "room_97 / 172",
                 "surface_px": 41166.0,
                 "surface_m2": 16.4664,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -10236,7 +10288,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_97 / 171",
+                "name": "room_98 / 172",
                 "surface_px": 11886.0,
                 "surface_m2": 4.7544,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -10288,7 +10340,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_98 / 171",
+                "name": "room_99 / 172",
                 "surface_px": 14382.0,
                 "surface_m2": 5.7528,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -10340,7 +10392,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_99 / 171",
+                "name": "room_100 / 172",
                 "surface_px": 9672.0,
                 "surface_m2": 3.8688,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -10392,7 +10444,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_100 / 171",
+                "name": "room_101 / 172",
                 "surface_px": 18582.0,
                 "surface_m2": 7.4328,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -10444,7 +10496,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_101 / 171",
+                "name": "room_102 / 172",
                 "surface_px": 18582.0,
                 "surface_m2": 7.4328,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -10496,7 +10548,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_102 / 171",
+                "name": "room_103 / 172",
                 "surface_px": 418331.0,
                 "surface_m2": 167.3324,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -10612,7 +10664,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_103 / 171",
+                "name": "room_104 / 172",
                 "surface_px": 62918.0,
                 "surface_m2": 25.1672,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -10688,7 +10740,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_104 / 171",
+                "name": "room_105 / 172",
                 "surface_px": 42882.0,
                 "surface_m2": 17.1528,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -10740,7 +10792,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_105 / 171",
+                "name": "room_106 / 172",
                 "surface_px": 100602.0,
                 "surface_m2": 40.2408,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -10904,7 +10956,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_106 / 171",
+                "name": "room_107 / 172",
                 "surface_px": 86860.0,
                 "surface_m2": 34.744,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -10956,7 +11008,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_107 / 171",
+                "name": "room_108 / 172",
                 "surface_px": 7522.5,
                 "surface_m2": 3.009,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -11040,7 +11092,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_108 / 171",
+                "name": "room_109 / 172",
                 "surface_px": 8130.0,
                 "surface_m2": 3.252,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -11124,7 +11176,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_109 / 171",
+                "name": "room_110 / 172",
                 "surface_px": 30562.5,
                 "surface_m2": 12.225,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -11208,7 +11260,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_110 / 171",
+                "name": "room_111 / 172",
                 "surface_px": 17188.5,
                 "surface_m2": 6.8754,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -11260,7 +11312,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_111 / 171",
+                "name": "room_112 / 172",
                 "surface_px": 28308.0,
                 "surface_m2": 11.3232,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -11376,7 +11428,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_112 / 171",
+                "name": "room_113 / 172",
                 "surface_px": 221891.5,
                 "surface_m2": 88.7566,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -11620,7 +11672,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_113 / 171",
+                "name": "room_114 / 172",
                 "surface_px": 29457.0,
                 "surface_m2": 11.7828,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -11672,7 +11724,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_114 / 171",
+                "name": "room_115 / 172",
                 "surface_px": 392878.5,
                 "surface_m2": 157.1514,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -11884,7 +11936,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_115 / 171",
+                "name": "room_116 / 172",
                 "surface_px": 6500349.5,
                 "surface_m2": 2600.1398,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -12464,7 +12516,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_116 / 171",
+                "name": "room_117 / 172",
                 "surface_px": 574972.5,
                 "surface_m2": 229.989,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -12548,7 +12600,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_117 / 171",
+                "name": "room_118 / 172",
                 "surface_px": 22932.0,
                 "surface_m2": 9.1728,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -12600,7 +12652,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_118 / 171",
+                "name": "room_119 / 172",
                 "surface_px": 41383.5,
                 "surface_m2": 16.5534,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -12652,7 +12704,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_119 / 171",
+                "name": "room_120 / 172",
                 "surface_px": 21361.0,
                 "surface_m2": 8.5444,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -12704,7 +12756,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_120 / 171",
+                "name": "room_121 / 172",
                 "surface_px": 15372.0,
                 "surface_m2": 6.1488,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -12756,7 +12808,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_121 / 171",
+                "name": "room_122 / 172",
                 "surface_px": 57239.5,
                 "surface_m2": 22.8958,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -12888,7 +12940,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_122 / 171",
+                "name": "room_123 / 172",
                 "surface_px": 22490.0,
                 "surface_m2": 8.996,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -12940,7 +12992,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_123 / 171",
+                "name": "room_124 / 172",
                 "surface_px": 422524.5,
                 "surface_m2": 169.0098,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -13376,7 +13428,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_124 / 171",
+                "name": "room_125 / 172",
                 "surface_px": 9882.0,
                 "surface_m2": 3.9528,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -13428,7 +13480,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_125 / 171",
+                "name": "room_126 / 172",
                 "surface_px": 32018.0,
                 "surface_m2": 12.8072,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -13480,7 +13532,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_126 / 171",
+                "name": "room_127 / 172",
                 "surface_px": 1113775.5,
                 "surface_m2": 445.5102,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -13724,7 +13776,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_127 / 171",
+                "name": "room_128 / 172",
                 "surface_px": 20382.0,
                 "surface_m2": 8.1528,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -13776,7 +13828,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_128 / 171",
+                "name": "room_129 / 172",
                 "surface_px": 62372.5,
                 "surface_m2": 24.949,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -13844,7 +13896,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_129 / 171",
+                "name": "room_130 / 172",
                 "surface_px": 7664.5,
                 "surface_m2": 3.0658,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -13896,7 +13948,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_130 / 171",
+                "name": "room_131 / 172",
                 "surface_px": 26560.5,
                 "surface_m2": 10.6242,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -13948,7 +14000,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_131 / 171",
+                "name": "room_132 / 172",
                 "surface_px": 35070.0,
                 "surface_m2": 14.028,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -14000,7 +14052,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_132 / 171",
+                "name": "room_133 / 172",
                 "surface_px": 6318.0,
                 "surface_m2": 2.5272,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -14052,7 +14104,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_133 / 171",
+                "name": "room_134 / 172",
                 "surface_px": 177116.0,
                 "surface_m2": 70.8464,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -14136,7 +14188,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_134 / 171",
+                "name": "room_135 / 172",
                 "surface_px": 20382.0,
                 "surface_m2": 8.1528,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -14188,7 +14240,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_135 / 171",
+                "name": "room_136 / 172",
                 "surface_px": 81500.5,
                 "surface_m2": 32.6002,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -14336,7 +14388,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_136 / 171",
+                "name": "room_137 / 172",
                 "surface_px": 24906.0,
                 "surface_m2": 9.9624,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -14388,7 +14440,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_137 / 171",
+                "name": "room_138 / 172",
                 "surface_px": 401860.0,
                 "surface_m2": 160.744,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -14648,7 +14700,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_138 / 171",
+                "name": "room_139 / 172",
                 "surface_px": 69373.0,
                 "surface_m2": 27.7492,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -14724,7 +14776,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_139 / 171",
+                "name": "room_140 / 172",
                 "surface_px": 56849.5,
                 "surface_m2": 22.7398,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -14856,7 +14908,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_140 / 171",
+                "name": "room_141 / 172",
                 "surface_px": 43263.0,
                 "surface_m2": 17.3052,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -15020,7 +15072,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_141 / 171",
+                "name": "room_142 / 172",
                 "surface_px": 342921.5,
                 "surface_m2": 137.1686,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -15528,7 +15580,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_142 / 171",
+                "name": "room_143 / 172",
                 "surface_px": 98582.5,
                 "surface_m2": 39.433,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -15676,7 +15728,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_143 / 171",
+                "name": "room_144 / 172",
                 "surface_px": 363634.5,
                 "surface_m2": 145.4538,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -16080,7 +16132,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_144 / 171",
+                "name": "room_145 / 172",
                 "surface_px": 204665.5,
                 "surface_m2": 81.8662,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -16164,7 +16216,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_145 / 171",
+                "name": "room_146 / 172",
                 "surface_px": 97587.0,
                 "surface_m2": 39.0348,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -16240,7 +16292,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_146 / 171",
+                "name": "room_147 / 172",
                 "surface_px": 140363.0,
                 "surface_m2": 56.1452,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -16428,7 +16480,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_147 / 171",
+                "name": "room_148 / 172",
                 "surface_px": 10422.0,
                 "surface_m2": 4.1688,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -16480,7 +16532,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_148 / 171",
+                "name": "room_149 / 172",
                 "surface_px": 99424.5,
                 "surface_m2": 39.7698,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -16588,7 +16640,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_149 / 171",
+                "name": "room_150 / 172",
                 "surface_px": 140449.0,
                 "surface_m2": 56.1796,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -16792,7 +16844,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_150 / 171",
+                "name": "room_151 / 172",
                 "surface_px": 14382.0,
                 "surface_m2": 5.7528,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -16844,7 +16896,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_151 / 171",
+                "name": "room_152 / 172",
                 "surface_px": 29457.0,
                 "surface_m2": 11.7828,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -16896,7 +16948,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_152 / 171",
+                "name": "room_153 / 172",
                 "surface_px": 177709.0,
                 "surface_m2": 71.0836,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -17236,7 +17288,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_153 / 171",
+                "name": "room_154 / 172",
                 "surface_px": 57873.5,
                 "surface_m2": 23.1494,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -17368,7 +17420,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_154 / 171",
+                "name": "room_155 / 172",
                 "surface_px": 250315.5,
                 "surface_m2": 100.1262,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -17580,7 +17632,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_155 / 171",
+                "name": "room_156 / 172",
                 "surface_px": 36872.0,
                 "surface_m2": 14.7488,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -17632,7 +17684,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_156 / 171",
+                "name": "room_157 / 172",
                 "surface_px": 283364.5,
                 "surface_m2": 113.3458,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -18012,7 +18064,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_157 / 171",
+                "name": "room_158 / 172",
                 "surface_px": 7551433.5,
                 "surface_m2": 3020.5734,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -18440,7 +18492,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_158 / 171",
+                "name": "room_159 / 172",
                 "surface_px": 54566.5,
                 "surface_m2": 21.8266,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -18604,7 +18656,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_159 / 171",
+                "name": "room_160 / 172",
                 "surface_px": 17063.0,
                 "surface_m2": 6.8252,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -18720,7 +18772,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_160 / 171",
+                "name": "room_161 / 172",
                 "surface_px": 18582.0,
                 "surface_m2": 7.4328,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -18772,7 +18824,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_161 / 171",
+                "name": "room_162 / 172",
                 "surface_px": 207303.0,
                 "surface_m2": 82.9212,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -18960,7 +19012,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_162 / 171",
+                "name": "room_163 / 172",
                 "surface_px": 7780.5,
                 "surface_m2": 3.1122,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -19044,7 +19096,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_163 / 171",
+                "name": "room_164 / 172",
                 "surface_px": 207250.5,
                 "surface_m2": 82.9002,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -19208,7 +19260,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_164 / 171",
+                "name": "room_165 / 172",
                 "surface_px": 10340.0,
                 "surface_m2": 4.136,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -19260,7 +19312,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_165 / 171",
+                "name": "room_166 / 172",
                 "surface_px": 6277.0,
                 "surface_m2": 2.5108,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -19336,7 +19388,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_166 / 171",
+                "name": "room_167 / 172",
                 "surface_px": 7755.5,
                 "surface_m2": 3.1022,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -19420,7 +19472,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_167 / 171",
+                "name": "room_168 / 172",
                 "surface_px": 177151.0,
                 "surface_m2": 70.8604,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -19496,7 +19548,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_168 / 171",
+                "name": "room_169 / 172",
                 "surface_px": 418256.5,
                 "surface_m2": 167.3026,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -19772,7 +19824,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_169 / 171",
+                "name": "room_170 / 172",
                 "surface_px": 21941.0,
                 "surface_m2": 8.7764,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -19840,7 +19892,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_170 / 171",
+                "name": "room_171 / 172",
                 "surface_px": 41397.0,
                 "surface_m2": 16.5588,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"
@@ -19892,7 +19944,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_171 / 171",
+                "name": "room_172 / 172",
                 "surface_px": 184581.0,
                 "surface_m2": 73.8324,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Walls"

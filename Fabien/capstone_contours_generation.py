@@ -47,6 +47,14 @@ def generate_binary_image(segment, transform_parameter, file_name,
     width = int((maxx - minx) * scale) + 1
     height = int((maxy - miny) * scale) + 1
     
+
+    # print("═══════════════════════════════════════")
+    # print(f"✅ Fichier : {file_name}")
+    # print(f"Image size : width = {width}px, height = {height}px")
+    # print(f"Bounds X  : 0 → {width - 1}")
+    # print(f"Bounds Y  : 0 → {height - 1}")
+    # print("═══════════════════════════════════════\n")
+    
     # Sauvegarder les paramètres de transformation
     binary_image_path = binary_images_dir  / f"{file_name}_binary_image.png"
     metadata_path = metadatas_dir / f"{file_name}_metadata.json"
@@ -61,12 +69,18 @@ def generate_binary_image(segment, transform_parameter, file_name,
         x_vals, y_vals = line.xy
         x_pixels = ((np.array(x_vals) - minx) * scale).astype(int)
         y_pixels = height - ((np.array(y_vals) - miny) * scale).astype(int)
+
+        # Clamp pour éviter les débordements
+        x_pixels = np.clip(x_pixels, 0, width - 1)
+        y_pixels = np.clip(y_pixels, 0, height - 1)
         
         for j in range(len(x_pixels) - 1):
             pt1 = (x_pixels[j], y_pixels[j])
             pt2 = (x_pixels[j + 1], y_pixels[j + 1])
             if 0 <= pt1[0] < width and 0 <= pt1[1] < height and 0 <= pt2[0] < width and 0 <= pt2[1] < height:
                 cv2.line(img, pt1, pt2, 0, thickness)  # Épaisseur personnalisée
+            else:
+                print(f"⚠️ Point out of bounds: {pt1}, {pt2}")
     
     # Épaississement avec méthode choisie
     if thickness > 1:
@@ -363,7 +377,7 @@ if __name__ == "__main__":
 
     ### ETAPE 3 : Détection des contours des pièces et export de l'image colorée + GeoJSON ###
 
-    surface_minimale=1 # surface minimale en m²
+    surface_minimale=0.5 # surface minimale en m²
     surface_minimale_pixels = surface_minimale * (dpi_choice**2)  # Conversion en pixels
     epaisseur_min_m=0.25
 

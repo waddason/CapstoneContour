@@ -4,7 +4,379 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_1 / 141",
+                "name": "room_1 / 142",
+                "surface_px": 471991.0,
+                "surface_m2": 188.7964,
+                "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            57.93897523328969,
+                            -120.14719700160087
+                        ],
+                        [
+                            59.53897523328968,
+                            -120.14719700160087
+                        ],
+                        [
+                            59.598975233289686,
+                            -120.20719700160087
+                        ],
+                        [
+                            59.598975233289686,
+                            -120.44719700160088
+                        ],
+                        [
+                            59.61897523328968,
+                            -120.46719700160088
+                        ],
+                        [
+                            59.61897523328968,
+                            -120.48719700160088
+                        ],
+                        [
+                            59.65897523328969,
+                            -120.52719700160088
+                        ],
+                        [
+                            59.678975233289684,
+                            -120.52719700160088
+                        ],
+                        [
+                            59.69897523328968,
+                            -120.54719700160088
+                        ],
+                        [
+                            60.35897523328969,
+                            -120.54719700160088
+                        ],
+                        [
+                            60.37897523328969,
+                            -120.52719700160088
+                        ],
+                        [
+                            60.39897523328968,
+                            -120.52719700160088
+                        ],
+                        [
+                            60.43897523328969,
+                            -120.48719700160088
+                        ],
+                        [
+                            60.43897523328969,
+                            -120.46719700160088
+                        ],
+                        [
+                            60.458975233289685,
+                            -120.44719700160088
+                        ],
+                        [
+                            60.458975233289685,
+                            -120.20719700160087
+                        ],
+                        [
+                            60.51897523328969,
+                            -120.14719700160087
+                        ],
+                        [
+                            66.71897523328968,
+                            -120.14719700160087
+                        ],
+                        [
+                            66.77897523328969,
+                            -120.20719700160087
+                        ],
+                        [
+                            66.77897523328969,
+                            -120.44719700160088
+                        ],
+                        [
+                            66.7989752332897,
+                            -120.46719700160088
+                        ],
+                        [
+                            66.7989752332897,
+                            -120.48719700160088
+                        ],
+                        [
+                            66.83897523328969,
+                            -120.52719700160088
+                        ],
+                        [
+                            66.8589752332897,
+                            -120.52719700160088
+                        ],
+                        [
+                            66.87897523328968,
+                            -120.54719700160088
+                        ],
+                        [
+                            67.37897523328968,
+                            -120.54719700160088
+                        ],
+                        [
+                            67.39897523328969,
+                            -120.52719700160088
+                        ],
+                        [
+                            67.4189752332897,
+                            -120.52719700160088
+                        ],
+                        [
+                            67.45897523328969,
+                            -120.48719700160088
+                        ],
+                        [
+                            67.45897523328969,
+                            -120.46719700160088
+                        ],
+                        [
+                            67.47897523328967,
+                            -120.44719700160088
+                        ],
+                        [
+                            67.47897523328967,
+                            -120.20719700160087
+                        ],
+                        [
+                            67.53897523328968,
+                            -120.14719700160087
+                        ],
+                        [
+                            72.71897523328968,
+                            -120.14719700160087
+                        ],
+                        [
+                            72.77897523328969,
+                            -120.20719700160087
+                        ],
+                        [
+                            72.77897523328969,
+                            -120.74719700160088
+                        ],
+                        [
+                            72.7989752332897,
+                            -120.76719700160088
+                        ],
+                        [
+                            72.7989752332897,
+                            -120.78719700160087
+                        ],
+                        [
+                            72.83897523328969,
+                            -120.82719700160088
+                        ],
+                        [
+                            72.8589752332897,
+                            -120.82719700160088
+                        ],
+                        [
+                            72.87897523328968,
+                            -120.84719700160088
+                        ],
+                        [
+                            74.59897523328968,
+                            -120.84719700160088
+                        ],
+                        [
+                            74.61897523328969,
+                            -120.82719700160088
+                        ],
+                        [
+                            74.6389752332897,
+                            -120.82719700160088
+                        ],
+                        [
+                            74.67897523328969,
+                            -120.78719700160087
+                        ],
+                        [
+                            74.67897523328969,
+                            -120.76719700160088
+                        ],
+                        [
+                            74.69897523328967,
+                            -120.74719700160088
+                        ],
+                        [
+                            74.69897523328967,
+                            -120.20719700160087
+                        ],
+                        [
+                            74.75897523328968,
+                            -120.14719700160087
+                        ],
+                        [
+                            75.93897523328968,
+                            -120.14719700160087
+                        ],
+                        [
+                            75.99897523328968,
+                            -120.20719700160087
+                        ],
+                        [
+                            75.99897523328968,
+                            -121.52719700160088
+                        ],
+                        [
+                            76.0189752332897,
+                            -121.54719700160088
+                        ],
+                        [
+                            76.0189752332897,
+                            -121.56719700160087
+                        ],
+                        [
+                            76.05897523328969,
+                            -121.60719700160088
+                        ],
+                        [
+                            76.0789752332897,
+                            -121.60719700160088
+                        ],
+                        [
+                            76.09897523328968,
+                            -121.62719700160088
+                        ],
+                        [
+                            80.5189752332897,
+                            -121.62719700160088
+                        ],
+                        [
+                            80.5789752332897,
+                            -121.68719700160088
+                        ],
+                        [
+                            80.5789752332897,
+                            -122.60719700160088
+                        ],
+                        [
+                            80.59897523328968,
+                            -122.62719700160088
+                        ],
+                        [
+                            80.59897523328968,
+                            -122.64719700160087
+                        ],
+                        [
+                            80.6389752332897,
+                            -122.68719700160088
+                        ],
+                        [
+                            80.65897523328968,
+                            -122.68719700160088
+                        ],
+                        [
+                            80.67897523328969,
+                            -122.70719700160087
+                        ],
+                        [
+                            81.17897523328969,
+                            -122.70719700160087
+                        ],
+                        [
+                            81.2389752332897,
+                            -122.76719700160088
+                        ],
+                        [
+                            81.2389752332897,
+                            -127.34719700160088
+                        ],
+                        [
+                            81.17897523328969,
+                            -127.40719700160088
+                        ],
+                        [
+                            53.33897523328968,
+                            -127.40719700160088
+                        ],
+                        [
+                            53.27897523328969,
+                            -127.34719700160088
+                        ],
+                        [
+                            53.27897523328969,
+                            -121.18719700160088
+                        ],
+                        [
+                            53.33897523328968,
+                            -121.12719700160088
+                        ],
+                        [
+                            55.47897523328968,
+                            -121.12719700160088
+                        ],
+                        [
+                            55.49897523328969,
+                            -121.10719700160088
+                        ],
+                        [
+                            55.51897523328969,
+                            -121.10719700160088
+                        ],
+                        [
+                            55.55897523328968,
+                            -121.06719700160087
+                        ],
+                        [
+                            55.55897523328968,
+                            -121.04719700160088
+                        ],
+                        [
+                            55.57897523328969,
+                            -121.02719700160088
+                        ],
+                        [
+                            55.57897523328969,
+                            -120.86719700160087
+                        ],
+                        [
+                            55.63897523328969,
+                            -120.80719700160088
+                        ],
+                        [
+                            57.77897523328969,
+                            -120.80719700160088
+                        ],
+                        [
+                            57.79897523328969,
+                            -120.78719700160087
+                        ],
+                        [
+                            57.818975233289684,
+                            -120.78719700160087
+                        ],
+                        [
+                            57.85897523328969,
+                            -120.74719700160088
+                        ],
+                        [
+                            57.85897523328969,
+                            -120.72719700160087
+                        ],
+                        [
+                            57.87897523328969,
+                            -120.70719700160087
+                        ],
+                        [
+                            57.87897523328969,
+                            -120.20719700160087
+                        ],
+                        [
+                            57.93897523328969,
+                            -120.14719700160087
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "room_2 / 142",
                 "surface_px": 52958.0,
                 "surface_m2": 21.1832,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -56,7 +428,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_2 / 141",
+                "name": "room_3 / 142",
                 "surface_px": 265820.5,
                 "surface_m2": 106.3282,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -468,7 +840,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_3 / 141",
+                "name": "room_4 / 142",
                 "surface_px": 47078.0,
                 "surface_m2": 18.8312,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -520,7 +892,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_4 / 141",
+                "name": "room_5 / 142",
                 "surface_px": 205798.0,
                 "surface_m2": 82.3192,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -764,7 +1136,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_5 / 141",
+                "name": "room_6 / 142",
                 "surface_px": 7759.0,
                 "surface_m2": 3.1036,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -816,7 +1188,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_6 / 141",
+                "name": "room_7 / 142",
                 "surface_px": 90484.0,
                 "surface_m2": 36.1936,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -996,7 +1368,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_7 / 141",
+                "name": "room_8 / 142",
                 "surface_px": 170814.0,
                 "surface_m2": 68.3256,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -1144,7 +1516,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_8 / 141",
+                "name": "room_9 / 142",
                 "surface_px": 402088.0,
                 "surface_m2": 160.8352,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -1260,7 +1632,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_9 / 141",
+                "name": "room_10 / 142",
                 "surface_px": 7126.5,
                 "surface_m2": 2.8506,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -1344,7 +1716,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_10 / 141",
+                "name": "room_11 / 142",
                 "surface_px": 226572.0,
                 "surface_m2": 90.6288,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -1396,7 +1768,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_11 / 141",
+                "name": "room_12 / 142",
                 "surface_px": 103377.0,
                 "surface_m2": 41.3508,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -1448,7 +1820,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_12 / 141",
+                "name": "room_13 / 142",
                 "surface_px": 165954.0,
                 "surface_m2": 66.3816,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -1692,7 +2064,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_13 / 141",
+                "name": "room_14 / 142",
                 "surface_px": 133791.5,
                 "surface_m2": 53.5166,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -1776,7 +2148,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_14 / 141",
+                "name": "room_15 / 142",
                 "surface_px": 54401.0,
                 "surface_m2": 21.7604,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -2084,7 +2456,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_15 / 141",
+                "name": "room_16 / 142",
                 "surface_px": 19539.0,
                 "surface_m2": 7.8156,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -2136,7 +2508,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_16 / 141",
+                "name": "room_17 / 142",
                 "surface_px": 172953.0,
                 "surface_m2": 69.1812,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -2380,7 +2752,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_17 / 141",
+                "name": "room_18 / 142",
                 "surface_px": 237641.5,
                 "surface_m2": 95.0566,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -2592,7 +2964,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_18 / 141",
+                "name": "room_19 / 142",
                 "surface_px": 176325.5,
                 "surface_m2": 70.5302,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -2804,7 +3176,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_19 / 141",
+                "name": "room_20 / 142",
                 "surface_px": 274720.0,
                 "surface_m2": 109.888,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -3096,7 +3468,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_20 / 141",
+                "name": "room_21 / 142",
                 "surface_px": 109849.5,
                 "surface_m2": 43.9398,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -3180,7 +3552,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_21 / 141",
+                "name": "room_22 / 142",
                 "surface_px": 163868.5,
                 "surface_m2": 65.5474,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -3400,7 +3772,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_22 / 141",
+                "name": "room_23 / 142",
                 "surface_px": 49619.0,
                 "surface_m2": 19.8476,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -3580,7 +3952,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_23 / 141",
+                "name": "room_24 / 142",
                 "surface_px": 49083.5,
                 "surface_m2": 19.6334,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -3728,7 +4100,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_24 / 141",
+                "name": "room_25 / 142",
                 "surface_px": 11938.0,
                 "surface_m2": 4.7752,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -3780,7 +4152,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_25 / 141",
+                "name": "room_26 / 142",
                 "surface_px": 255574.0,
                 "surface_m2": 102.2296,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -4024,7 +4396,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_26 / 141",
+                "name": "room_27 / 142",
                 "surface_px": 36596.5,
                 "surface_m2": 14.6386,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -4108,7 +4480,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_27 / 141",
+                "name": "room_28 / 142",
                 "surface_px": 200330.5,
                 "surface_m2": 80.1322,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -4256,7 +4628,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_28 / 141",
+                "name": "room_29 / 142",
                 "surface_px": 115983.0,
                 "surface_m2": 46.3932,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -4500,7 +4872,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_29 / 141",
+                "name": "room_30 / 142",
                 "surface_px": 200378.5,
                 "surface_m2": 80.1514,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -4648,7 +5020,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_30 / 141",
+                "name": "room_31 / 142",
                 "surface_px": 899605.5,
                 "surface_m2": 359.8422,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -4948,7 +5320,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_31 / 141",
+                "name": "room_32 / 142",
                 "surface_px": 199018.0,
                 "surface_m2": 79.6072,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -5192,7 +5564,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_32 / 141",
+                "name": "room_33 / 142",
                 "surface_px": 8487.5,
                 "surface_m2": 3.395,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -5276,7 +5648,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_33 / 141",
+                "name": "room_34 / 142",
                 "surface_px": 363560.0,
                 "surface_m2": 145.424,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -5520,7 +5892,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_34 / 141",
+                "name": "room_35 / 142",
                 "surface_px": 43502.0,
                 "surface_m2": 17.4008,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -5572,7 +5944,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_35 / 141",
+                "name": "room_36 / 142",
                 "surface_px": 263235.5,
                 "surface_m2": 105.2942,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -5704,7 +6076,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_36 / 141",
+                "name": "room_37 / 142",
                 "surface_px": 141222.0,
                 "surface_m2": 56.4888,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -5756,7 +6128,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_37 / 141",
+                "name": "room_38 / 142",
                 "surface_px": 206755.0,
                 "surface_m2": 82.702,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -5936,7 +6308,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_38 / 141",
+                "name": "room_39 / 142",
                 "surface_px": 15734.5,
                 "surface_m2": 6.2938,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -6084,7 +6456,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_39 / 141",
+                "name": "room_40 / 142",
                 "surface_px": 98766.5,
                 "surface_m2": 39.5066,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -6424,7 +6796,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_40 / 141",
+                "name": "room_41 / 142",
                 "surface_px": 21678.5,
                 "surface_m2": 8.6714,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -6508,7 +6880,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_41 / 141",
+                "name": "room_42 / 142",
                 "surface_px": 39207.5,
                 "surface_m2": 15.683,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -6592,7 +6964,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_42 / 141",
+                "name": "room_43 / 142",
                 "surface_px": 43374.0,
                 "surface_m2": 17.3496,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -6644,7 +7016,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_43 / 141",
+                "name": "room_44 / 142",
                 "surface_px": 41966.0,
                 "surface_m2": 16.7864,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -6696,7 +7068,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_44 / 141",
+                "name": "room_45 / 142",
                 "surface_px": 2816103.0,
                 "surface_m2": 1126.4412,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -7004,7 +7376,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_45 / 141",
+                "name": "room_46 / 142",
                 "surface_px": 77561.5,
                 "surface_m2": 31.0246,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -7088,7 +7460,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_46 / 141",
+                "name": "room_47 / 142",
                 "surface_px": 31447.5,
                 "surface_m2": 12.579,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -7188,7 +7560,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_47 / 141",
+                "name": "room_48 / 142",
                 "surface_px": 19720.5,
                 "surface_m2": 7.8882,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -7272,7 +7644,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_48 / 141",
+                "name": "room_49 / 142",
                 "surface_px": 101628.0,
                 "surface_m2": 40.6512,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -7452,7 +7824,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_49 / 141",
+                "name": "room_50 / 142",
                 "surface_px": 281770.5,
                 "surface_m2": 112.7082,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -7664,7 +8036,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_50 / 141",
+                "name": "room_51 / 142",
                 "surface_px": 190821.5,
                 "surface_m2": 76.3286,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -7876,7 +8248,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_51 / 141",
+                "name": "room_52 / 142",
                 "surface_px": 170541.0,
                 "surface_m2": 68.2164,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -7944,7 +8316,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_52 / 141",
+                "name": "room_53 / 142",
                 "surface_px": 82982.0,
                 "surface_m2": 33.1928,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -7996,7 +8368,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_53 / 141",
+                "name": "room_54 / 142",
                 "surface_px": 14482.0,
                 "surface_m2": 5.7928,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -8048,7 +8420,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_54 / 141",
+                "name": "room_55 / 142",
                 "surface_px": 28442.5,
                 "surface_m2": 11.377,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -8132,7 +8504,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_55 / 141",
+                "name": "room_56 / 142",
                 "surface_px": 33132.0,
                 "surface_m2": 13.2528,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -8184,7 +8556,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_56 / 141",
+                "name": "room_57 / 142",
                 "surface_px": 48868.5,
                 "surface_m2": 19.5474,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -8332,7 +8704,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_57 / 141",
+                "name": "room_58 / 142",
                 "surface_px": 7032.5,
                 "surface_m2": 2.813,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -8416,7 +8788,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_58 / 141",
+                "name": "room_59 / 142",
                 "surface_px": 166952.0,
                 "surface_m2": 66.7808,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -8596,7 +8968,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_59 / 141",
+                "name": "room_60 / 142",
                 "surface_px": 45435.5,
                 "surface_m2": 18.1742,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -8680,7 +9052,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_60 / 141",
+                "name": "room_61 / 142",
                 "surface_px": 49178.5,
                 "surface_m2": 19.6714,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -8828,7 +9200,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_61 / 141",
+                "name": "room_62 / 142",
                 "surface_px": 33187.0,
                 "surface_m2": 13.2748,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -8880,7 +9252,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_62 / 141",
+                "name": "room_63 / 142",
                 "surface_px": 40147.0,
                 "surface_m2": 16.0588,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -8932,7 +9304,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_63 / 141",
+                "name": "room_64 / 142",
                 "surface_px": 13828.5,
                 "surface_m2": 5.5314,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -9016,7 +9388,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_64 / 141",
+                "name": "room_65 / 142",
                 "surface_px": 190432.5,
                 "surface_m2": 76.173,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -9228,7 +9600,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_65 / 141",
+                "name": "room_66 / 142",
                 "surface_px": 365843.0,
                 "surface_m2": 146.3372,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -9736,7 +10108,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_66 / 141",
+                "name": "room_67 / 142",
                 "surface_px": 73082.0,
                 "surface_m2": 29.2328,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -9788,7 +10160,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_67 / 141",
+                "name": "room_68 / 142",
                 "surface_px": 126702.0,
                 "surface_m2": 50.6808,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -9840,7 +10212,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_68 / 141",
+                "name": "room_69 / 142",
                 "surface_px": 6793.0,
                 "surface_m2": 2.7172,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -9908,7 +10280,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_69 / 141",
+                "name": "room_70 / 142",
                 "surface_px": 79884.5,
                 "surface_m2": 31.9538,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -9960,7 +10332,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_70 / 141",
+                "name": "room_71 / 142",
                 "surface_px": 57432.0,
                 "surface_m2": 22.9728,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -10012,7 +10384,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_71 / 141",
+                "name": "room_72 / 142",
                 "surface_px": 368783.0,
                 "surface_m2": 147.5132,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -10360,7 +10732,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_72 / 141",
+                "name": "room_73 / 142",
                 "surface_px": 170315.0,
                 "surface_m2": 68.126,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -10732,7 +11104,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_73 / 141",
+                "name": "room_74 / 142",
                 "surface_px": 55482.0,
                 "surface_m2": 22.1928,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -10784,7 +11156,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_74 / 141",
+                "name": "room_75 / 142",
                 "surface_px": 67320.0,
                 "surface_m2": 26.928,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -10900,7 +11272,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_75 / 141",
+                "name": "room_76 / 142",
                 "surface_px": 14527.5,
                 "surface_m2": 5.811,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -10960,7 +11332,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_76 / 141",
+                "name": "room_77 / 142",
                 "surface_px": 35667.0,
                 "surface_m2": 14.2668,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -11044,7 +11416,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_77 / 141",
+                "name": "room_78 / 142",
                 "surface_px": 46782.0,
                 "surface_m2": 18.7128,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -11096,7 +11468,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_78 / 141",
+                "name": "room_79 / 142",
                 "surface_px": 49438.5,
                 "surface_m2": 19.7754,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -11244,7 +11616,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_79 / 141",
+                "name": "room_80 / 142",
                 "surface_px": 60434.5,
                 "surface_m2": 24.1738,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -11328,7 +11700,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_80 / 141",
+                "name": "room_81 / 142",
                 "surface_px": 41767.0,
                 "surface_m2": 16.7068,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -11460,7 +11832,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_81 / 141",
+                "name": "room_82 / 142",
                 "surface_px": 26360.0,
                 "surface_m2": 10.544,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -11576,7 +11948,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_82 / 141",
+                "name": "room_83 / 142",
                 "surface_px": 781506.5,
                 "surface_m2": 312.6026,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -12020,7 +12392,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_83 / 141",
+                "name": "room_84 / 142",
                 "surface_px": 14073.0,
                 "surface_m2": 5.6292,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -12072,7 +12444,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_84 / 141",
+                "name": "room_85 / 142",
                 "surface_px": 66724.5,
                 "surface_m2": 26.6898,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -12156,7 +12528,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_85 / 141",
+                "name": "room_86 / 142",
                 "surface_px": 47832.0,
                 "surface_m2": 19.1328,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -12208,7 +12580,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_86 / 141",
+                "name": "room_87 / 142",
                 "surface_px": 98910.0,
                 "surface_m2": 39.564,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -12260,7 +12632,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_87 / 141",
+                "name": "room_88 / 142",
                 "surface_px": 56982.0,
                 "surface_m2": 22.7928,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -12312,7 +12684,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_88 / 141",
+                "name": "room_89 / 142",
                 "surface_px": 48427.0,
                 "surface_m2": 19.3708,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -12380,7 +12752,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_89 / 141",
+                "name": "room_90 / 142",
                 "surface_px": 23756.5,
                 "surface_m2": 9.5026,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -12464,7 +12836,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_90 / 141",
+                "name": "room_91 / 142",
                 "surface_px": 87231.0,
                 "surface_m2": 34.8924,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -12516,7 +12888,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_91 / 141",
+                "name": "room_92 / 142",
                 "surface_px": 8110.0,
                 "surface_m2": 3.244,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -12568,7 +12940,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_92 / 141",
+                "name": "room_93 / 142",
                 "surface_px": 57432.0,
                 "surface_m2": 22.9728,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -12620,7 +12992,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_93 / 141",
+                "name": "room_94 / 142",
                 "surface_px": 307727.5,
                 "surface_m2": 123.091,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -13232,7 +13604,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_94 / 141",
+                "name": "room_95 / 142",
                 "surface_px": 38345.5,
                 "surface_m2": 15.3382,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -13316,7 +13688,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_95 / 141",
+                "name": "room_96 / 142",
                 "surface_px": 41532.0,
                 "surface_m2": 16.6128,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -13368,7 +13740,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_96 / 141",
+                "name": "room_97 / 142",
                 "surface_px": 9822.0,
                 "surface_m2": 3.9288,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -13420,7 +13792,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_97 / 141",
+                "name": "room_98 / 142",
                 "surface_px": 12125.0,
                 "surface_m2": 4.85,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -13488,7 +13860,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_98 / 141",
+                "name": "room_99 / 142",
                 "surface_px": 8247.0,
                 "surface_m2": 3.2988,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -13540,7 +13912,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_99 / 141",
+                "name": "room_100 / 142",
                 "surface_px": 414763.0,
                 "surface_m2": 165.9052,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -13800,7 +14172,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_100 / 141",
+                "name": "room_101 / 142",
                 "surface_px": 114943.0,
                 "surface_m2": 45.9772,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -13916,7 +14288,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_101 / 141",
+                "name": "room_102 / 142",
                 "surface_px": 38552.0,
                 "surface_m2": 15.4208,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -13968,7 +14340,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_102 / 141",
+                "name": "room_103 / 142",
                 "surface_px": 85436.0,
                 "surface_m2": 34.1744,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -14084,7 +14456,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_103 / 141",
+                "name": "room_104 / 142",
                 "surface_px": 93756.0,
                 "surface_m2": 37.5024,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -14232,7 +14604,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_104 / 141",
+                "name": "room_105 / 142",
                 "surface_px": 6899.5,
                 "surface_m2": 2.7598,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -14316,7 +14688,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_105 / 141",
+                "name": "room_106 / 142",
                 "surface_px": 78570.0,
                 "surface_m2": 31.428,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -14368,7 +14740,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_106 / 141",
+                "name": "room_107 / 142",
                 "surface_px": 10622.0,
                 "surface_m2": 4.2488,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -14420,7 +14792,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_107 / 141",
+                "name": "room_108 / 142",
                 "surface_px": 26942.5,
                 "surface_m2": 10.777,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -14504,7 +14876,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_108 / 141",
+                "name": "room_109 / 142",
                 "surface_px": 28857.0,
                 "surface_m2": 11.5428,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -14556,7 +14928,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_109 / 141",
+                "name": "room_110 / 142",
                 "surface_px": 111151.0,
                 "surface_m2": 44.4604,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -14672,7 +15044,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_110 / 141",
+                "name": "room_111 / 142",
                 "surface_px": 210075.0,
                 "surface_m2": 84.03,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -14928,7 +15300,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_111 / 141",
+                "name": "room_112 / 142",
                 "surface_px": 41972.0,
                 "surface_m2": 16.7888,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -14980,7 +15352,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_112 / 141",
+                "name": "room_113 / 142",
                 "surface_px": 9822.0,
                 "surface_m2": 3.9288,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -15032,7 +15404,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_113 / 141",
+                "name": "room_114 / 142",
                 "surface_px": 12902.0,
                 "surface_m2": 5.1608,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -15084,7 +15456,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_114 / 141",
+                "name": "room_115 / 142",
                 "surface_px": 49308.5,
                 "surface_m2": 19.7234,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -15232,7 +15604,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_115 / 141",
+                "name": "room_116 / 142",
                 "surface_px": 2721361.0,
                 "surface_m2": 1088.5444,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -16012,7 +16384,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_116 / 141",
+                "name": "room_117 / 142",
                 "surface_px": 379205.0,
                 "surface_m2": 151.682,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -16400,7 +16772,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_117 / 141",
+                "name": "room_118 / 142",
                 "surface_px": 20184.0,
                 "surface_m2": 8.0736,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -16452,7 +16824,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_118 / 141",
+                "name": "room_119 / 142",
                 "surface_px": 11520.5,
                 "surface_m2": 4.6082,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -16536,7 +16908,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_119 / 141",
+                "name": "room_120 / 142",
                 "surface_px": 19274.0,
                 "surface_m2": 7.7096,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -16588,7 +16960,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_120 / 141",
+                "name": "room_121 / 142",
                 "surface_px": 76220.5,
                 "surface_m2": 30.4882,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -16736,7 +17108,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_121 / 141",
+                "name": "room_122 / 142",
                 "surface_px": 181508.0,
                 "surface_m2": 72.6032,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -16884,7 +17256,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_122 / 141",
+                "name": "room_123 / 142",
                 "surface_px": 178370.5,
                 "surface_m2": 71.3482,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -17112,7 +17484,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_123 / 141",
+                "name": "room_124 / 142",
                 "surface_px": 21761.0,
                 "surface_m2": 8.7044,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -17244,7 +17616,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_124 / 141",
+                "name": "room_125 / 142",
                 "surface_px": 38113.0,
                 "surface_m2": 15.2452,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -17360,7 +17732,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_125 / 141",
+                "name": "room_126 / 142",
                 "surface_px": 49158.5,
                 "surface_m2": 19.6634,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -17508,7 +17880,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_126 / 141",
+                "name": "room_127 / 142",
                 "surface_px": 131221.5,
                 "surface_m2": 52.4886,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -17608,7 +17980,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_127 / 141",
+                "name": "room_128 / 142",
                 "surface_px": 343755.5,
                 "surface_m2": 137.5022,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -18028,7 +18400,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_128 / 141",
+                "name": "room_129 / 142",
                 "surface_px": 92040.5,
                 "surface_m2": 36.8162,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -18240,7 +18612,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_129 / 141",
+                "name": "room_130 / 142",
                 "surface_px": 54882.0,
                 "surface_m2": 21.9528,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -18292,7 +18664,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_130 / 141",
+                "name": "room_131 / 142",
                 "surface_px": 902462.5,
                 "surface_m2": 360.985,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -18552,7 +18924,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_131 / 141",
+                "name": "room_132 / 142",
                 "surface_px": 131198.0,
                 "surface_m2": 52.4792,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -18732,7 +19104,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_132 / 141",
+                "name": "room_133 / 142",
                 "surface_px": 6682.0,
                 "surface_m2": 2.6728,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -18784,9 +19156,9 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_133 / 141",
-                "surface_px": 471991.0,
-                "surface_m2": 188.7964,
+                "name": "room_134 / 142",
+                "surface_px": 6490656.0,
+                "surface_m2": 2596.2624,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
             },
             "geometry": {
@@ -18794,360 +19166,1208 @@
                 "coordinates": [
                     [
                         [
-                            57.93897523328969,
-                            -120.14719700160087
+                            -25.961024766710313,
+                            -120.40719700160088
                         ],
                         [
-                            59.53897523328968,
-                            -120.14719700160087
+                            -19.341024766710312,
+                            -120.40719700160088
                         ],
                         [
-                            59.598975233289686,
-                            -120.20719700160087
-                        ],
-                        [
-                            59.598975233289686,
-                            -120.44719700160088
-                        ],
-                        [
-                            59.61897523328968,
-                            -120.46719700160088
-                        ],
-                        [
-                            59.61897523328968,
+                            -19.261024766710314,
                             -120.48719700160088
                         ],
                         [
-                            59.65897523328969,
-                            -120.52719700160088
-                        ],
-                        [
-                            59.678975233289684,
-                            -120.52719700160088
-                        ],
-                        [
-                            59.69897523328968,
-                            -120.54719700160088
-                        ],
-                        [
-                            60.35897523328969,
-                            -120.54719700160088
-                        ],
-                        [
-                            60.37897523328969,
-                            -120.52719700160088
-                        ],
-                        [
-                            60.39897523328968,
-                            -120.52719700160088
-                        ],
-                        [
-                            60.43897523328969,
+                            -19.241024766710314,
                             -120.48719700160088
                         ],
                         [
-                            60.43897523328969,
-                            -120.46719700160088
+                            -19.221024766710315,
+                            -120.50719700160087
                         ],
                         [
-                            60.458975233289685,
-                            -120.44719700160088
+                            -18.721024766710315,
+                            -120.50719700160087
                         ],
                         [
-                            60.458975233289685,
-                            -120.20719700160087
-                        ],
-                        [
-                            60.51897523328969,
-                            -120.14719700160087
-                        ],
-                        [
-                            66.71897523328968,
-                            -120.14719700160087
-                        ],
-                        [
-                            66.77897523328969,
-                            -120.20719700160087
-                        ],
-                        [
-                            66.77897523328969,
-                            -120.44719700160088
-                        ],
-                        [
-                            66.7989752332897,
-                            -120.46719700160088
-                        ],
-                        [
-                            66.7989752332897,
+                            -18.70102476671031,
                             -120.48719700160088
                         ],
                         [
-                            66.83897523328969,
-                            -120.52719700160088
-                        ],
-                        [
-                            66.8589752332897,
-                            -120.52719700160088
-                        ],
-                        [
-                            66.87897523328968,
-                            -120.54719700160088
-                        ],
-                        [
-                            67.37897523328968,
-                            -120.54719700160088
-                        ],
-                        [
-                            67.39897523328969,
-                            -120.52719700160088
-                        ],
-                        [
-                            67.4189752332897,
-                            -120.52719700160088
-                        ],
-                        [
-                            67.45897523328969,
+                            -18.681024766710316,
                             -120.48719700160088
                         ],
                         [
-                            67.45897523328969,
+                            -18.601024766710314,
+                            -120.40719700160088
+                        ],
+                        [
+                            -12.241024766710314,
+                            -120.40719700160088
+                        ],
+                        [
+                            -12.161024766710312,
+                            -120.48719700160088
+                        ],
+                        [
+                            -12.141024766710313,
+                            -120.48719700160088
+                        ],
+                        [
+                            -12.121024766710313,
+                            -120.50719700160087
+                        ],
+                        [
+                            -11.621024766710313,
+                            -120.50719700160087
+                        ],
+                        [
+                            -11.601024766710314,
+                            -120.48719700160088
+                        ],
+                        [
+                            -11.581024766710314,
+                            -120.48719700160088
+                        ],
+                        [
+                            -11.501024766710312,
+                            -120.40719700160088
+                        ],
+                        [
+                            -9.281024766710313,
+                            -120.40719700160088
+                        ],
+                        [
+                            -9.221024766710315,
                             -120.46719700160088
                         ],
                         [
-                            67.47897523328967,
-                            -120.44719700160088
+                            -9.221024766710315,
+                            -130.40719700160088
                         ],
                         [
-                            67.47897523328967,
-                            -120.20719700160087
+                            -9.201024766710315,
+                            -130.42719700160086
                         ],
                         [
-                            67.53897523328968,
-                            -120.14719700160087
+                            -9.201024766710315,
+                            -130.4471970016009
                         ],
                         [
-                            72.71897523328968,
-                            -120.14719700160087
+                            -9.161024766710312,
+                            -130.48719700160086
                         ],
                         [
-                            72.77897523328969,
-                            -120.20719700160087
+                            -9.141024766710313,
+                            -130.48719700160086
                         ],
                         [
-                            72.77897523328969,
-                            -120.74719700160088
+                            -9.121024766710313,
+                            -130.50719700160087
                         ],
                         [
-                            72.7989752332897,
-                            -120.76719700160088
+                            -5.101024766710314,
+                            -130.50719700160087
                         ],
                         [
-                            72.7989752332897,
-                            -120.78719700160087
+                            -5.041024766710315,
+                            -130.56719700160087
                         ],
                         [
-                            72.83897523328969,
-                            -120.82719700160088
+                            -5.041024766710315,
+                            -134.02719700160088
                         ],
                         [
-                            72.8589752332897,
-                            -120.82719700160088
+                            -5.101024766710314,
+                            -134.08719700160088
                         ],
                         [
-                            72.87897523328968,
-                            -120.84719700160088
+                            -5.201024766710315,
+                            -134.08719700160088
                         ],
                         [
-                            74.59897523328968,
-                            -120.84719700160088
+                            -5.221024766710315,
+                            -134.10719700160087
                         ],
                         [
-                            74.61897523328969,
-                            -120.82719700160088
+                            -5.241024766710314,
+                            -134.10719700160087
                         ],
                         [
-                            74.6389752332897,
-                            -120.82719700160088
+                            -5.281024766710313,
+                            -134.1471970016009
                         ],
                         [
-                            74.67897523328969,
-                            -120.78719700160087
+                            -5.281024766710313,
+                            -134.16719700160087
                         ],
                         [
-                            74.67897523328969,
-                            -120.76719700160088
+                            -5.301024766710313,
+                            -134.18719700160088
                         ],
                         [
-                            74.69897523328967,
-                            -120.74719700160088
+                            -5.301024766710313,
+                            -135.02719700160088
                         ],
                         [
-                            74.69897523328967,
-                            -120.20719700160087
+                            -5.281024766710313,
+                            -135.04719700160086
                         ],
                         [
-                            74.75897523328968,
-                            -120.14719700160087
+                            -5.281024766710313,
+                            -135.06719700160087
                         ],
                         [
-                            75.93897523328968,
-                            -120.14719700160087
+                            -5.241024766710314,
+                            -135.10719700160087
                         ],
                         [
-                            75.99897523328968,
-                            -120.20719700160087
+                            -5.221024766710315,
+                            -135.10719700160087
                         ],
                         [
-                            75.99897523328968,
-                            -121.52719700160088
+                            -5.201024766710315,
+                            -135.12719700160088
                         ],
                         [
-                            76.0189752332897,
-                            -121.54719700160088
+                            -5.101024766710314,
+                            -135.12719700160088
                         ],
                         [
-                            76.0189752332897,
-                            -121.56719700160087
+                            -5.041024766710315,
+                            -135.18719700160088
                         ],
                         [
-                            76.05897523328969,
-                            -121.60719700160088
+                            -5.041024766710315,
+                            -140.80719700160088
                         ],
                         [
-                            76.0789752332897,
-                            -121.60719700160088
+                            -5.101024766710314,
+                            -140.86719700160089
                         ],
                         [
-                            76.09897523328968,
-                            -121.62719700160088
+                            -5.201024766710315,
+                            -140.86719700160089
                         ],
                         [
-                            80.5189752332897,
-                            -121.62719700160088
+                            -5.221024766710315,
+                            -140.88719700160087
                         ],
                         [
-                            80.5789752332897,
-                            -121.68719700160088
+                            -5.241024766710314,
+                            -140.88719700160087
                         ],
                         [
-                            80.5789752332897,
-                            -122.60719700160088
+                            -5.281024766710313,
+                            -140.9271970016009
                         ],
                         [
-                            80.59897523328968,
-                            -122.62719700160088
+                            -5.281024766710313,
+                            -140.94719700160087
                         ],
                         [
-                            80.59897523328968,
-                            -122.64719700160087
+                            -5.301024766710313,
+                            -140.96719700160088
                         ],
                         [
-                            80.6389752332897,
-                            -122.68719700160088
+                            -5.301024766710313,
+                            -142.00719700160087
                         ],
                         [
-                            80.65897523328968,
-                            -122.68719700160088
+                            -5.281024766710313,
+                            -142.02719700160088
                         ],
                         [
-                            80.67897523328969,
-                            -122.70719700160087
+                            -5.281024766710313,
+                            -142.04719700160086
                         ],
                         [
-                            81.17897523328969,
-                            -122.70719700160087
+                            -5.241024766710314,
+                            -142.08719700160088
                         ],
                         [
-                            81.2389752332897,
-                            -122.76719700160088
+                            -5.221024766710315,
+                            -142.08719700160088
                         ],
                         [
-                            81.2389752332897,
-                            -127.34719700160088
+                            -5.201024766710315,
+                            -142.10719700160087
                         ],
                         [
-                            81.17897523328969,
-                            -127.40719700160088
+                            -4.521024766710315,
+                            -142.10719700160087
                         ],
                         [
-                            53.33897523328968,
-                            -127.40719700160088
+                            -4.501024766710312,
+                            -142.08719700160088
                         ],
                         [
-                            53.27897523328969,
-                            -127.34719700160088
+                            -4.461024766710313,
+                            -142.08719700160088
                         ],
                         [
-                            53.27897523328969,
-                            -121.18719700160088
+                            -4.4410247667103135,
+                            -142.06719700160087
                         ],
                         [
-                            53.33897523328968,
-                            -121.12719700160088
+                            13.498975233289684,
+                            -142.06719700160087
                         ],
                         [
-                            55.47897523328968,
-                            -121.12719700160088
+                            13.558975233289686,
+                            -142.12719700160088
                         ],
                         [
-                            55.49897523328969,
-                            -121.10719700160088
+                            13.558975233289686,
+                            -152.86719700160089
                         ],
                         [
-                            55.51897523328969,
-                            -121.10719700160088
+                            13.57897523328969,
+                            -152.88719700160087
                         ],
                         [
-                            55.55897523328968,
-                            -121.06719700160087
+                            13.57897523328969,
+                            -152.90719700160088
                         ],
                         [
-                            55.55897523328968,
-                            -121.04719700160088
+                            13.618975233289689,
+                            -152.94719700160087
                         ],
                         [
-                            55.57897523328969,
-                            -121.02719700160088
+                            13.638975233289685,
+                            -152.94719700160087
                         ],
                         [
-                            55.57897523328969,
-                            -120.86719700160087
+                            13.658975233289688,
+                            -152.96719700160088
                         ],
                         [
-                            55.63897523328969,
-                            -120.80719700160088
+                            21.75897523328969,
+                            -152.96719700160088
                         ],
                         [
-                            57.77897523328969,
-                            -120.80719700160088
+                            21.818975233289684,
+                            -153.02719700160088
                         ],
                         [
-                            57.79897523328969,
-                            -120.78719700160087
+                            21.818975233289684,
+                            -202.72719700160087
                         ],
                         [
-                            57.818975233289684,
-                            -120.78719700160087
+                            21.75897523328969,
+                            -202.78719700160087
                         ],
                         [
-                            57.85897523328969,
-                            -120.74719700160088
+                            -9.981024766710313,
+                            -202.78719700160087
                         ],
                         [
-                            57.85897523328969,
-                            -120.72719700160087
+                            -10.041024766710315,
+                            -202.72719700160087
                         ],
                         [
-                            57.87897523328969,
-                            -120.70719700160087
+                            -10.041024766710315,
+                            -195.56719700160087
                         ],
                         [
-                            57.87897523328969,
-                            -120.20719700160087
+                            -10.061024766710315,
+                            -195.54719700160086
                         ],
                         [
-                            57.93897523328969,
-                            -120.14719700160087
+                            -10.061024766710315,
+                            -195.52719700160088
+                        ],
+                        [
+                            -10.101024766710314,
+                            -195.4871970016009
+                        ],
+                        [
+                            -10.121024766710313,
+                            -195.4871970016009
+                        ],
+                        [
+                            -10.141024766710313,
+                            -195.46719700160088
+                        ],
+                        [
+                            -11.421024766710314,
+                            -195.46719700160088
+                        ],
+                        [
+                            -11.481024766710313,
+                            -195.40719700160088
+                        ],
+                        [
+                            -11.481024766710313,
+                            -194.96719700160088
+                        ],
+                        [
+                            -11.501024766710312,
+                            -194.94719700160087
+                        ],
+                        [
+                            -11.501024766710312,
+                            -194.9271970016009
+                        ],
+                        [
+                            -11.541024766710315,
+                            -194.88719700160087
+                        ],
+                        [
+                            -11.561024766710315,
+                            -194.88719700160087
+                        ],
+                        [
+                            -11.581024766710314,
+                            -194.86719700160089
+                        ],
+                        [
+                            -12.181024766710316,
+                            -194.86719700160089
+                        ],
+                        [
+                            -12.201024766710315,
+                            -194.88719700160087
+                        ],
+                        [
+                            -12.221024766710315,
+                            -194.88719700160087
+                        ],
+                        [
+                            -12.261024766710314,
+                            -194.9271970016009
+                        ],
+                        [
+                            -12.261024766710314,
+                            -194.94719700160087
+                        ],
+                        [
+                            -12.281024766710313,
+                            -194.96719700160088
+                        ],
+                        [
+                            -12.281024766710313,
+                            -195.40719700160088
+                        ],
+                        [
+                            -12.341024766710312,
+                            -195.46719700160088
+                        ],
+                        [
+                            -18.521024766710312,
+                            -195.46719700160088
+                        ],
+                        [
+                            -18.581024766710314,
+                            -195.40719700160088
+                        ],
+                        [
+                            -18.581024766710314,
+                            -194.96719700160088
+                        ],
+                        [
+                            -18.601024766710314,
+                            -194.94719700160087
+                        ],
+                        [
+                            -18.601024766710314,
+                            -194.9271970016009
+                        ],
+                        [
+                            -18.641024766710316,
+                            -194.88719700160087
+                        ],
+                        [
+                            -18.661024766710312,
+                            -194.88719700160087
+                        ],
+                        [
+                            -18.681024766710316,
+                            -194.86719700160089
+                        ],
+                        [
+                            -19.121024766710313,
+                            -194.86719700160089
+                        ],
+                        [
+                            -19.181024766710316,
+                            -194.80719700160088
+                        ],
+                        [
+                            -19.181024766710316,
+                            -187.4271970016009
+                        ],
+                        [
+                            -19.121024766710313,
+                            -187.36719700160089
+                        ],
+                        [
+                            -18.681024766710316,
+                            -187.36719700160089
+                        ],
+                        [
+                            -18.661024766710312,
+                            -187.34719700160088
+                        ],
+                        [
+                            -18.641024766710316,
+                            -187.34719700160088
+                        ],
+                        [
+                            -18.601024766710314,
+                            -187.30719700160088
+                        ],
+                        [
+                            -18.601024766710314,
+                            -187.28719700160087
+                        ],
+                        [
+                            -18.581024766710314,
+                            -187.2671970016009
+                        ],
+                        [
+                            -18.581024766710314,
+                            -186.66719700160087
+                        ],
+                        [
+                            -18.601024766710314,
+                            -186.6471970016009
+                        ],
+                        [
+                            -18.601024766710314,
+                            -186.62719700160088
+                        ],
+                        [
+                            -18.641024766710316,
+                            -186.58719700160088
+                        ],
+                        [
+                            -18.661024766710312,
+                            -186.58719700160088
+                        ],
+                        [
+                            -18.681024766710316,
+                            -186.56719700160087
+                        ],
+                        [
+                            -19.121024766710313,
+                            -186.56719700160087
+                        ],
+                        [
+                            -19.181024766710316,
+                            -186.50719700160087
+                        ],
+                        [
+                            -19.181024766710316,
+                            -179.8271970016009
+                        ],
+                        [
+                            -19.121024766710313,
+                            -179.7671970016009
+                        ],
+                        [
+                            -18.681024766710316,
+                            -179.7671970016009
+                        ],
+                        [
+                            -18.661024766710312,
+                            -179.74719700160088
+                        ],
+                        [
+                            -18.641024766710316,
+                            -179.74719700160088
+                        ],
+                        [
+                            -18.601024766710314,
+                            -179.7071970016009
+                        ],
+                        [
+                            -18.601024766710314,
+                            -179.68719700160088
+                        ],
+                        [
+                            -18.581024766710314,
+                            -179.66719700160087
+                        ],
+                        [
+                            -18.581024766710314,
+                            -179.06719700160087
+                        ],
+                        [
+                            -18.601024766710314,
+                            -179.04719700160086
+                        ],
+                        [
+                            -18.601024766710314,
+                            -179.02719700160088
+                        ],
+                        [
+                            -18.641024766710316,
+                            -178.98719700160086
+                        ],
+                        [
+                            -18.661024766710312,
+                            -178.98719700160086
+                        ],
+                        [
+                            -18.681024766710316,
+                            -178.96719700160088
+                        ],
+                        [
+                            -19.121024766710313,
+                            -178.96719700160088
+                        ],
+                        [
+                            -19.181024766710316,
+                            -178.90719700160088
+                        ],
+                        [
+                            -19.181024766710316,
+                            -178.06719700160087
+                        ],
+                        [
+                            -19.20102476671031,
+                            -178.04719700160086
+                        ],
+                        [
+                            -19.20102476671031,
+                            -178.02719700160088
+                        ],
+                        [
+                            -19.241024766710314,
+                            -177.98719700160086
+                        ],
+                        [
+                            -19.261024766710314,
+                            -177.98719700160086
+                        ],
+                        [
+                            -19.281024766710313,
+                            -177.96719700160088
+                        ],
+                        [
+                            -25.961024766710313,
+                            -177.96719700160088
+                        ],
+                        [
+                            -26.021024766710312,
+                            -177.90719700160088
+                        ],
+                        [
+                            -26.021024766710312,
+                            -169.22719700160087
+                        ],
+                        [
+                            -25.961024766710313,
+                            -169.16719700160087
+                        ],
+                        [
+                            -23.461024766710313,
+                            -169.16719700160087
+                        ],
+                        [
+                            -23.441024766710314,
+                            -169.1471970016009
+                        ],
+                        [
+                            -23.421024766710314,
+                            -169.1471970016009
+                        ],
+                        [
+                            -23.38102476671031,
+                            -169.10719700160087
+                        ],
+                        [
+                            -23.38102476671031,
+                            -169.08719700160088
+                        ],
+                        [
+                            -23.361024766710315,
+                            -169.06719700160087
+                        ],
+                        [
+                            -23.361024766710315,
+                            -167.2671970016009
+                        ],
+                        [
+                            -23.38102476671031,
+                            -167.24719700160088
+                        ],
+                        [
+                            -23.38102476671031,
+                            -167.22719700160087
+                        ],
+                        [
+                            -23.421024766710314,
+                            -167.18719700160088
+                        ],
+                        [
+                            -23.441024766710314,
+                            -167.18719700160088
+                        ],
+                        [
+                            -23.461024766710313,
+                            -167.16719700160087
+                        ],
+                        [
+                            -25.961024766710313,
+                            -167.16719700160087
+                        ],
+                        [
+                            -26.021024766710312,
+                            -167.10719700160087
+                        ],
+                        [
+                            -26.021024766710312,
+                            -165.44719700160087
+                        ],
+                        [
+                            -25.961024766710313,
+                            -165.38719700160087
+                        ],
+                        [
+                            -19.441024766710314,
+                            -165.38719700160087
+                        ],
+                        [
+                            -19.38102476671031,
+                            -165.44719700160087
+                        ],
+                        [
+                            -19.38102476671031,
+                            -165.60719700160087
+                        ],
+                        [
+                            -19.361024766710315,
+                            -165.62719700160088
+                        ],
+                        [
+                            -19.361024766710315,
+                            -165.6471970016009
+                        ],
+                        [
+                            -19.321024766710316,
+                            -165.68719700160088
+                        ],
+                        [
+                            -19.301024766710313,
+                            -165.68719700160088
+                        ],
+                        [
+                            -19.281024766710313,
+                            -165.7071970016009
+                        ],
+                        [
+                            -18.681024766710316,
+                            -165.7071970016009
+                        ],
+                        [
+                            -18.661024766710312,
+                            -165.68719700160088
+                        ],
+                        [
+                            -18.641024766710316,
+                            -165.68719700160088
+                        ],
+                        [
+                            -18.601024766710314,
+                            -165.6471970016009
+                        ],
+                        [
+                            -18.601024766710314,
+                            -165.62719700160088
+                        ],
+                        [
+                            -18.581024766710314,
+                            -165.60719700160087
+                        ],
+                        [
+                            -18.581024766710314,
+                            -165.44719700160087
+                        ],
+                        [
+                            -18.521024766710312,
+                            -165.38719700160087
+                        ],
+                        [
+                            -12.341024766710312,
+                            -165.38719700160087
+                        ],
+                        [
+                            -12.281024766710313,
+                            -165.44719700160087
+                        ],
+                        [
+                            -12.281024766710313,
+                            -165.60719700160087
+                        ],
+                        [
+                            -12.261024766710314,
+                            -165.62719700160088
+                        ],
+                        [
+                            -12.261024766710314,
+                            -165.6471970016009
+                        ],
+                        [
+                            -12.221024766710315,
+                            -165.68719700160088
+                        ],
+                        [
+                            -12.201024766710315,
+                            -165.68719700160088
+                        ],
+                        [
+                            -12.181024766710316,
+                            -165.7071970016009
+                        ],
+                        [
+                            -11.581024766710314,
+                            -165.7071970016009
+                        ],
+                        [
+                            -11.561024766710315,
+                            -165.68719700160088
+                        ],
+                        [
+                            -11.541024766710315,
+                            -165.68719700160088
+                        ],
+                        [
+                            -11.501024766710312,
+                            -165.6471970016009
+                        ],
+                        [
+                            -11.501024766710312,
+                            -165.62719700160088
+                        ],
+                        [
+                            -11.481024766710313,
+                            -165.60719700160087
+                        ],
+                        [
+                            -11.481024766710313,
+                            -165.44719700160087
+                        ],
+                        [
+                            -11.421024766710314,
+                            -165.38719700160087
+                        ],
+                        [
+                            -5.421024766710314,
+                            -165.38719700160087
+                        ],
+                        [
+                            -5.361024766710315,
+                            -165.44719700160087
+                        ],
+                        [
+                            -5.361024766710315,
+                            -165.74719700160088
+                        ],
+                        [
+                            -5.341024766710312,
+                            -165.7671970016009
+                        ],
+                        [
+                            -5.341024766710312,
+                            -165.78719700160087
+                        ],
+                        [
+                            -5.301024766710313,
+                            -165.8271970016009
+                        ],
+                        [
+                            -5.281024766710313,
+                            -165.8271970016009
+                        ],
+                        [
+                            -5.261024766710314,
+                            -165.84719700160088
+                        ],
+                        [
+                            -5.081024766710314,
+                            -165.84719700160088
+                        ],
+                        [
+                            -5.021024766710315,
+                            -165.90719700160088
+                        ],
+                        [
+                            -5.021024766710315,
+                            -171.66719700160087
+                        ],
+                        [
+                            -5.081024766710314,
+                            -171.72719700160087
+                        ],
+                        [
+                            -5.261024766710314,
+                            -171.72719700160087
+                        ],
+                        [
+                            -5.281024766710313,
+                            -171.74719700160088
+                        ],
+                        [
+                            -5.301024766710313,
+                            -171.74719700160088
+                        ],
+                        [
+                            -5.341024766710312,
+                            -171.78719700160087
+                        ],
+                        [
+                            -5.341024766710312,
+                            -171.80719700160088
+                        ],
+                        [
+                            -5.361024766710315,
+                            -171.8271970016009
+                        ],
+                        [
+                            -5.361024766710315,
+                            -172.86719700160089
+                        ],
+                        [
+                            -5.341024766710312,
+                            -172.88719700160087
+                        ],
+                        [
+                            -5.341024766710312,
+                            -172.90719700160088
+                        ],
+                        [
+                            -5.301024766710313,
+                            -172.94719700160087
+                        ],
+                        [
+                            -5.281024766710313,
+                            -172.94719700160087
+                        ],
+                        [
+                            -5.261024766710314,
+                            -172.96719700160088
+                        ],
+                        [
+                            -5.081024766710314,
+                            -172.96719700160088
+                        ],
+                        [
+                            -5.021024766710315,
+                            -173.02719700160088
+                        ],
+                        [
+                            -5.021024766710315,
+                            -178.90719700160088
+                        ],
+                        [
+                            -5.041024766710315,
+                            -178.9271970016009
+                        ],
+                        [
+                            -5.041024766710315,
+                            -178.94719700160087
+                        ],
+                        [
+                            -5.0610247667103145,
+                            -178.96719700160088
+                        ],
+                        [
+                            -5.121024766710313,
+                            -178.96719700160088
+                        ],
+                        [
+                            -5.141024766710313,
+                            -178.98719700160086
+                        ],
+                        [
+                            -5.161024766710312,
+                            -178.98719700160086
+                        ],
+                        [
+                            -5.201024766710315,
+                            -179.02719700160088
+                        ],
+                        [
+                            -5.201024766710315,
+                            -179.04719700160086
+                        ],
+                        [
+                            -5.221024766710315,
+                            -179.06719700160087
+                        ],
+                        [
+                            -5.221024766710315,
+                            -179.66719700160087
+                        ],
+                        [
+                            -5.201024766710315,
+                            -179.68719700160088
+                        ],
+                        [
+                            -5.201024766710315,
+                            -179.7071970016009
+                        ],
+                        [
+                            -5.161024766710312,
+                            -179.74719700160088
+                        ],
+                        [
+                            -5.141024766710313,
+                            -179.74719700160088
+                        ],
+                        [
+                            -5.121024766710313,
+                            -179.7671970016009
+                        ],
+                        [
+                            -4.521024766710315,
+                            -179.7671970016009
+                        ],
+                        [
+                            -4.501024766710312,
+                            -179.74719700160088
+                        ],
+                        [
+                            -4.461024766710313,
+                            -179.74719700160088
+                        ],
+                        [
+                            -4.4410247667103135,
+                            -179.72719700160087
+                        ],
+                        [
+                            -4.421024766710314,
+                            -179.72719700160087
+                        ],
+                        [
+                            -4.401024766710314,
+                            -179.7071970016009
+                        ],
+                        [
+                            20.43897523328969,
+                            -179.7071970016009
+                        ],
+                        [
+                            20.458975233289685,
+                            -179.68719700160088
+                        ],
+                        [
+                            20.478975233289688,
+                            -179.68719700160088
+                        ],
+                        [
+                            20.518975233289687,
+                            -179.6471970016009
+                        ],
+                        [
+                            20.518975233289687,
+                            -179.62719700160088
+                        ],
+                        [
+                            20.538975233289683,
+                            -179.60719700160087
+                        ],
+                        [
+                            20.538975233289683,
+                            -165.08719700160088
+                        ],
+                        [
+                            20.518975233289687,
+                            -165.06719700160087
+                        ],
+                        [
+                            20.518975233289687,
+                            -165.04719700160086
+                        ],
+                        [
+                            20.478975233289688,
+                            -165.00719700160087
+                        ],
+                        [
+                            20.458975233289685,
+                            -165.00719700160087
+                        ],
+                        [
+                            20.43897523328969,
+                            -164.98719700160086
+                        ],
+                        [
+                            -4.221024766710315,
+                            -164.98719700160086
+                        ],
+                        [
+                            -4.281024766710313,
+                            -164.9271970016009
+                        ],
+                        [
+                            -4.281024766710313,
+                            -164.86719700160089
+                        ],
+                        [
+                            -4.301024766710313,
+                            -164.84719700160088
+                        ],
+                        [
+                            -4.301024766710313,
+                            -164.8271970016009
+                        ],
+                        [
+                            -4.341024766710312,
+                            -164.78719700160087
+                        ],
+                        [
+                            -4.361024766710315,
+                            -164.78719700160087
+                        ],
+                        [
+                            -4.381024766710315,
+                            -164.7671970016009
+                        ],
+                        [
+                            -5.261024766710314,
+                            -164.7671970016009
+                        ],
+                        [
+                            -5.281024766710313,
+                            -164.78719700160087
+                        ],
+                        [
+                            -5.301024766710313,
+                            -164.78719700160087
+                        ],
+                        [
+                            -5.341024766710312,
+                            -164.8271970016009
+                        ],
+                        [
+                            -5.341024766710312,
+                            -164.84719700160088
+                        ],
+                        [
+                            -5.361024766710315,
+                            -164.86719700160089
+                        ],
+                        [
+                            -5.361024766710315,
+                            -164.9271970016009
+                        ],
+                        [
+                            -5.421024766710314,
+                            -164.98719700160086
+                        ],
+                        [
+                            -11.461024766710313,
+                            -164.98719700160086
+                        ],
+                        [
+                            -11.501024766710312,
+                            -164.94719700160087
+                        ],
+                        [
+                            -11.521024766710315,
+                            -164.94719700160087
+                        ],
+                        [
+                            -11.541024766710315,
+                            -164.9271970016009
+                        ],
+                        [
+                            -11.561024766710315,
+                            -164.9271970016009
+                        ],
+                        [
+                            -11.581024766710314,
+                            -164.90719700160088
+                        ],
+                        [
+                            -12.181024766710316,
+                            -164.90719700160088
+                        ],
+                        [
+                            -12.201024766710315,
+                            -164.9271970016009
+                        ],
+                        [
+                            -12.221024766710315,
+                            -164.9271970016009
+                        ],
+                        [
+                            -12.241024766710314,
+                            -164.94719700160087
+                        ],
+                        [
+                            -12.261024766710314,
+                            -164.94719700160087
+                        ],
+                        [
+                            -12.301024766710313,
+                            -164.98719700160086
+                        ],
+                        [
+                            -18.561024766710315,
+                            -164.98719700160086
+                        ],
+                        [
+                            -18.601024766710314,
+                            -164.94719700160087
+                        ],
+                        [
+                            -18.621024766710313,
+                            -164.94719700160087
+                        ],
+                        [
+                            -18.641024766710316,
+                            -164.9271970016009
+                        ],
+                        [
+                            -18.661024766710312,
+                            -164.9271970016009
+                        ],
+                        [
+                            -18.681024766710316,
+                            -164.90719700160088
+                        ],
+                        [
+                            -19.281024766710313,
+                            -164.90719700160088
+                        ],
+                        [
+                            -19.301024766710313,
+                            -164.9271970016009
+                        ],
+                        [
+                            -19.321024766710316,
+                            -164.9271970016009
+                        ],
+                        [
+                            -19.341024766710312,
+                            -164.94719700160087
+                        ],
+                        [
+                            -19.361024766710315,
+                            -164.94719700160087
+                        ],
+                        [
+                            -19.401024766710314,
+                            -164.98719700160086
+                        ],
+                        [
+                            -25.961024766710313,
+                            -164.98719700160086
+                        ],
+                        [
+                            -26.021024766710312,
+                            -164.9271970016009
+                        ],
+                        [
+                            -26.021024766710312,
+                            -120.46719700160088
+                        ],
+                        [
+                            -25.961024766710313,
+                            -120.40719700160088
                         ]
                     ]
                 ]
@@ -19156,7 +20376,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_134 / 141",
+                "name": "room_135 / 142",
                 "surface_px": 100448.5,
                 "surface_m2": 40.1794,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -19336,7 +20556,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_135 / 141",
+                "name": "room_136 / 142",
                 "surface_px": 14293.0,
                 "surface_m2": 5.7172,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -19452,7 +20672,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_136 / 141",
+                "name": "room_137 / 142",
                 "surface_px": 171349.5,
                 "surface_m2": 68.5398,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -19600,7 +20820,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_137 / 141",
+                "name": "room_138 / 142",
                 "surface_px": 37182.0,
                 "surface_m2": 14.8728,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -19652,7 +20872,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_138 / 141",
+                "name": "room_139 / 142",
                 "surface_px": 397719.5,
                 "surface_m2": 159.0878,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -20192,7 +21412,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_139 / 141",
+                "name": "room_140 / 142",
                 "surface_px": 6788.0,
                 "surface_m2": 2.7152,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -20244,7 +21464,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_140 / 141",
+                "name": "room_141 / 142",
                 "surface_px": 12291.0,
                 "surface_m2": 4.9164,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
@@ -20312,7 +21532,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "room_141 / 141",
+                "name": "room_142 / 142",
                 "surface_px": 199581.5,
                 "surface_m2": 79.8326,
                 "image": "NHT_Tours_plan_etage_T-T30S1_Spaces"
