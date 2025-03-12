@@ -21,7 +21,7 @@ git checkout -b maBranche
     - [ ] quid des poteaux, vides sanitaires, exclusions ?
 3. **Export GeoJson**
     - [X] inverse transform
-    - [ ] Estimation des coordonnées depuis une image
+    - [X] Estimation des coordonnées depuis une image
     - [ ] bonus: label de la pièce avec ML
 
 
@@ -51,13 +51,41 @@ git checkout -b maBranche
     - @Tristan transformer le Json en graph ⿻
     - @Tristan envoyer le 'mid-term document', cf mail Anna Korba du 26 janvier   
  
-- **Jeudi 20 février** : 👨‍💻  
+- **Jeudi 20 février** : 👨‍💻
+    - 13h30: Point de situation avec Vinci -> doit nous fournir des plans complémentaires
+        - @Abdoul: Segmentation à améliorer
+        - @Maha: Plus de contexte pour le clustering
+        - @Fabien: Faire ressembler les fichiers Vinci au dataset
+        - @Tristan: Json en graph
     - 16h30: Mid term discussion avec Charles-Albert Lehalle, professeur référent sur Zoom
   
 - **Jeudi 27 février**:
-- **Jeudi 6 mars**:
+    - 13h30: Point de situation avec Vinci
+        - @Vinci: nous transmettre des données lablelisées
+        - @Fabien, essayer GPTo 👀
+        - @Maha/@Tristan, poursuivre le traitement vectoriel ⿻ et préparer nouveau format
+        - @Abdoul, poursuivre l'entrainement segmentation
+    - GPT4 fonctionne bien avec cv.contourArea 🎉
+
+- **Jeudi 6 mars**: 📍
+    - 13h30: Point de situation avec Vinci
+    - réception des donnés labellisées ✅ -> servent de validation pour les modèles
+    - rationaliser les travaux 
+    - @Tristan: metric + pipeline
+    - @Maha: nettoyage des segments
+    - @Abdoul: finaliser modèle de segmentation
+    - @Fabien: déterriorer inputs + appliquer règles métier
+    - @tous: trouver comment fermer les pièces
+
 - **Jeudi 13 mars**
+    - 13h30: Point de situation avec Vinci (Jérôme)
+    - ✅ validation du format de sortie geojson
+    - 🚧 nettoyage segement trop abrasif sur Walls
+    - EoD: draft rapport pour Vinci
+
+
 - **Jeudi 20 mars** 📑
    -  Rapport 5 pages + annexes
--  **fin mars** : 🎤
+
+-  **Jeudi 27 mars** : 🎤
     - Soutnance à l'école Polytechnique + zoom pour mentors
