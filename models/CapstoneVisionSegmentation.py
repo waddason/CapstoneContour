@@ -13,7 +13,7 @@ from shapely.geometry import GeometryCollection, Polygon
 import utils.parse_geojson as pg
 
 
-class CapstoneSegmentation:
+class CapstoneVisionSegmentation:
     """
     Modèle de détection de pièces basé sur OpenCV avec filtrage des murs, export GeoJSON, etc.
     """

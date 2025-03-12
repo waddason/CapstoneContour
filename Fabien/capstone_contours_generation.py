@@ -48,12 +48,12 @@ def generate_binary_image(segment, transform_parameter, file_name,
     height = int((maxy - miny) * scale) + 1
     
 
-    print("═══════════════════════════════════════")
-    print(f"✅ Fichier : {file_name}")
-    print(f"Image size : width = {width}px, height = {height}px")
-    print(f"Bounds X  : 0 → {width - 1}")
-    print(f"Bounds Y  : 0 → {height - 1}")
-    print("═══════════════════════════════════════\n")
+    # print("═══════════════════════════════════════")
+    # print(f"✅ Fichier : {file_name}")
+    # print(f"Image size : width = {width}px, height = {height}px")
+    # print(f"Bounds X  : 0 → {width - 1}")
+    # print(f"Bounds Y  : 0 → {height - 1}")
+    # print("═══════════════════════════════════════\n")
     
     # Sauvegarder les paramètres de transformation
     binary_image_path = binary_images_dir  / f"{file_name}_binary_image.png"
@@ -377,7 +377,7 @@ if __name__ == "__main__":
 
     ### ETAPE 3 : Détection des contours des pièces et export de l'image colorée + GeoJSON ###
 
-    surface_minimale=1 # surface minimale en m²
+    surface_minimale=0.5 # surface minimale en m²
     surface_minimale_pixels = surface_minimale * (dpi_choice**2)  # Conversion en pixels
     epaisseur_min_m=0.25
 
