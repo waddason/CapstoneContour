@@ -4,7 +4,6 @@ import numpy as np
 from pathlib import Path
 from PIL import Image
 Image.MAX_IMAGE_PIXELS = None
-
 import cv2
 import shapely
 from shapely.geometry import GeometryCollection, Polygon
@@ -25,7 +24,7 @@ class CapstoneVisionSegmentation:
                  method='gaussian',
                  surface_min_m2=0.5,
                  epaisseur_min_m=0.25,
-                 data_dir=Path("data_segmentation")):
+                 data_dir=Path("data/CVSmodel_prediction")):
         """
         Initialisation du modèle.
 
@@ -51,12 +50,12 @@ class CapstoneVisionSegmentation:
 
         # Dossiers de sortie
         self.data_dir = Path(data_dir)
-        self.input_dir = self.data_dir / "00_input_geojson"
-        self.processed_dir = self.data_dir / "01_processed_geojson"
-        self.binary_images_dir = self.data_dir / "02_binary_images"
-        self.metadatas_dir = self.data_dir / "03_metadatas"
-        self.contours_images_dir = self.data_dir / "04_contours_images"
-        self.rooms_geojson_dir = self.data_dir / "05_rooms_contours_geojson"
+        self.input_dir = self.data_dir
+        self.processed_dir = self.data_dir
+        self.binary_images_dir = self.data_dir
+        self.metadatas_dir = self.data_dir
+        self.contours_images_dir = self.data_dir
+        self.rooms_geojson_dir = self.data_dir
 
         for directory in [self.input_dir, self.processed_dir, self.binary_images_dir,
                           self.metadatas_dir, self.contours_images_dir, self.rooms_geojson_dir]:
@@ -77,16 +76,16 @@ class CapstoneVisionSegmentation:
         Pipeline complet pour transformer une GeometryCollection en rooms GeometryCollection.
         """
         # 1️⃣ Sauvegarde du geojson brut
-        file_name = "input_gc"
-        input_geojson_path = self.input_dir / f"{file_name}.geojson"
-        pg.save_geometry_collection_to_geojson(gc_raw, input_geojson_path)
+        file_name = "Capstone"
+        self.input_geojson_path = self.input_dir / f"{file_name}.geojson"
+        pg.save_geometry_collection_to_geojson(gc_raw, self.input_geojson_path)
 
         # 2️⃣ Nettoyage + extraction des segments
-        processed_geojson_path = self.processed_dir / f"{file_name}_clean.geojson"
-        pg.clean_geojson_to_segments_and_save(input_geojson_path, processed_geojson_path)
+        self.processed_geojson_path = self.processed_dir / f"{file_name}_clean.geojson"
+        pg.clean_geojson_to_segments_and_save(self.input_geojson_path, self.processed_geojson_path)
 
         # Charger les segments
-        segments, transform_parameters = pg.load_segments(processed_geojson_path)
+        segments, transform_parameters = pg.load_segments(self.processed_geojson_path)
 
         # 3️⃣ Génération de l'image binaire
         self.generate_binary_image(
@@ -107,6 +106,22 @@ class CapstoneVisionSegmentation:
         output_geojson_path = self.rooms_geojson_dir / f"{file_name}_rooms_contours.geojson"
         y_pred = pg.load_geojson_as_geometry_collection(output_geojson_path)
 
+        fichiers_a_supprimer = [
+            self.input_geojson_path,
+            self.processed_geojson_path,
+            self.binary_image_path,
+            self.metadata_path,
+            self.output_image_path
+        ]
+
+        for fichier in fichiers_a_supprimer:
+            try:
+                if fichier.exists():
+                    fichier.unlink()
+                    # print(f"🗑️ Fichier supprimé : {fichier}")
+            except Exception as e:
+                print(f"⚠️ Erreur lors de la suppression de {fichier} : {e}")
+
         return y_pred
 
     def generate_binary_image(self, segment, transform_parameter, file_name):
@@ -119,10 +134,10 @@ class CapstoneVisionSegmentation:
         width = int((maxx - minx) * self.scale) + 1
         height = int((maxy - miny) * self.scale) + 1
 
-        binary_image_path = self.binary_images_dir / f"{file_name}_binary_image.png"
-        metadata_path = self.metadatas_dir / f"{file_name}_metadata.json"
+        self.binary_image_path = self.binary_images_dir / f"{file_name}_binary_image.png"
+        self.metadata_path = self.metadatas_dir / f"{file_name}_metadata.json"
 
-        with open(metadata_path, "w", encoding="utf-8") as f:
+        with open(self.metadata_path, "w", encoding="utf-8") as f:
             json.dump({
                 "transform_parameters": transform_parameter,
                 "dpi_scale": self.scale
@@ -159,17 +174,17 @@ class CapstoneVisionSegmentation:
 
         # ➡️ Sauvegarde
         binary_image = Image.fromarray(img)
-        binary_image.save(binary_image_path)
+        binary_image.save(self.binary_image_path)
 
-        #print(f"✅ Binary image saved: {binary_image_path}")
-        #print(f"✅ Metadata saved: {metadata_path}")
+        #print(f"✅ Binary image saved: {self.binary_image_path}")
+        #print(f"✅ Metadata saved: {self.metadata_path}")
 
     def generer_pieces_image_et_geojson(self, file_name, surface_minimale, dpi, epaisseur_min_m):
         """Détecte les contours et exporte en GeoJSON."""
         image_path = self.binary_images_dir / f"{file_name}_binary_image.png"
-        metadata_path = self.metadatas_dir / f"{file_name}_metadata.json"
+        self.metadata_path = self.metadatas_dir / f"{file_name}_metadata.json"
 
-        with open(metadata_path, 'r') as f:
+        with open(self.metadata_path, 'r') as f:
             transform_data = json.load(f)
         transform_parameters = transform_data["transform_parameters"]
         dpi_scale = transform_data["dpi_scale"]
@@ -199,10 +214,10 @@ class CapstoneVisionSegmentation:
             color = np.random.randint(0, 255, 3).tolist()
             cv2.drawContours(color_img_area, [contour], -1, color, thickness=cv2.FILLED)
 
-        output_image_path = self.contours_images_dir / f"{file_name}_contours_image.png"
-        cv2.imwrite(str(output_image_path), color_img_area)
+        self.output_image_path = self.contours_images_dir / f"{file_name}_contours_image.png"
+        cv2.imwrite(str(self.output_image_path), color_img_area)
 
-        #print(f"✅ Contours image saved: {output_image_path}")
+        #print(f"✅ Contours image saved: {self.output_image_path}")
 
         # ➡️ Export GeoJSON
         self.contours_to_geojson(contours_filtered, file_name, hauteur_totale,
