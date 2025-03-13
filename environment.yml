@@ -43,6 +43,7 @@ dependencies:
   - importlib-metadata=8.5.0=pyha770c72_1
   - ipykernel=6.29.5=pyh57ce528_0
   - ipython=8.31.0=pyh707e725_0
+  - ipywidgets
   - jedi=0.19.2=pyhd8ed1ab_1
   - jinja2=3.1.5=pyhd8ed1ab_0
   - joblib=1.4.2=pyhd8ed1ab_1
@@ -104,6 +105,7 @@ dependencies:
   - nest-asyncio=1.6.0=pyhd8ed1ab_1
   - networkx=3.4.2=pyh267e887_2
   - numpy=2.2.1=py313h6ae94ac_0
+  - opencv
   - openjpeg=2.5.3=h7fd6d84_0
   - openssl=3.4.0=hc426f3f_1
   - packaging=24.2=pyhd8ed1ab_2

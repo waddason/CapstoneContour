@@ -1,8 +1,8 @@
 """Parse the geojson function to detect the contours of the pieces.
 
-@Version: 0.3
+@Version: 0.4
 @Project: Capstone Vinci Contour Detection
-@Date: 2025-03-11
+@Date: 2025-03-13
 @Author: Fabien Lagnieu, Tristan Waddington
 """
 
@@ -31,6 +31,7 @@ class CVSegmentation:
         dilatation_method: str = "gaussian",
         surf_min: int = 1,
         surf_max: int = 5_000,
+        wall_width_min: float = 0.25,
         *,
         clean_segements: bool = False,
     ) -> "CVSegmentation":
@@ -52,6 +53,8 @@ class CVSegmentation:
             The minimum square meter of the detected rooms. Default to 1m^2.
         surf_max: int
             The maximum square meter of the detected rooms. Default to 5000m^2.
+        wall_width_min: float
+            Threshold width under witch contour are considered as walls.
         clean_segment: bool
             Whether to apply Maha's preprocessing on the segments.
 
@@ -64,6 +67,7 @@ class CVSegmentation:
         # Transform the surfaces into number of pixels
         self.surf_min = surf_min * self.dpi * self.dpi
         self.surf_max = surf_max * self.dpi * self.dpi
+        self.wall_width_min = wall_width_min
         self.clean_segments = clean_segements
 
         # Class constants
@@ -158,7 +162,32 @@ class CVSegmentation:
         all_cords = shapely.get_coordinates(scale_segments).astype(int)
         for pt1, pt2 in zip(all_cords[:-1:2], all_cords[1::2]):
             cv2.line(img, pt1, pt2, self.BLACK, self.thickness)
+        # Tracer les segments avec OpenCV
+        # for line in self.segments:
+        #     x_vals, y_vals = line.xy
+        #     x_pixels = ((np.array(x_vals) - minx) * self.dpi).astype(int)
+        #     y_pixels = height - ((np.array(y_vals) - miny) * self.dpi).astype(
+        #         int
+        #     )
 
+        #     # Clamp pour éviter les débordements
+        #     x_pixels = np.clip(x_pixels, 0, width - 1)
+        #     y_pixels = np.clip(y_pixels, 0, height - 1)
+
+        #     for j in range(len(x_pixels) - 1):
+        #         pt1 = (x_pixels[j], y_pixels[j])
+        #         pt2 = (x_pixels[j + 1], y_pixels[j + 1])
+        #         if (
+        #             0 <= pt1[0] < width
+        #             and 0 <= pt1[1] < height
+        #             and 0 <= pt2[0] < width
+        #             and 0 <= pt2[1] < height
+        #         ):
+        #             cv2.line(
+        #                 img, pt1, pt2, self.BLACK, self.thickness
+        #             )  # Épaisseur personnalisée
+        #         else:
+        #             print(f"⚠️ Point out of bounds: {pt1}, {pt2}")
         # Rise the thickness
         if self.thickness > 1:
             if self.dilation_method == "gaussian":
@@ -177,10 +206,14 @@ class CVSegmentation:
     def find_contours(self) -> list:
         """Find and create polygons."""
         # image preprocessing
+        # 0. ensure binary
+        _, binary_inv = cv2.threshold(
+            self.binary, 200, 255, cv2.THRESH_BINARY_INV
+        )
         # 1. morphology closing
         kernel = np.ones((5, 5), np.uint8)
         closed_morph = cv2.morphologyEx(
-            self.binary,
+            binary_inv,
             cv2.MORPH_CLOSE,
             kernel,
             iterations=2,
@@ -241,6 +274,8 @@ class CVSegmentation:
 
         width_threshold_px = width_threshold_m * self.dpi
         keep_contours = []
+        max_perim = 0
+        max_perim_idx = None
         for idx, contour in enumerate(contours):
             area = cv2.contourArea(contour)
             surface = self.surf_minus_holes(
@@ -255,13 +290,20 @@ class CVSegmentation:
             mean_width = surface / perimetre
             if mean_width < width_threshold_px:
                 continue
+
             # Remove the ones touching borders of images
             touch_border = self.is_touch_border(contour)
             # Remove the too small or too big
             if self.surf_min <= area <= self.surf_max and not touch_border:
+                if max_perim < perimetre:
+                    max_perim = perimetre
+                    max_perim_idx = len(keep_contours)
                 keep_contours.append(contour)
 
-        print(f"Filter: kepp {len(keep_contours)}/{len(contours)}")
+        # remove the longest contour
+        if max_perim_idx:
+            keep_contours.pop(max_perim_idx)
+        print(f"Filter: keep {len(keep_contours)}/{len(contours)}")
         return keep_contours
 
     def surf_minus_holes(
@@ -333,8 +375,7 @@ class CVSegmentation:
     def polygons_from_contours(self) -> shapely.GeometryCollection:
         """Compute the coordinates of polygons."""
         if not self.contours:
-            msg = "No contour to draw on plan."
-            raise ValueError(msg)
+            print("No contour to draw on plan.")
 
         # Reshape to list of coordinates and convert to polygons
         polygon_list = [
@@ -342,20 +383,18 @@ class CVSegmentation:
         ]
         failed_conversions = len(self.contours) - len(polygon_list)
         if failed_conversions:
-            msg = f"{failed_conversions} failed Polygons conversions."
-            raise ValueError(msg)
+            print(f"{failed_conversions} failed Polygons conversions.")
 
         # Merge into Geometry collection
         gc = None
         try:
             gc = shapely.GeometryCollection(polygon_list)
         except Exception as err:
-            msg = "Invalid geometry"
-            raise ValueError(msg) from err
+            print(f"Invalid geometry {err}")
         return gc
 
     def plot_prediction(self) -> Image:
         """Display the colored polygons on the original plan."""
-        if not self.rooms:
+        if self.rooms is None:
             self.rooms = self.draw_contours()
         return Image.fromarray(self.rooms)

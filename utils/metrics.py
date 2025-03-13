@@ -23,13 +23,17 @@ def intersection_over_union(
     geom2: shapely.Polygon,
 ) -> float:
     """Calculate the IoU of 2 shapely objects."""
+    # if not geom1.is_valid or not geom2.is_valid:
+    #     print("invalid geometry")
+    #     return 0.0
     # Catch GEOSException: TopologyException:
     try:
         intersection = geom1.intersection(geom2)
         union_area = geom1.union(geom2).area
-    except ValueError as e:
-        print(e)
+    except:
+        # print(e)
         return 0.0
+
     return intersection.area / union_area if union_area else 0.0
 
 
@@ -43,6 +47,7 @@ def average_iou(
     ious = [
         intersection_over_union(gt, pred)
         for gt, pred in product(geoms_true, geoms_pred)
+        if gt.is_valid and pred.is_valid
     ]
     if with_unmatched_penality:
         # Include penalties for unmatched ground truth and predicted polygons
