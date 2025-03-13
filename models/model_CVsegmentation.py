@@ -33,7 +33,7 @@ class CVSegmentation:
         surf_max: int = 5_000,
         wall_width_min: float = 0.25,
         *,
-        clean_segements: bool = False,
+        clean_segments: bool = False,
     ) -> "CVSegmentation":
         """Find rooms in GeometryCollection using CV segmentation.
 
@@ -55,7 +55,7 @@ class CVSegmentation:
             The maximum square meter of the detected rooms. Default to 5000m^2.
         wall_width_min: float
             Threshold width under witch contour are considered as walls.
-        clean_segment: bool
+        clean_segments: bool
             Whether to apply Maha's preprocessing on the segments.
 
         """
@@ -68,7 +68,7 @@ class CVSegmentation:
         self.surf_min = surf_min * self.dpi * self.dpi
         self.surf_max = surf_max * self.dpi * self.dpi
         self.wall_width_min = wall_width_min
-        self.clean_segments = clean_segements
+        self.clean_segments = clean_segments
 
         # Class constants
         self.__name__ = (
@@ -102,8 +102,8 @@ class CVSegmentation:
             geometry_collection,
         )
         if self.clean_segments:
+            # WARNING return list of LINES
             self.segments = complete_preprocessing(self.segments)
-
         # Create binary image
         self.binary: np.ndarray = self.generate_binary_image()
 
@@ -147,21 +147,34 @@ class CVSegmentation:
             msg = "No segments found to generate binary image."
             raise ValueError(msg)
         # Bounds of image
-        minx, miny, maxx, maxy = shapely.geometrycollections(
-            self.segments,
-        ).bounds
+        gc_segments = shapely.geometrycollections(self.segments)
+        minx, miny, maxx, maxy = gc_segments.bounds
         width = int((maxx - minx) * self.dpi) + 1
         height = int((maxy - miny) * self.dpi) + 1
 
         # Scale the segments at the desired scale
         self.scale_parameters = [minx, miny, self.dpi]
-        scale_segments = pg.transform_gc(self.segments, *self.scale_parameters)
+        scale_segments = pg.transform_gc(gc_segments, *self.scale_parameters)
         # White background image
         img = np.ones((height, width), dtype=np.uint8) * 255
         # Trace segments on image
-        all_cords = shapely.get_coordinates(scale_segments).astype(int)
-        for pt1, pt2 in zip(all_cords[:-1:2], all_cords[1::2]):
-            cv2.line(img, pt1, pt2, self.BLACK, self.thickness)
+        # loop over the geometries
+        if self.clean_segments:
+            # loop over the lines
+            for geom in scale_segments.geoms:
+                all_cords = shapely.get_coordinates(geom).astype(int)
+                for pt1, pt2 in zip(all_cords[:-1:2], all_cords[1::2]):
+                    # for pt1, pt2 in all_cords:
+                    cv2.line(img, pt1, pt2, self.BLACK, self.thickness)
+        else:
+            # loop over the segments (quicker)
+            all_cords = (
+                shapely.get_coordinates(scale_segments)
+                .astype(int)
+                .reshape(-1, 2, 2)
+            )
+            for pt1, pt2 in all_cords:
+                cv2.line(img, pt1, pt2, self.BLACK, self.thickness)
         # Tracer les segments avec OpenCV
         # for line in self.segments:
         #     x_vals, y_vals = line.xy

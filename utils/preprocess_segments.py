@@ -337,7 +337,7 @@ def complete_preprocessing(
     """Applique l'ensemble du prétraitement en une seule fonction"""
     # 1. Assurer que les segments sont des LineString
     segments = ensure_line_list(segments)
-
+    print("Merging segments, this may take 1 min.")
     # 2. Appliquer le snapping pour aligner les extrémités proches
     segments = snap_segments(segments, tol=snap_tol)
 
