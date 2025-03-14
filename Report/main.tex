@@ -32,11 +32,11 @@ to ease the work of Vinci collaborators.}) \\\vspace{2em}
 \end{center}
 \vspace{-1cm}
 
-Architects are drawing floor plans using a CAD software. These files are used
+Architects are drawing floor plans using a Computer-Aided Design (CAD) software. These files are used
 by engineers to plan and conduct the construction of the building. In this process,
-additional measures are needed such as the room size or adjacency. The goal of 
+additional measures are needed such as the room size or adjacency. \textbf{The goal of 
 this project is to develop a tool that can automatically detect the contours of 
-the rooms in the floor plan and draw it back into their CAD software. 
+the rooms in the floor plan to draw it back into the CAD software.}
 
 % This is a latex template for your report. Your report should fit in 5 pages  excluding references and appendices and summarize your main findings and process of thoughts. It should be self-contained, and you should not modify the template. . You can use appendices for additional figures and details, provide explanation of parallel tracks you gave up etc.
 \begin{figure}[h]
@@ -64,13 +64,18 @@ to improve it.
 % \textit{What is the question to be answered? Why is it important for the mentor?\\
 % Present briefly the dataset (type of data, dimensionality, what else is notable?)}
 \paragraph{Datasets}
-We were given examples of GeoJson\footnote{The current standard for GeoJson format was 
+We are given examples of GeoJSON\footnote{The current standard for GeoJSON format was 
 published in August 2016 by the Internet Engineering Task Force (IETF), 
-in \href{https://datatracker.ietf.org/doc/html/rfc7946}{RFC 7946}.} exports of CAD plans. The first dataset was 
-composed of 9 GeoJson exports of floor plans :
-the geometric description of the drawing lines. 
-The second dataset exported the floor plans of 5 whole buildings, including width of walls, and
-the contours of the actual rooms as a target.
+in \href{https://datatracker.ietf.org/doc/html/rfc7946}{RFC 7946}.} exports of CAD plans. The first dataset is 
+composed of 9 GeoJSON exports of floor plans from very different buildings (datacenter, 
+hospital, office...). Each file contains a list of points 
+connected together to form lines or polygons representing walls, windows, doors, 
+or furniture.
+
+The second dataset export the floor plans of 5 whole buildings in the same format
+as the previous one. Each plan is joined by a second file 
+containing the actual contours of the rooms as a target. This dataset is really useful 
+to compute metrics of our models.
 
 
 \section{Methods}
@@ -79,19 +84,153 @@ the contours of the actual rooms as a target.
 % \textit{Which methods did you try or could you have tried?\\
 % Which one did you choose and why?}\\\\
 % Include references if you use a non-standard method \cite{pml1Book}. The corresponding entry is defined in the file \texttt{references.bib}. Do no cite textbooks, \cite{pml1Book} is just an example. 
-\label{sec:methods}
-After a first phase of data cleaning we have focused on two different paths to solve the problem:
+After a first phase of data cleaning we focus on two different paths to solve the problem:
 
 \begin{enumerate}
-    \item \textbf{Geometric process} Transform the list of lines into a graph and 
-    construct polygons \cite{Schafer2011AutomaticGO} then cluster the lines to 
-    create the polygons\cite{dominguez2012Semiautomaticdetection}. This path relies on the
-    geometric libraries \texttt{shapely} and \texttt{geopandas}. 
+    \item \textbf{Geometric process} Transform the geometries into normalized segments 
+    \cite{Schafer2011AutomaticGO} then cluster the lines to 
+    create the polygons\cite{dominguez2012Semiautomaticdetection} of the contours. This path relies on the
+    geometric libraries \texttt{shapely} and \texttt{geopandas}. The graph representation 
+    was later discarded as too computational expensive.
     \item \textbf{Image segmentation} Using a dense literature review\cite{PIZARRO2022104348}, we 
-    spotted some successful uses of CNNs\cite{ijgi10020097}. This same paper also provides the list
-    of datasets of floor plans as image we can use. Ultimately, this path lead
-    to the segmentation of the floor plans into rooms.
+    spot some successful uses of CNNs\cite{ijgi10020097}. This same paper also provides the list
+    of datasets of floor plans as images we can use for training deep learning models.
+    Ultimately, this path gives us the idea of the segmentation of the floor plans 
+    into rooms, using basic computer vision methods and the Segment 
+    Anything Model (SAM)\cite{kirillov2023segment}.
 \end{enumerate}
+
+\textbf{At the end of our research, we produce 3 models of different complexity
+ranging from geometric hand-crafted rules to fully automatic computer vision:} 
+\texttt{SegmentBasedClustering}, 
+\texttt{VisionSegmentation}, 
+and \texttt{SegmentAnythingModel}. They share common steps and a global representation
+is given in figure \ref{fig:global_pipeline}. The individual pipelines are detailed 
+in the following sections.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.99\linewidth]{figures/CapstoneGit.png}
+    \caption{Articulation of the shared steps of the three models.}
+    \label{fig:global_pipeline}
+\end{figure}
+
+% =============================================================================
+% FM @Maha
+\subsection{Geometric Preprocess}
+\label{sec:geometric_preprocess}
+
+Before feeding GeoJSON files into the model, a preprocessing step is applied to 
+clean and standardize the segment data. This ensures accurate room segmentation 
+while minimizing errors caused by noise, misaligned geometries and above all,
+plans drawn with different scales.
+
+\paragraph{Preprocessing Steps}
+The preprocessing consists of five successive steps:
+(i) \textbf{Splitting into segments} the complex geometries.
+(ii) \textbf{Normalizing segments} by sorting segment endpoints to avoid duplicate representations and rescaling to the meter unit.
+(iii) \textbf{Snapping} close endpoints by aligning nearby segment endpoints (within 0.05m) for better connectivity.
+(iv) \textbf{Removing isolated} segments by eliminating segments not connected to any others.
+(v) \textbf{Merging collinear} segments by combining nearly aligned segments to reduce fragmentation.
+
+The preprocessing significantly reduces the number of segments (up to 70\%) while 
+preserving the overall geometry. See figure \ref{fig:geojson_comparison} for visual 
+results.
+Additional details and tables can be found on appendix \ref{app:sec:geomdetails}.
+
+
+\subsection{Model 1: \texttt{SegmentBasedClustering}, Based On Geometric Rules}
+
+This model is a geometric rule-based method designed to extract room boundaries
+from architectural floor plans provided in GeoJSON format.
+This method 
+leverages classic computational geometry techniques to detect closed paths
+and segment parts based on structural constraints. It does not require training data.
+Further details and pipeline description can be found in appendix \ref{app:sec:SBCdetails}. 
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\linewidth, height=4cm, keepaspectratio]{figures/simplemodel.png}
+    \caption{Example of rooms detections using \texttt{SegmentBasedClustering}.}
+    \label{fig:closed_paths}
+\end{figure}
+
+\paragraph{Discussion} \texttt{SegmentBasedClustering} offers an efficient approach to segmenting 
+rooms in architectural plans without resorting to complex models nor heavy 
+computing resources. By leveraging 
+topological and geometric operations, the method ensures robust room segmentation.
+However, this approach needs explicit physical separations between rooms. 
+If there are no walls or voids, inconsistent results may be obtained.
+
+
+% =============================================================================
+% FM @Fabien
+\subsection{Model 2: VisionSegmentation, Based On Computer Vision}
+
+The other rule-based method leverages classical computer 
+vision techniques to extract room boundaries from 
+geometric data, without requiring training datasets.
+
+The pipeline consists of converting vector data into raster images, applying 
+image processing operations to detect closed areas, and exporting the resulting 
+room contours back into a geo-referenced vector format (GeoJSON). The entire 
+workflow is based on \texttt{OpenCV} image processing primitives and geospatial data 
+transformations from \texttt{shapely}. Further details and pipeline description 
+can be found in appendix \ref{app:sec:CVdetails}. 
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphics[width=0.48\linewidth]{figures/01.binary_image.png}
+    \hfill
+    \includegraphics[width=0.48\linewidth]{figures/02.contours_image.png}
+    \caption{Example of rooms detections using \texttt{VisionSegmentation}. 
+    Left: Binary image generated from vector segments. 
+    Right: Colorized visualization of detected rooms. Room without doors are merged in this version.}
+    \label{fig:geojson_and_colored}
+\end{figure}
+
+
+\paragraph{Discussion}
+This vision model offers a simple yet robust solution for room segmentation on 
+vector floor plans. It avoids the complexity of enforcing strict topological 
+rules in vector space and instead leverages the flexibility of raster-based computer 
+vision techniques. The method is particularly suited to noisy, exports where 
+traditional vector-based approaches may struggle.
+
+However, the \texttt{VisionSegmentation} also depends on the explicit representation of physical separations. 
+In cases where doors are missing, or open connections are not physically modeled, 
+adjacent spaces may be incorrectly merged into a single room.
+
+
+% =============================================================================
+% Fm @Aboul
+\subsection{Model 3: SAM, Based on Segment Anything}
+To handle the open door issue, we explore an other vision-based model 
+based on the Segment Anything Model 
+(SAM)\cite{kirillov2023segment}. SAM is a foundation model for image and videos segmentation. Developed by 
+Meta's FAIR (Fundamental AI Research) lab, SAM represents a significant advancement 
+in computer vision, designed to serve as a versatile framework for various 
+segmentation tasks. His architecture can be summarized in three parts: a Vision 
+transformer image encoder, a prompt encoder, and a modified mask Transformer decoder
+ block (see Figure \ref{fig:SAMmodel_diagram}, taken from original paper \cite{kirillov2023segment}).
+ Further details and pipeline description 
+ can be found in appendix \ref{app:sec:SAMdetails}. 
+
+\begin{figure}[htb!]
+    \centering
+    \includegraphics[width=0.9\linewidth]{figures/SAM_model_diagram.pdf}
+    \caption{Segment Anything Model (SAM) overview}
+    \label{fig:SAMmodel_diagram}
+\end{figure}
+
+
+\paragraph{Discussion}
+This model is way more computationally expensive than the two previous ones, 
+and requires GPU memory to detect rooms in seconds. It correctly splits
+the non-connected rooms and is able to detect rooms without doors.
+However, the model is not as precise as the other ones.
+
+
 
 \section{Results}
 % \textit{Provide convincing plots/tables to support your conclusions.\\
@@ -125,8 +264,8 @@ relations with Vinci. After a first quick diverging phase where every one has
 tried different methods and dug into the data,  we have split in teams of two 
 to focus on two paths described in \cref{sec:methods}. 
 \begin{itemize}
-    \item Tristan handled the initial data cleaning, then worked with Maha on 
-    the geometric process.
+    \item Tristan handled the initial data cleaning, then worked with Maha who 
+    expertly created the geometric process and the segment preprocessing and clustering.
     \item Abdoul explored first the computer vision path and Fabien made the 
     breakthrough in the results with the image segmentation.
 \end{itemize}
@@ -136,14 +275,197 @@ to focus on two paths described in \cref{sec:methods}.
 % Automatic bibliography form references.bib
 \bibliographystyle{plain}
 \bibliography{references}
-
+% =============================================================================
 \appendix
 
 \newpage
 %The appendix does not count towards the 5-page limit. 
-\section{Additional details on X}
-\label{app:sec:details}
+\section{Additional details on the geometric preprocessing}
+\label{app:sec:geomdetails}
+\paragraph{Preprocessing Results}
 
-\section{Additional information on X}
+This preprocessing step is particularly effective for large datasets with high 
+redundancy, as it reduces computation complexity while maintaining architectural 
+integrity. But it can be problematic when applied to smaller input datasets like 
+in our third example. So it should be used with caution, as excessive modification 
+of small datasets can worsen distortions, as seen with 520 segments where a 0.443m 
+displacement occurred. As a consequence, the preprocessing step is an option when
+using our models.
+
+\begin{figure}[h]
+    \centering
+    \begin{tabular}{ccc}
+        \includegraphics[width=0.32\linewidth]{figures/avant_apres_pretraitement2.png}
+        &
+        \includegraphics[width=0.32\linewidth]{figures/avant_apres_pretraitement7.png}
+        &
+        \includegraphics[width=0.32\linewidth]{figures/avant_apres_pretraitement3.png}
+        \\
+        Case1: output2 & Case2: output7 & Case3: output3 
+    \end{tabular}
+
+    \caption{Comparison of floor plans before (Blue) and after (Red) preprocessing 
+    for 3 different test cases. The near absence of blue segments proves that
+    we have removed a lot of noise.}
+    \label{fig:geojson_comparison}
+\end{figure}
+The following tables summarize the impact of the geometric preprocessing on the
+segment count and the average displacement after preprocessing. We used three 
+different floor plans that spans along the range of complexity of the dataset.
+
+The drop in segment count is significant, with a reduction of over 70\% in most cases, 
+reducing computational cost of the ulterior tasks. See table \ref{tab:segment_count} for details.
+
+\begin{table}[htb!]
+    \centering
+    \begin{tabular}{|l|rrc|}
+        \hline
+        \textbf{Test Case} & \textbf{Nb segments before} & \textbf{Nb segmetns after} & \textbf{Reduction \%} \\
+        \hline
+
+        Case 1 & 22,425 & 6,417 & 71.38\% \\
+        Case 2 & 6,013 & 1,648 & 72.59\% \\
+        Case 3 & 520 & 330 & 36.54\% \\
+        \hline
+    \end{tabular}
+    \caption{Impact of geometric preprocessing on segment count.}
+    \label{tab:segment_count}
+\end{table}
+
+This drop in segment count comes with a light cost in the accuracy of the representation.
+On most cases, the segments are moved of about 2 cm, which is acceptable for the
+purpose of the project. See table \ref{tab:avg_displacement} for details.
+
+\begin{table}[htb!]
+    \centering
+    \begin{tabular}{|l|c|}
+        \hline
+
+        \textbf{Test Case} & \textbf{Avg. Displacement} \\
+        \hline
+        Case 1 & 0.02 \\
+        Case 2 & 0.025 \\
+        Case 3 & 0.443 \\
+        \hline
+
+    \end{tabular}
+    \caption{Average displacement after preprocessing.}
+    \label{tab:avg_displacement}
+\end{table}
+
+In our code, this preprocessing is the method 
+\texttt{preprocess\_segments.complete\_preprocessing(
+    segments, angle\_tol=0.1, distance\_tol=0.3, snap\_tol=0.05) -> cleaned\_segments}.
+    Where \texttt{angle\_tol} is the maximum angle between two segments to be considered collinear,
+    \texttt{distance\_tol} is the maximum distance between two segments to be considered collinear,
+    and \texttt{snap\_tol} is the maximum distance between two endpoints to be snapped together.
+
+
+\section{Additional details about SegmentBasedClustering model}
+\label{app:sec:SBCdetails}
+\paragraph{Pipeline Description} The pipeline follows a sequence of geometric operations performed using the 
+\texttt{Shapely} computational geometry library.
+
+\begin{enumerate}
+    \item  Extracting relevant \textbf{wall segments} from GeoJSON data.
+    \item Identifing \textbf{closed loops} using geometric operations.
+    \item Retaining valid rooms based on predefined \textbf{area constraints}, 
+    considering only polygons between $1 \text{ m}^2$ and $1000 \text{ m}^2$ (hyperparameters).
+    \item Identifing which rooms share \textbf{common boundaries} by doing adjacency 
+    analysis to facilitate merging and spatial organization.
+    \item \textbf{Combining and merges small rooms} (under $5 \text{ m}^2$) with their 
+    largest adjacent neighbor.
+\end{enumerate}
+
+
+\section{Additional details about ComputerVision model}
+\label{app:sec:CVdetails}
+\paragraph{Pipeline Description}
+The method is structured in the following key steps:
+
+\begin{enumerate}
+    \item \textbf{Vector Preprocessing.}  %% TODO like in previous session
+    Raw GeoJSON data often includes heterogeneous geometries (Polygons, 
+    MultiPolygons, LineStrings), many of which are noisy or incomplete. 
+    We filter the data to retain only the linear primitives representing walls. 
+    The geometries are rescaled and recentered to ensure consistent metric 
+    resolution before conversion. This corresponds to the steps (i) and (ii)
+    described in the geometric preprocessing in section \ref{sec:geometric_preprocess}.
+
+    \item \textbf{Binary Image Generation.} 
+    The preprocessed segments are rasterized into binary black-and-white images,
+    where each segment is drawn with a configurable thickness (default: 3 pixels).
+    A DPI value of 50 (pixels per meter) ensures sufficient spatial resolution. 
+    To improve the connectivity of wall segments, we apply Gaussian dilation, 
+    which smooths the edges and \emph{ensures continuity} even in curved or 
+    oblique wall segments. Result is shown on figure \ref{fig:geojson_and_colored} left.
+
+    \item \textbf{Morphological Processing and Contour Detection.} 
+    A morphological closing operation (\texttt{cv2.morphologyEx} with \texttt{MORPH\_CLOSE} operation) fills
+     small gaps between wall segments. Contours are then extracted with 
+     \texttt{cv2.findContours} using the \texttt{RETR\_CCOMP} mode, producing a 
+     hierarchical tree structure that allows holes (e.g., internal courtyards 
+     or voids) to be identified and processed correctly.
+
+    \item \textbf{Wall Filtering and Room Selection.} 
+    To discriminate between rooms and walls, we apply geometric criteria. 
+    Only contours with a surface area greater than 1 m² (2500 pixels at 50 DPI) 
+    and an average thickness (surface-to-perimeter ratio) exceeding 0.4 meters 
+    are retained. Best parameters displayed in table \ref{tab:CV_model_checkpoint}
+    have been found using the validation dataset. 
+
+    Additionally, the longest contour—typically representing the 
+    building envelope—is discarded. The detected rooms are shown on figure 
+    \ref{fig:geojson_and_colored} right.
+
+    \item \textbf{Polygon Conversion and GeoJSON Export.} 
+    The valid contours are converted back into metric coordinates using 
+    transformation parameters from the rasterization step. Polygons are enriched 
+    with properties such as area (m²) and a unique room identifier. Final outputs 
+    are exported in GeoJSON format to be loaded back into CAD software.
+    
+\end{enumerate}
+
+\begin{table}[htb!]
+    \centering
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{DPI} & 50 pixels per meter (1 pixel $\approx$ 2 cm) \\ \hline
+        \textbf{Wall thickness} & 3 pixels (default) \\ \hline
+        \textbf{Minimum room area} & 1 m² \\ \hline
+        \textbf{Minimum average thickness} & 0.4 m \\ \hline
+        \textbf{Dilation method} & Gaussian \\ \hline
+    \end{tabular}
+    \caption{Best \texttt{VisionSegmentation} Model Parameters}
+    \label{tab:CV_model_checkpoint}
+\end{table}
+
+
+\section{Additional details about SAM model}
+\label{app:sec:SAMdetails}
+
+\paragraph{Pipeline Description} 
+We first produce a high-quality image using the 
+two first steps of the \texttt{VisionSegmentation} pipeline presented earlier.
+Then, we use SAM to infer masks on 
+the image as segmentation of all the rooms. Finally, the contours of the masks 
+are extracted, and after rescaling the contour coordinates, we generate the 
+corresponding GeoJSON file. The SAM checkpoint used is described in table
+\ref{tab:SAM_model_checkpoint}.
+
+\begin{table}[htb!]
+    \centering
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Checkpoint} & \texttt{sam\_vit\_h\_4b8939.pth} \\ \hline
+        \textbf{Backbone Size} & Huge (ViT-H) \\ \hline
+        \textbf{Model Parameters} & 636 million \\ \hline
+        \textbf{File Size} & 2.4 GB \\ \hline
+        \textbf{GPU Memory Requirement} & At least 8 GB \\ \hline
+        \textbf{Use Case} & Tasks requiring high-quality segmentations \\ \hline
+    \end{tabular}
+    \caption{\texttt{SAM} Model Checkpoint Information}
+    \label{tab:SAM_model_checkpoint}
+\end{table}
 
 \end{document}
