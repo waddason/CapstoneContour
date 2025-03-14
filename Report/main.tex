@@ -21,6 +21,12 @@
 \usepackage{hyperref}
 \usepackage{cleveref}
 
+% =============================================================================
+% Document
+% =============================================================================
+\title{Captone Project Report Vinci - Contour Detection}
+\author{Fabien Lagnieu, Maha Kadraoui, Tristan Waddington, Abdoul Zeba}
+\date{20/03/2025}
 \begin{document}
 
 \begin{center}
@@ -51,6 +57,10 @@ the rooms in the floor plan to draw it back into the CAD software.}
     \label{fig:my_label}
 \end{figure}
 
+% =============================================================================
+% Section context
+% =============================================================================
+
 \section{Context}
 Vinci's engineers are dealing with a different floor plan for every project they are working on.
 Every plan has its own drawing style and the contours of the rooms are often mixed with other
@@ -77,6 +87,9 @@ as the previous one. Each plan is joined by a second file
 containing the actual contours of the rooms as a target. This dataset is really useful 
 to compute metrics of our models.
 
+% =============================================================================
+% Section methods
+% =============================================================================
 
 \section{Methods}
 \label{sec:methods}
@@ -101,15 +114,15 @@ After a first phase of data cleaning we focus on two different paths to solve th
 \end{enumerate}
 
 \textbf{At the end of our research, we produce 3 models of different complexity
-ranging from geometric hand-crafted rules to fully automatic computer vision:} 
+ranging from geometric hand-crafted rules to fully automatic computer vision:}\\ 
 \texttt{SegmentBasedClustering}, 
 \texttt{VisionSegmentation}, 
-and \texttt{SegmentAnythingModel}. They share common steps and a global representation
+and \texttt{SegmentAnythingModel}.\\ They share common steps and a global representation
 is given in figure \ref{fig:global_pipeline}. The individual pipelines are detailed 
 in the following sections.
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.99\linewidth]{figures/CapstoneGit.png}
+    \includegraphics[width=01\linewidth]{figures/CapstoneGit.png}
     \caption{Articulation of the shared steps of the three models.}
     \label{fig:global_pipeline}
 \end{figure}
@@ -151,7 +164,7 @@ Further details and pipeline description can be found in appendix \ref{app:sec:S
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\linewidth, height=4cm, keepaspectratio]{figures/simplemodel.png}
-    \caption{Example of rooms detections using \texttt{SegmentBasedClustering}.}
+    \caption{Example of precise rooms detections using \texttt{SegmentBasedClustering}.}
     \label{fig:closed_paths}
 \end{figure}
 
@@ -216,14 +229,6 @@ transformer image encoder, a prompt encoder, and a modified mask Transformer dec
  Further details and pipeline description 
  can be found in appendix \ref{app:sec:SAMdetails}. 
 
-\begin{figure}[htb!]
-    \centering
-    \includegraphics[width=0.9\linewidth]{figures/SAM_model_diagram.pdf}
-    \caption{Segment Anything Model (SAM) overview}
-    \label{fig:SAMmodel_diagram}
-\end{figure}
-
-
 \paragraph{Discussion}
 This model is way more computationally expensive than the two previous ones, 
 and requires GPU memory to detect rooms in seconds. It correctly splits
@@ -231,26 +236,83 @@ the non-connected rooms and is able to detect rooms without doors.
 However, the model is not as precise as the other ones.
 
 
+% =============================================================================
+% Section results
+% =============================================================================
 
 \section{Results}
 % \textit{Provide convincing plots/tables to support your conclusions.\\
 % Justify the metrics you have used to compare methods/assess performance.}
 
-\subsection{The metric to use}
-Text of the subsection.
-
+\subsection{Construction of a metric}
+\label{sec:metric}
+The classical metric for segmentation tasks is the Intersection over Union (IoU).
+But in the specific context of room detection, we define a \textbf{matched IoU
+metric} that considers the intersection over union of the detected room with the
+ground truth room that matches the more with the detection.
+This adaptation is further described in appendix 
+\ref{app:sec:IoUdetails}. It computes a score from 0 (no match) to 1 (perfect 
+overlapping). 
 \subsection{The results}
+Figure \ref{fig:result_segmentation} display the evaluation of a model on a single 
+plan. The darker the green the better the score of the individual rooms. The metric 
+    penalizes when the ground truth has merged rooms and our models does not detect
+    rooms open to the sides as application of expert rule.
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\textwidth]{figures/Output6_contours_image.png}
-
-    \caption{Example of the results obtained with image segmentation, each room 
-    should be in a different color.}
+    \begin{tabular}{cc}
+        \includegraphics[width=0.45\linewidth]{figures/ScoreSeg.png} &
+        \includegraphics[width=0.45\linewidth]{figures/ScoreCV.png} \\
+        
+    \end{tabular}
+    \caption{Visualization of the results and the scoring of the two first models 
+    on the same plan
+    (left: \texttt{SegmentBasedClustering}, right: \texttt{VisionSegmentation})
+     .}
     \label{fig:result_segmentation}
 \end{figure}
+
+Additionally, we conducted a comparison of the three models on the second dataset.
+The final results are summarized in table \ref{tab:results} and shows a trade-off 
+for \texttt{VisionSegmentation}.
+\begin{table}[hb!]
+    \centering
+    \begin{tabular}{|l|c|c|c|}
+        \hline
+        \textbf{Model} & \textbf{Mean IoU} & \textbf{Mean Matched IoU} & \textbf{Time} \\
+        \hline
+        \texttt{SegmentBasedClustering} & 0.04 & 0.76 & 6.8s \\
+        \texttt{VisionSegmentation} & 0.09 & 0.86 & 4.6s \\
+        \texttt{SegmentAnythingModel} & ? & ? & ?s \\
+        \hline
+    \end{tabular}
+    \caption{Comparison of the three models on the second dataset.}
+    \label{tab:results}
+\end{table}
+
+Our models have variant performances overs the different plans. The two
+first models are very sensitive to the open doors but are more precise and 
+faster than the last one. The last one is more robust but less precise and
+more computationally expensive.
+
 \section{Conclusion}
-\textit{Summarize and discuss the main findings. What are the limitations?\\
-Are the experiments conclusive? With more time, what else would you have tried?}
+% \textit{Summarize and discuss the main findings. What are the limitations?\\
+% Are the experiments conclusive? With more time, what else would you have tried?}
+\paragraph{Main findings}
+This project is amazing in a sense that it is very easy to understand but very hard
+to solve when digging into it. We really enjoyed the freedom given by Vinci/Diane
+to explore different paths and to come up with different solutions. We have
+also benefited from their expertise to guide us in the right direction and avoid
+death traps. 
+Our team is pretty proud to have managed to produce three models that are actually able to
+detect the contours of the rooms in the floor plans. They are not perfect, but
+they are working and respect the requested workflow.
+
+\paragraph{Limitations}
+The models are sensitive to the representation of the plans. Furthermore, we 
+were not able to find an efficient algorithm to close the doors and other corridors.
+An other improvement would be to discriminate wide walls that are sometimes 
+identified as rooms.
 
 \paragraph{Organization within the team}
 %\textit{How did you share the work among yourselves? (short paragraph, 1/2 page max)}
@@ -271,15 +333,24 @@ to focus on two paths described in \cref{sec:methods}.
 \end{itemize}
 
 
+% =============================================================================
+% Bibliography (automatic)
+% =============================================================================
 
 % Automatic bibliography form references.bib
 \bibliographystyle{plain}
 \bibliography{references}
+
 % =============================================================================
+% Appendix
+% =============================================================================
+
 \appendix
 
 \newpage
 %The appendix does not count towards the 5-page limit. 
+% =============================================================================
+
 \section{Additional details on the geometric preprocessing}
 \label{app:sec:geomdetails}
 \paragraph{Preprocessing Results}
@@ -320,7 +391,7 @@ reducing computational cost of the ulterior tasks. See table \ref{tab:segment_co
     \centering
     \begin{tabular}{|l|rrc|}
         \hline
-        \textbf{Test Case} & \textbf{Nb segments before} & \textbf{Nb segmetns after} & \textbf{Reduction \%} \\
+        \textbf{Test Case} & \textbf{Nb segments before} & \textbf{Nb segments after} & \textbf{Reduction \%} \\
         \hline
 
         Case 1 & 22,425 & 6,417 & 71.38\% \\
@@ -360,6 +431,7 @@ In our code, this preprocessing is the method
     \texttt{distance\_tol} is the maximum distance between two segments to be considered collinear,
     and \texttt{snap\_tol} is the maximum distance between two endpoints to be snapped together.
 
+% =============================================================================
 
 \section{Additional details about SegmentBasedClustering model}
 \label{app:sec:SBCdetails}
@@ -368,10 +440,10 @@ In our code, this preprocessing is the method
 
 \begin{enumerate}
     \item  Extracting relevant \textbf{wall segments} from GeoJSON data.
-    \item Identifing \textbf{closed loops} using geometric operations.
+    \item Identifying \textbf{closed loops} using geometric operations.
     \item Retaining valid rooms based on predefined \textbf{area constraints}, 
     considering only polygons between $1 \text{ m}^2$ and $1000 \text{ m}^2$ (hyperparameters).
-    \item Identifing which rooms share \textbf{common boundaries} by doing adjacency 
+    \item Identifying which rooms share \textbf{common boundaries} by doing adjacency 
     analysis to facilitate merging and spatial organization.
     \item \textbf{Combining and merges small rooms} (under $5 \text{ m}^2$) with their 
     largest adjacent neighbor.
@@ -426,6 +498,39 @@ The method is structured in the following key steps:
     
 \end{enumerate}
 
+\paragraph{Hyperparameters tuning}
+An extensive hyperparameter search was conducted to optimize the model's
+performance. The best parameters are summarized in table \ref{tab:CV_model_checkpoint}.
+
+Numerous tests were conducted using the validation test as a benchmark and using
+the IoU score to select the best parameters. Example of experiments during the 
+early stage of the project are shown in figure \ref{fig:hyperparameters_tuning}.
+The DPI value of 50 pixels was kept, but we managed to optimize the code to 
+reduce the thickness to 3 pixels only. This produced contours closer to the 
+actual walls.
+
+\begin{figure}[htb!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/CVsegmentation_score.png}
+    \caption{Example of hyperparameters tuning during the
+    early stage of the project.}
+    \label{fig:hyperparameters_tuning}
+\end{figure}
+
+Ultimately, Fabien developed a dynamic interface to visually check the effects 
+of the parameters on the segmentation. This tool was used to fine-tune the
+parameters and to define their default values. An illustration of the interface 
+is depicted bellow in figure \ref{fig:interface}.
+
+\begin{figure}[hp!]
+    \centering
+    \includegraphics[width=1\linewidth]{figures/interface.png}
+    \caption{Dynamic interface to fine-tune the parameters of the \texttt{VisionSegmentation} model,
+    launched inside a Jupyter notebook.}
+    \label{fig:interface}
+\end{figure} 
+
+
 \begin{table}[htb!]
     \centering
     \begin{tabular}{|l|l|}
@@ -440,6 +545,7 @@ The method is structured in the following key steps:
     \label{tab:CV_model_checkpoint}
 \end{table}
 
+% =============================================================================
 
 \section{Additional details about SAM model}
 \label{app:sec:SAMdetails}
@@ -462,10 +568,112 @@ corresponding GeoJSON file. The SAM checkpoint used is described in table
         \textbf{Model Parameters} & 636 million \\ \hline
         \textbf{File Size} & 2.4 GB \\ \hline
         \textbf{GPU Memory Requirement} & At least 8 GB \\ \hline
-        \textbf{Use Case} & Tasks requiring high-quality segmentations \\ \hline
+        \textbf{Use Case} & Tasks requiring high-quality segmentation \\ \hline
     \end{tabular}
     \caption{\texttt{SAM} Model Checkpoint Information}
     \label{tab:SAM_model_checkpoint}
 \end{table}
 
+
+\begin{figure}[htb!]
+    \centering
+    \includegraphics[width=0.9\linewidth]{figures/SAM_model_diagram.pdf}
+    \caption{Segment Anything Model (SAM) overview}
+    \label{fig:SAMmodel_diagram}
+\end{figure}
+
+
+% =============================================================================
+
+\section{Additional details about the Intersection over Union Metric}
+\label{app:sec:IoUdetails}
+During their extensive review of the literature, the Chillian team of
+Pizarro et al.\cite{PIZARRO2022104348}, 
+found several possible
+metrics to evaluate the performance of the models. 
+ Typically, segmentation results were evaluated in terms
+of the intersection over union (IoU), pixel/class accuracy, and
+the Jaccard Index (JI) proposed by de Las Heras et al.. By con-
+trast, works that detected objects (e.g., walls, doors, windows) used
+the mean average precision (mAP), the recall \& precision, the match
+score (MS), detection rate (DR), and recognition accuracy (RA),
+or considered a confusion matrix.
+Hence, we decide to focus on the IoU metric.
+
+\subsection{IoU for Object Detection}
+\paragraph{Definition} The Intersection over Union (IoU) metric is a standard
+measure of the accuracy of a segmentation model. It is defined as the ratio of
+the area of intersection to the area of union of the Ground Truth (GT) and the 
+segmentation mask (S). The mathematical formula is given below, and an illustration
+is provided in figure \ref{fig:iou_segmentation}.
+
+\begin{itemize}
+    \item True Positive: The area of intersection between Ground Truth (GT) and segmentation mask (S). Mathematically, this is logical AND operation of GT and S i.e.
+    $TP = GT.S$,
+    \item False Positive: The predicted area outside the Ground Truth. This is the logical OR of GT and segmentation minus GT.
+    $FP=(GT+S) - GT$,
+    \item False Negative: Number of pixels in the Ground Truth area that the model failed to predict. This is the logical OR of GT and segmentation minus S
+    $FN=(GT+S) -S$,
+    \item Final IoU: The ratio of the area of intersection to the area of union of GT and S. Mathematically,
+    $IoU = \frac{TP}{TP+FP+FN}$
+\end{itemize}
+
+\begin{figure}[hb!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/5-segmentation-iou.jpg}
+    \caption{IoU is the ratio of the intersected area to the combined area of
+     prediction and ground truth masks. 
+     (source: \href{https://learnopencv.com/intersection-over-union-iou-in-object-detection-and-segmentation/}
+        {learnopencv.com})}
+    \label{fig:iou_segmentation}
+\end{figure}
+
+\subsection{Matched IoU for Room Detection}
+\paragraph{Definition} In the context of room detection, we define a \textbf{matched IoU
+metric} that considers the intersection over union of the detected room with the
+ground truth room. 
+
+Initially, the metric is computed as the average IoU over all detected rooms.
+Then an optimization algorithm is used to match the detected rooms with the ground truth rooms
+to maximize the average IoU. Specifically, we used the Hungarian algorithm from 
+Harold Kunhn to solve the
+assignment problem, using the \texttt{scipy.optimize.linear\_sum\_assignment} function.
+The final metric is the average IoU of the matched rooms.
+Despite its complexity, this metric is more informative than the simple IoU metric 
+and is more adapted to score our models as the results are closer to 1 (the 
+optimal score) than when averaging over all rooms.
+
+\paragraph{Possible extentions}
+We choose not to penalize the non-detected rooms, because we 
+did not have to train models from scratch. Ultimately, we also defined a Jaccard 
+loss in the purpose of training future models. But did 
+not use it in the current project.
+
+% =============================================================================
+
+\section{Additional segmentation results}
+
+\begin{figure}[h]
+    \centering
+    \begin{tabular}{ccc}
+        \includegraphics[width=0.3\linewidth]{figures/simplemodel.png} &
+        \includegraphics[width=0.3\linewidth]{figures/simplemodel.png} &
+        \includegraphics[width=0.3\linewidth]{figures/simplemodel.png} \\
+        \includegraphics[width=0.3\linewidth]{figures/CVSeg_pred-3.png} &
+        \includegraphics[width=0.3\linewidth]{figures/CVSeg_pred-2.png} &
+        \includegraphics[width=0.3\linewidth]{figures/CVSeg_pred-1.png} \\
+        \includegraphics[width=0.3\linewidth]{figures/SAM_pred-1.png} &
+        \includegraphics[width=0.3\linewidth]{figures/SAM_pred-2.png} &
+        \includegraphics[width=0.3\linewidth]{figures/SAM_pred-3.png} \\
+    \end{tabular}
+    \caption{Segmentation outputs for random floor plans.
+    First line: results of the \texttt{SegmentBasedClustering} model.
+    Second line: results of the \texttt{VisionSegmentation} model.
+    Third line: results of the \texttt{SegmentAnythingModel} model.}
+    \label{fig:segmentation_results}
+\end{figure}
+
+% =============================================================================
+% End of the document
+% =============================================================================
 \end{document}
