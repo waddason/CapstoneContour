@@ -24,7 +24,7 @@
 % =============================================================================
 % Document
 % =============================================================================
-\title{Captone Project Report Vinci - Contour Detection}
+\title{Captone Project Report VINCI - Contour Detection}
 \author{Fabien Lagnieu, Maha Kadraoui, Tristan Waddington, Abdoul Zeba}
 \date{20/03/2025}
 \begin{document}
@@ -32,8 +32,8 @@
 \begin{center}
 \textbf{Contour detection} \\
 Fabien Lagnieu, Maha Kadraoui, Tristan Waddington, Abdoul Zeba\\
-\textbf{Mentor:} Stéphane Maviel (CEO Vinci/Diane\footnote{Diane is Vinci's inside Startup tasked to find numerical solutions
-to ease the work of Vinci collaborators.}) \\\vspace{2em}
+\textbf{Mentor:} Stéphane Maviel (CEO VINCI/DIANE\footnote{Diane is VINCI's inside Startup tasked to find numerical solutions
+to ease the work of VINCI collaborators.}) \\\vspace{2em}
 \textbf{\Large }
 \end{center}
 \vspace{-1cm}
@@ -62,7 +62,7 @@ the rooms in the floor plan to draw it back into the CAD software.}
 % =============================================================================
 
 \section{Context}
-Vinci's engineers are dealing with a different floor plan for every project they are working on.
+VINCI's engineers are dealing with a different floor plan for every project they are working on.
 Every plan has its own drawing style and the contours of the rooms are often mixed with other
 lines, but they need this information to plan the location of smoke detectors, fire extinguishers,
 and other facilities in the building. The goal of this project is to develop a tool that can
@@ -104,27 +104,31 @@ After a first phase of data cleaning we focus on two different paths to solve th
     \item \textbf{Geometric process} Transform the geometries into normalized segments 
     \cite{Schafer2011AutomaticGO} then cluster the lines to 
     create the polygons\cite{dominguez2012Semiautomaticdetection} of the contours. This path relies on the
-    geometric libraries \texttt{shapely} and \texttt{geopandas}. The graph representation 
-    was later discarded as too computational expensive.
+    geometric libraries \texttt{shapely} and \texttt{geopandas}. This knowledge
+    was precious to return the detected rooms in the correct format. The graph representation 
+    was later discarded as too computational expensive and not precise enough in our clustering methods.
     \item \textbf{Image segmentation} Using a dense literature review\cite{PIZARRO2022104348}, we 
     spot some successful uses of CNNs\cite{ijgi10020097}. This same paper also provides the list
     of datasets of floor plans as images we can use for training deep learning models.
-    Ultimately, this path gives us the idea of the segmentation of the floor plans 
-    into rooms, using basic computer vision methods and the Segment 
+    Ultimately, this path gives us the idea of to transform the floor plans into
+    images to be segmented into rooms, using basic computer vision methods and the Segment 
     Anything Model (SAM)\cite{kirillov2023segment}.
 \end{enumerate}
 
-\textbf{At the end of our research, we produce 3 models of different complexity
-ranging from geometric hand-crafted rules to fully automatic computer vision:}\\ 
+\textbf{At the end of our research, we produce 3 models of different complexity,
+staking together like matriochkas, 
+ranging from geometric hand-crafted rules to fully automatic computer vision:}
 \texttt{SegmentBasedClustering}, 
 \texttt{VisionSegmentation}, 
-and \texttt{SegmentAnythingModel}.\\ They share common steps and a global representation
+and \texttt{SegmentAnythingModel}.\\ We stared with a simple model and successively add 
+complexity at some points in the pipeline expecting to improve the results. 
+They share common steps and a global representation
 is given in figure \ref{fig:global_pipeline}. The individual pipelines are detailed 
 in the following sections.
 \begin{figure}[h]
     \centering
     \includegraphics[width=01\linewidth]{figures/CapstoneGit.png}
-    \caption{Articulation of the shared steps of the three models.}
+    \caption{Articulation of the shared steps and imbrication of the three models.}
     \label{fig:global_pipeline}
 \end{figure}
 
@@ -276,15 +280,15 @@ of the image as a consequence of the application of expert rule.
 Additionally, we conducted a comparison of the three models on the second dataset.
 The final results are summarized in table \ref{tab:results} and shows a trade-off 
 for \texttt{VisionSegmentation}.
-\begin{table}[hb!]
+\begin{table}[ht!]
     \centering
     \begin{tabular}{|l|c|c|c|}
         \hline
         \textbf{Model} & \textbf{Mean IoU} & \textbf{Mean Matched IoU} & \textbf{Time} \\
         \hline
         \texttt{SegmentBasedClustering} & 0.04 & 0.76 & 6.8s \\
-        \texttt{VisionSegmentation} & 0.09 & 0.86 & 4.6s \\
-        \texttt{SegmentAnythingModel} & ? & ? & ?s \\
+        \texttt{VisionSegmentation} & \textbf{0.09} & \textbf{0.86} & \textbf{4.6s} \\
+        \texttt{SegmentAnythingModel} & 0.06 & 0.63 & 2358s \\
         \hline
     \end{tabular}
     \caption{Comparison of the three models on the second dataset.}
@@ -301,7 +305,7 @@ more computationally expensive.
 % Are the experiments conclusive? With more time, what else would you have tried?}
 \paragraph{Main findings}
 This project is amazing in a sense that it is very easy to understand but very hard
-to solve when digging into it. We really enjoyed the freedom given by Vinci/Diane
+to solve when digging into it. We really enjoyed the freedom given by VINCI/DIANE
 to explore different paths and to come up with different solutions. We have
 also benefited from their expertise to guide us in the right direction and avoid
 death traps. 
@@ -317,15 +321,15 @@ identified as rooms.
 
 \paragraph{Organization within the team}
 %\textit{How did you share the work among yourselves? (short paragraph, 1/2 page max)}
-The project initially started in the office of Vinci/Diane for a brainstorming session.
+The project initially started in the office of VINCI/Diane for a brainstorming session.
 Since then, we have been working remotely in a smooth way, meeting with 
-Vinci/Diane at the beginning of each Thursday afternoon. We were using a shared 
+VINCI/DIANE at the beginning of each Thursday afternoon. We were using a shared 
 git repository to share our code and results\footnote{Private: https://github.com/waddason/CapstoneContour}.
 
 After a first quick diverging phase where every one has 
 tried different methods and dug into the data,  we have split in teams of two 
 to focus on two paths described in \cref{sec:methods}. Tristan took care of the global information management process and organized the
-relations with Vinci.
+relations with VINCI.
 \begin{itemize}
     \item Tristan handled the initial data cleaning, then worked with Maha who 
     expertly created the geometric process and the segment preprocessing and clustering.
@@ -340,8 +344,9 @@ relations with Vinci.
 
 % Automatic bibliography form references.bib
 \bibliographystyle{plain}
+{\small
 \bibliography{references}
-
+}
 % =============================================================================
 % Appendix
 % =============================================================================
@@ -554,7 +559,7 @@ is depicted bellow in figure \ref{fig:interface}.
 We first produce a high-quality image using the 
 two first steps of the \texttt{VisionSegmentation} pipeline presented earlier.
 Then, we use SAM to infer masks on 
-the image as segmentation of all the rooms. This step require access to GPU.
+the image as segmentation of all the rooms. This step requires access to GPU.
 Finally, the contours of the masks 
 are extracted, and after rescaling the contour coordinates, we generate the 
 corresponding GeoJSON file. The SAM checkpoint used is described in table
@@ -583,6 +588,15 @@ corresponding GeoJSON file. The SAM checkpoint used is described in table
     \label{fig:SAMmodel_diagram}
 \end{figure}
 
+Due to the high computational cost of the model, we have not been able to
+conduct an extensive hyperparameter search. Partial results about the best
+thickness are shown in figure \ref{fig:SAM_hyperparameters}.
+\begin{figure}[htb!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/SAM_hyperparameters.png}
+    \caption{Example of hyperparameter tuning for \texttt{SAM} model focusing on the thickness of walls.}
+    \label{fig:SAM_hyperparameters}
+\end{figure}
 
 % =============================================================================
 
