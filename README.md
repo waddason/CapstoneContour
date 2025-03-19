@@ -1,91 +1,73 @@
-# CapstoneContour
+# Capstone ContourDetection
 
-**Git usage**: 🚧 Work on your onw branch ! 🚧 Push to main when done. ✅
-```shell
-git checkout -b maBranche
-```
-</div>
+**Executive Summary**: Project done in early 2025 by four students of IP-Paris/M2 DataScience for 
+VINCI-ENERGIES/DIANE aiming to detect rooms in AutoCAD floor plans in GeoJSON format.
 
-
-## Feuille de route 📝
-1. **Nettoyage / Segmentisation**
-    - [X] centrer / réduire
-    - [X] normaliser le type de dessin
-    - [ ] nettoyer les traits
-        - [ ] Identifier / fermer les portes
-        - [ ] murs communs
-        - [ ] création de classe spécificque
-2. **Prédire le contour**
-    - [ ] clustering unsupervised
-    - [X] colorier l'image, (mais retransformer en json)
-    - [ ] quid des poteaux, vides sanitaires, exclusions ?
-3. **Export GeoJson**
-    - [X] inverse transform
-    - [X] Estimation des coordonnées depuis une image
-    - [ ] bonus: label de la pièce avec ML
+![Example of detection](Report/figures/CVSeg_pred-3.png)
 
 
-## Bilan des actions 📆
-- **Jeudi 16 janvier** : lancement 🚀
-  - présentation du projet en visio par Stéphane Maviel
-  - présentation des fichiers par Jérôme Dessouter
+## Introduction
 
-- **Jeudi 23 janvier** : chez Diane 🏬
-  - rencontre avec l'équipe de Diane sur le site de LEONARD
-  - prise en main des formats de fichiers geojson et des librairies
-  - Création de la **feuille de route**:
+Capstone ContourDetection is a project developed by four M2 Data Science students at IP-Paris in for VINCI-ENERGY/DIANE as part of their academic studies.
+The goal of this project is to leverage automatic techniques to detect rooms in AutoCAD floor plans, providing an efficient and automated solution for architectural analysis and further work. 
+Floors plans are exported as GeoJSON files.
 
-- **Jeudi 30 janvier** : 🦺
-  - @Tristan Travail sur les segments : Implémentation du code du papier [Automatic Generation of Topological Indoor Maps for Real-Time Map-Based Localization and Tracking, by Martin Schäfer, Christian Knapp and Samarjit Chakraborty, 2011]
-  - @Abdoul usupervised clustering-> besoin de compter le nombre de pièces
-  - @Tristan Transformer le Json en graph
-  - @Fabien procédure pour détecter les portes/fermer les couloirs de liaison
+## Features
 
-- **Jeudi 6 février** : conférence IA 🤖
+- **Room Detection**: Automatically identifies rooms in AutoCAD floor plans in GeoJSON format.
+- **High Accuracy**: Utilizes state-of-the-art computer vision models for precise detection on top of robust 
+geometric preprocessing.
+- **Scalable**: Designed to handle large and complex floor plans.
+- **User-Friendly**: Outputs results in a portable format.
 
-- **Jeudi 13 février** : 👨‍💻
-    - visio avec Diane: annulée
-    - @Abdoul fermer les portes 🚪
-    - @Fabien conserver les coordonnées après traitement d'image 🗺️
-    - @Maha approfondir le clustering ፨
-    - @Tristan transformer le Json en graph ⿻
-    - @Tristan envoyer le 'mid-term document', cf mail Anna Korba du 26 janvier   
- 
-- **Jeudi 20 février** : 👨‍💻
-    - 13h30: Point de situation avec Vinci -> doit nous fournir des plans complémentaires
-        - @Abdoul: Segmentation à améliorer
-        - @Maha: Plus de contexte pour le clustering
-        - @Fabien: Faire ressembler les fichiers Vinci au dataset
-        - @Tristan: Json en graph
-    - 16h30: Mid term discussion avec Charles-Albert Lehalle, professeur référent sur Zoom
-  
-- **Jeudi 27 février**:
-    - 13h30: Point de situation avec Vinci
-        - @Vinci: nous transmettre des données lablelisées
-        - @Fabien, essayer GPTo 👀
-        - @Maha/@Tristan, poursuivre le traitement vectoriel ⿻ et préparer nouveau format
-        - @Abdoul, poursuivre l'entrainement segmentation
-    - GPT4 fonctionne bien avec cv.contourArea 🎉
+## Installation
 
-- **Jeudi 6 mars**: 📍
-    - 13h30: Point de situation avec Vinci
-    - réception des donnés labellisées ✅ -> servent de validation pour les modèles
-    - rationaliser les travaux 
-    - @Tristan: metric + pipeline
-    - @Maha: nettoyage des segments
-    - @Abdoul: finaliser modèle de segmentation
-    - @Fabien: déterriorer inputs + appliquer règles métier
-    - @tous: trouver comment fermer les pièces
+To get started with Capstone ContourDetection, follow these steps:
 
-- **Jeudi 13 mars**
-    - 13h30: Point de situation avec Vinci (Jérôme)
-    - ✅ validation du format de sortie geojson
-    - 🚧 nettoyage segement trop abrasif sur Walls
-    - EoD: draft rapport pour Vinci
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/your-repo/CapstoneContour.git
+    cd CapstoneContour
+    ```
+
+2. Install the required dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+    Alternatively, you can use `conda` to create an environment and install dependencies (recommended):
+    ```bash
+    conda env create --name capstone_env --file=environment.yml
+    conda activate capstone_env
+    ```
+3. Consult the [`Howto` notebook](howto.ipynb) for examples.
+
+## Usage
+The classical pipeline follow these steps:
+1. A floor plan is exported to GeoJSON format.
+2. The GeoJSON plan is loaded into memory as a `shapely.GeometryCollection`.
+3. One of the three models from folder `models/` computes the contours of the rooms.
+    - `SegmentBasedClustering` uses only geometric computation.
+    - `CapstoneVisionSegmentation` relies on CV2 contour detection.
+    - `SAMSegmentation` uses the famous SAM model on GPU.
+4. The contours are saved back as a GeoJSON file for further use in AutoCAD.
+
+The three models share common steps as illustrated bellow, and use utility functions from the `utils/` folder.
+![Git shared steps](Report/figures/CapstoneGit.png)
 
 
-- **Jeudi 20 mars** 📑
-   -  Rapport 5 pages + annexes
+The plans can be pretty complex:
+![Complex floor plan](Report/figures/CVSeg_pred-2.png)
+## Contributing
 
--  **Jeudi 27 mars** : 🎤
-    - Soutnance à l'école Polytechnique + zoom pour mentors
+Project is closed. Feel free to contact VINCI/DIANE for further details.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+
+<!-- Footer -->
+![DIANE](Diane.png)
+![IP-Paris](logoHeader.png)
+
+
